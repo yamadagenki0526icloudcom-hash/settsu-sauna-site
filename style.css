@@ -305,6 +305,10 @@ em{font-style:normal}
   .story-line{font-size:17px;letter-spacing:.16em}
   .facility-list b{font-size:18px}
   .footer-links{flex-wrap:wrap}
+  .support-title{font-size:clamp(36px,12.5vw,50px);letter-spacing:.04em;white-space:nowrap}
+  .support-body{text-align:left;padding:0 4px}
+  .support-body br{display:none}
+  .support-eyebrow{font-size:10px;letter-spacing:.22em}
 }
 
 /* ================= MOTION SAFETY ================= */
