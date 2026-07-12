@@ -243,6 +243,20 @@ a.card-media:hover{transform:translateY(-4px)}
   .snav-back{font-size:11px}
   .sp{display:block}
 }
+@media (max-width:600px){
+  .topbar{font-size:10px;letter-spacing:.06em}
+  .snav{padding:12px 16px}
+  .snav-back{font-size:10.5px;white-space:nowrap}
+  .snav-logo-en{font-size:9px;letter-spacing:.35em}
+  .snav-logo-jp{font-size:17px;letter-spacing:.2em}
+  .snav-cart{white-space:nowrap;padding:6px 12px;font-size:11px;gap:6px}
+  .snav-cart b{width:18px;height:18px;font-size:11px}
+  .welcome-en{letter-spacing:.3em;font-size:11px}
+  .welcome-title{letter-spacing:.1em}
+  .products-grid{grid-template-columns:1fr;gap:34px}
+  .pdp-gallery{grid-template-columns:1fr}
+}
+
 @media (prefers-reduced-motion:reduce){
   .welcome-scroll span::after{animation:none}
   .rv{opacity:1;transform:none;transition:none}
