@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>避ス地商店｜未知の駅 摂津サウナ オンラインストア</title>
+<meta name="description" content="未知の駅 摂津サウナの公式オンラインストア（準備中）。サウナハット、タオル、伝説のカレー、端材の木のおもちゃ。ととのう道具を摂津から。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+<p class="topbar">クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</p>
+
+<header class="snav">
+  <a class="snav-back" href="../">← 避ス地トップ</a>
+  <a class="snav-logo" href="./">
+    <span class="snav-logo-en">SETTSU SAUNA</span>
+    <span class="snav-logo-jp">避ス地商店</span>
+  </a>
+  <button class="snav-cart" id="cartBtn" type="button">カート<b id="cartCount">0</b></button>
+</header>
+
+<main>
+
+<!-- ============ WELCOME(参考: Cucinelli AI) ============ -->
+<section class="welcome">
+  <p class="welcome-en">S e t t s u&nbsp;&nbsp;S a u n a&nbsp;&nbsp;<i>S</i> t o r e</p>
+  <h1 class="welcome-title">よ&thinsp;う&thinsp;こ&thinsp;そ&thinsp;、<br class="sp">避&thinsp;ス&thinsp;地&thinsp;<em>商</em>&thinsp;店&thinsp;へ</h1>
+  <p class="welcome-sub">ととのう道具と、縁のおすそわけ。<br>木のスペシャリストがつくる街の駅から、暮らしに届けます。</p>
+  <p class="welcome-scroll">Scroll to explore<span></span></p>
+</section>
+
+<!-- ============ 質問バー(参考: What should I wear...) ============ -->
+<section class="ask">
+  <p class="ask-q">今日は、どう整いたい？</p>
+  <div class="ask-chips" id="askChips">
+    <button data-filter="all" class="is-active" type="button">すべて見る</button>
+    <button data-filter="totonou" type="button">サウナでととのいたい</button>
+    <button data-filter="maku" type="button">巻きたい・拭きたい</button>
+    <button data-filter="taberu" type="button">おいしく締めたい</button>
+    <button data-filter="ki" type="button">木とあそびたい</button>
+    <button data-filter="okuru" type="button">贈りものにしたい</button>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products">
+  <div class="products-grid" id="grid">
+
+    <article class="card" data-cat="maku okuru">
+      <a class="card-media tone-clay" href="product.html">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M28 78c0-26 14-44 32-44s32 18 32 44" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M22 78h76M34 90h52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span class="card-tag">先行予約 予定</span>
+      </a>
+      <h3><a href="product.html">避ス地 サウナハット</a></h3>
+      <p class="card-meta">今治産タオル地／熱からあたまを守る</p>
+      <p class="card-price">¥4,950 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="maku totonou">
+      <span class="card-media tone-ivory">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="26" y="30" width="68" height="60" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M26 44h68M26 58h68M26 72h68" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <h3>避ス地 サウナタオル</h3>
+      <p class="card-meta">吸って、絞って、また整う。摂津を今治タオルの位置づけに</p>
+      <p class="card-price">¥1,650 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="totonou ki">
+      <span class="card-media tone-wood">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M24 84h72M30 84V52l30-20 30 20v32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M52 84V64h16v20" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+      </span>
+      <h3>ヒノキのサウナマット</h3>
+      <p class="card-meta">職人の手仕事。香りごと持ち歩くマイサウナ</p>
+      <p class="card-price">¥3,300 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="taberu okuru">
+      <span class="card-media tone-ember">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M24 72c10-6 22-6 36 0s26 6 36 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="60" cy="72" rx="38" ry="14" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M46 50c0-6 6-6 6-12M62 52c0-6 6-6 6-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </span>
+      <h3>伝説のカレー（レトルト）</h3>
+      <p class="card-meta">29年通われた味を、サ飯としてご自宅へ</p>
+      <p class="card-price">¥864 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="maku okuru">
+      <span class="card-media tone-ivory">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 34h60v52a8 8 0 01-8 8H38a8 8 0 01-8-8z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M30 34l-8 14M90 34l8 14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M44 60h32M44 72h32" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <h3>御支縁 手ぬぐい</h3>
+      <p class="card-meta">「求む。御支縁。」の一文を、藍一色で染めて</p>
+      <p class="card-price">¥1,320 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="maku">
+      <span class="card-media tone-ink">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M42 30l-16 10 8 14 8-6v42h36V48l8 6 8-14-16-10a14 14 0 01-36 0z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      </span>
+      <h3>避ス地 Tシャツ</h3>
+      <p class="card-meta">背中に小さく「避」。街で着られるサウナ着</p>
+      <p class="card-price">¥3,850 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="ki okuru">
+      <span class="card-media tone-wood">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M20 74h58c12 0 20-8 22-16H36c-8 0-14 6-16 16z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="40" cy="82" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="74" cy="82" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 74h80" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </span>
+      <h3>端材の木のおもちゃ「新幹線」</h3>
+      <p class="card-meta">現場の端材からうまれた、鳥飼基地の隣町みやげ</p>
+      <p class="card-price">¥2,750 <small>税込</small></p>
+    </article>
+
+    <article class="card" data-cat="totonou okuru">
+      <span class="card-media tone-clay">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="22" y="46" width="52" height="34" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M74 54h16l8 12v14h-24z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="38" cy="86" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="86" cy="86" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M34 62c4-8 16-8 20 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="card-tag">体験</span>
+      </span>
+      <h3>軽トラサウナカー 貸切体験</h3>
+      <p class="card-meta">あなたの街に、サウナが走って向かいます（半日）</p>
+      <p class="card-price">¥33,000 <small>税込</small></p>
+    </article>
+
+  </div>
+  <p class="products-note">※ラインナップ・価格・画像はすべて検討中のイメージです（たたき台）。</p>
+</section>
+
+<!-- ============ EDITORIAL ============ -->
+<section class="edit">
+  <div class="edit-media tone-wood">
+    <svg viewBox="0 0 200 140" aria-hidden="true"><path d="M20 120V56l40-28 40 28v64M60 120V84h40v36M120 120V40l60 24v56" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 120h180" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+  <div class="edit-text">
+    <p class="edit-eyebrow">OUR CRAFT</p>
+    <h2>木の街の、<br>手仕事から。</h2>
+    <p>避ス地商店の品は、未知の駅をつくる大工たちの手仕事と、摂津の縁からうまれます。現場で出た端材はおもちゃに、29年愛されたカレーはサ飯に。買うことが、そのまま街づくりへの「御支縁」になります。</p>
+    <a class="edit-link" href="../#support">クラウドファンディングについて →</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="sfooter">
+  <p class="sfooter-logo">避ス地商店<span>MICHI-NO-EKI SETTSU SAUNA STORE</span></p>
+  <p class="sfooter-addr">株式会社花岡工務店｜大阪府摂津市新在家2-1-19｜特定商取引法に基づく表記（準備中）</p>
+  <p class="sfooter-note">© 2026 SETTSU SAUNA PROJECT — 摂津サウナ学生連盟 Web班（たたき台）</p>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="shop.js"></script>
+</body>
+</html>

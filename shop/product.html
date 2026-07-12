@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>避ス地 サウナハット｜避ス地商店</title>
+<meta name="description" content="今治産タオル地のサウナハット。熱からあたまを守り、ととのいを深く。未知の駅 摂津サウナ公式グッズ（たたき台）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+<p class="topbar">クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</p>
+
+<header class="snav">
+  <a class="snav-back" href="./">← 避ス地商店</a>
+  <a class="snav-logo" href="./">
+    <span class="snav-logo-en">SETTSU SAUNA</span>
+    <span class="snav-logo-jp">避ス地商店</span>
+  </a>
+  <button class="snav-cart" id="cartBtn" type="button">カート<b id="cartCount">0</b></button>
+</header>
+
+<main>
+
+<section class="pdp">
+  <p class="pdp-crumb"><a href="../">避ス地トップ</a>　/　<a href="./">商店</a>　/　巻く・拭く　/　避ス地 サウナハット</p>
+
+  <div class="pdp-gallery">
+    <span class="card-media tone-clay">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M28 78c0-26 14-44 32-44s32 18 32 44" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M22 78h76M34 90h52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="card-tag">画像準備中</span>
+    </span>
+    <span class="card-media tone-ivory">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M28 78c0-26 14-44 32-44s32 18 32 44" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M22 78h76" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><text x="60" y="66" text-anchor="middle" font-size="20" font-family="serif" fill="currentColor">避</text></svg>
+    </span>
+  </div>
+
+  <div class="pdp-info">
+    <h1>避ス地 サウナハット</h1>
+    <p class="pdp-lead">今治産タオル地／ウォッシャブル。熱からあたまを守り、ととのいをもう一段深く。</p>
+    <p class="pdp-price">¥4,950 <small>税込・送料別</small></p>
+
+    <div class="pdp-row">
+      <select aria-label="カラー">
+        <option>生成り（アイボリー）</option>
+        <option>藍（ネイビー）</option>
+        <option>刺繍「避」入り（+¥550）</option>
+      </select>
+      <input type="number" value="1" min="1" max="9" aria-label="数量" id="qty">
+    </div>
+    <button class="pdp-add" type="button" onclick="hisuchiAdd(+document.getElementById('qty').value)">カートに入れる</button>
+    <p class="pdp-cf">クラファン支援者は先行価格でご案内予定です。<a href="../#support">詳しくはこちら</a></p>
+
+    <div class="pdp-acc">
+      <details>
+        <summary>素材・お手入れ</summary>
+        <p>綿100%（今治産タオル生地・検討中）。洗濯機で丸洗いできます。サウナ室での使用後はよく乾かしてください。</p>
+      </details>
+      <details>
+        <summary>配送について</summary>
+        <p>ご注文から5営業日以内に発送予定（検討中）。摂津サウナ現地での受け取りも計画しています。</p>
+      </details>
+      <details>
+        <summary>返品・交換</summary>
+        <p>未使用・タグ付きに限り、到着後7日以内に承ります（検討中）。詳細は特定商取引法に基づく表記（準備中）をご覧ください。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="pdp-story">
+  <h2>タオルの街を、もうひとつ。</h2>
+  <p>「摂津サウナを、今治タオルの位置づけに」。このハットは、その最初の一歩です。新幹線基地の横で汗を流したら、同じタオル地が、あなたの街のサウナでも隣にいる——そんな未来のための、避ス地の定番。</p>
+</section>
+
+</main>
+
+<footer class="sfooter">
+  <p class="sfooter-logo">避ス地商店<span>MICHI-NO-EKI SETTSU SAUNA STORE</span></p>
+  <p class="sfooter-addr">株式会社花岡工務店｜大阪府摂津市新在家2-1-19｜特定商取引法に基づく表記（準備中）</p>
+  <p class="sfooter-note">© 2026 SETTSU SAUNA PROJECT — 摂津サウナ学生連盟 Web班（たたき台）</p>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="shop.js"></script>
+</body>
+</html>
