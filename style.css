@@ -1,0 +1,297 @@
+/* ============================================================
+   避ス地 未知の駅 摂津サウナ — クラファン公式サイト たたき台
+   paper #FBFAF7 / ink #14213D / sun #F2B705 / ember #D93A2B
+   ============================================================ */
+:root{
+  --paper:#FBFAF7;
+  --ink:#14213D;
+  --ink-90:rgba(20,33,61,.9);
+  --sun:#F2B705;
+  --ember:#D93A2B;
+  --steam:#7C8698;
+  --line:rgba(20,33,61,.14);
+  --disp:"Zen Kaku Gothic New",sans-serif;
+  --mincho:"Shippori Mincho B1",serif;
+  --en:"Space Grotesk",sans-serif;
+  --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lenis{scroll-behavior:auto}
+body{
+  font-family:var(--disp);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  font-feature-settings:"palt";
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+em{font-style:normal}
+
+/* ---------- section eyebrow ---------- */
+.sec-eyebrow{
+  font-family:var(--en);
+  font-size:12px;letter-spacing:.28em;font-weight:700;
+  color:var(--ink);
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:clamp(28px,5vh,56px);
+}
+.sec-eyebrow::before{content:"";width:34px;height:2px;background:var(--sun)}
+.sec-eyebrow i{font-style:normal;font-family:var(--disp);font-weight:500;color:var(--steam);letter-spacing:.1em}
+
+/* ================= NAV ================= */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px var(--pad);
+  transition:background .4s,box-shadow .4s;
+}
+.nav.is-scrolled{background:rgba(251,250,247,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:900}
+.nav-logo-mark{
+  width:38px;height:38px;border-radius:8px;
+  background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-size:19px;
+}
+.nav.is-scrolled .nav-logo-text,.nav.is-scrolled .nav-links a{color:var(--ink)}
+.nav-logo-text{font-size:15px;letter-spacing:.08em;color:#fff;transition:color .4s}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:13px;font-weight:700;letter-spacing:.12em;color:#fff;transition:color .4s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--sun);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--sun);color:var(--ink);
+  font-weight:900;font-size:13px;letter-spacing:.08em;
+  padding:10px 18px;border-radius:999px;
+  display:flex;align-items:center;gap:8px;
+  transition:transform .25s,background .25s;
+}
+.nav-cta:hover{transform:translateY(-2px);background:#ffce1f}
+.nav-cta-arrow{transition:transform .25s}
+.nav-cta:hover .nav-cta-arrow{transform:translateX(3px)}
+
+/* ================= HERO ================= */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.hero-veil{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(15deg,rgba(10,18,38,.86) 8%,rgba(10,18,38,.35) 45%,rgba(10,18,38,.15) 70%),
+    linear-gradient(rgba(10,18,38,.35),transparent 30%);
+}
+.hero-inner{position:relative;z-index:2;color:#fff;padding:0 var(--pad) clamp(56px,10vh,120px)}
+.hero-eyebrow{
+  display:flex;flex-direction:column;gap:4px;
+  font-size:13px;font-weight:500;letter-spacing:.2em;margin-bottom:22px;color:rgba(255,255,255,.85);
+}
+.hero-eyebrow-en{font-family:var(--en);font-size:11px;letter-spacing:.34em;color:var(--sun);font-weight:700}
+.hero-title{
+  font-size:clamp(40px,7.6vw,104px);
+  font-weight:900;line-height:1.24;letter-spacing:.02em;
+}
+.hero-line{display:block;overflow:hidden}
+.hero-line>span{display:inline-block}
+.hero-title em{color:var(--sun);position:relative}
+.hero-sub{margin-top:26px;font-size:clamp(14px,1.4vw,17px);font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.92)}
+.hero-cf{
+  margin-top:34px;display:inline-flex;align-items:baseline;gap:16px;
+  border:1px solid rgba(255,255,255,.35);border-radius:14px;
+  padding:14px 22px;backdrop-filter:blur(6px);background:rgba(10,18,38,.25);
+}
+.hero-cf-label{font-size:12px;letter-spacing:.14em;font-weight:700}
+.hero-cf-count{font-family:var(--en)}
+.hero-cf-count b{font-size:clamp(30px,3.4vw,44px);color:var(--sun);font-weight:700;letter-spacing:.02em}
+.hero-scroll{
+  position:absolute;right:var(--pad);bottom:34px;z-index:2;
+  color:#fff;font-family:var(--en);font-size:10px;letter-spacing:.34em;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.hero-scroll span{width:1px;height:56px;background:rgba(255,255,255,.5);position:relative;overflow:hidden}
+.hero-scroll span::after{content:"";position:absolute;inset:0;background:var(--sun);animation:scrollcue 1.8s ease-in-out infinite}
+@keyframes scrollcue{0%{transform:translateY(-100%)}55%{transform:translateY(0)}100%{transform:translateY(100%)}}
+
+/* ================= MARQUEE ================= */
+.marquee{background:var(--ink);color:transparent;overflow:hidden;padding:18px 0;border-bottom:4px solid var(--sun)}
+.marquee-track{
+  display:flex;white-space:nowrap;width:max-content;
+  animation:marquee 26s linear infinite;
+  font-family:var(--en);font-weight:700;font-size:clamp(22px,3vw,34px);letter-spacing:.06em;
+  -webkit-text-stroke:1px rgba(251,250,247,.75);
+}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ================= STORY ================= */
+.story{padding:clamp(90px,14vh,160px) var(--pad);position:relative}
+.story-tate{
+  display:flex;flex-direction:row-reverse;justify-content:center;gap:clamp(22px,4vw,54px);
+  min-height:420px;margin:0 auto;
+}
+.story-line{
+  writing-mode:vertical-rl;
+  font-family:var(--mincho);font-weight:600;
+  font-size:clamp(19px,2.6vw,30px);letter-spacing:.22em;line-height:1;
+  color:var(--ink);
+}
+.story-line:nth-child(4),.story-line:nth-child(5){color:var(--steam)}
+.story-punch{max-width:900px;margin:clamp(60px,10vh,110px) auto 0;text-align:center}
+.story-punch h2{
+  font-size:clamp(38px,6.4vw,84px);font-weight:900;line-height:1.3;letter-spacing:.03em;
+  background:linear-gradient(transparent 72%,var(--sun) 72%);
+  display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.story-punch p{margin-top:34px;font-size:clamp(14px,1.5vw,17px);font-weight:500;color:var(--ink-90)}
+
+/* ================= CONCEPT ================= */
+.concept{
+  background:var(--ink);color:var(--paper);
+  padding:clamp(90px,14vh,160px) var(--pad);
+}
+.concept .sec-eyebrow{color:var(--paper)}
+.concept .sec-eyebrow i{color:rgba(251,250,247,.55)}
+.concept-head{max-width:980px}
+.concept-title{
+  font-family:var(--mincho);font-weight:800;
+  font-size:clamp(64px,11vw,150px);line-height:1.1;letter-spacing:.06em;
+  display:flex;align-items:baseline;gap:18px;
+}
+.concept-yomi{font-family:var(--disp);font-size:clamp(13px,1.4vw,16px);font-weight:700;letter-spacing:.5em;color:var(--sun)}
+.concept-def{margin-top:30px;font-size:clamp(14px,1.5vw,17px);color:rgba(251,250,247,.88)}
+.concept-def b{color:var(--sun)}
+.concept-pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(251,250,247,.16);
+  margin-top:clamp(50px,8vh,80px);
+}
+.concept-pillars li{background:var(--ink);padding:clamp(24px,3vw,42px)}
+.pillar-num{
+  font-family:var(--mincho);font-size:clamp(34px,3.6vw,52px);font-weight:800;color:var(--sun);
+  display:inline-block;margin-bottom:14px;
+}
+.concept-pillars h3{font-size:clamp(17px,1.8vw,22px);font-weight:900;letter-spacing:.12em;margin-bottom:10px}
+.concept-pillars p{font-size:14px;color:rgba(251,250,247,.78)}
+
+/* ================= FACILITY ================= */
+.facility{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,70px);padding:clamp(90px,14vh,160px) var(--pad)}
+.facility-sticky{position:sticky;top:110px}
+.facility-sticky img{border-radius:16px;aspect-ratio:4/3.4;object-fit:cover;box-shadow:0 24px 60px -20px rgba(20,33,61,.35)}
+.facility-caption{margin-top:12px;font-size:12px;color:var(--steam);letter-spacing:.08em}
+.facility-list ul{border-top:1px solid var(--line)}
+.facility-list li{
+  display:flex;align-items:baseline;justify-content:space-between;gap:18px;
+  padding:clamp(18px,2.6vh,26px) 6px;border-bottom:1px solid var(--line);
+  transition:background .3s,padding-left .3s;
+}
+.facility-list li:hover{background:rgba(242,183,5,.14);padding-left:16px}
+.facility-list b{font-size:clamp(20px,2.4vw,30px);font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.facility-list span{font-size:13px;color:var(--steam);text-align:right}
+
+/* ================= NUMBERS ================= */
+.numbers{background:var(--sun);padding:clamp(60px,9vh,100px) var(--pad)}
+.numbers ul{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px)}
+.numbers li{border-left:3px solid var(--ink);padding-left:18px}
+.numbers b{
+  font-family:var(--en);font-weight:700;
+  font-size:clamp(40px,4.6vw,64px);line-height:1.1;letter-spacing:-.01em;display:block;
+}
+.numbers small{font-family:var(--disp);font-size:.42em;font-weight:900;margin-left:2px}
+.numbers i{font-style:normal;display:block;margin-top:8px;font-size:13px;font-weight:700;line-height:1.6}
+
+/* ================= PLAN ================= */
+.plan{padding:clamp(90px,14vh,160px) var(--pad)}
+.plan-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.plan-grid figure{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.plan-grid img{width:100%}
+.plan-grid figcaption{padding:14px 18px;font-size:12.5px;color:var(--steam);border-top:1px solid var(--line);letter-spacing:.04em}
+.plan-timeline{
+  display:flex;gap:0;margin-top:clamp(46px,7vh,70px);
+  border-top:1px solid var(--line);
+}
+.plan-timeline li{flex:1;padding:24px 18px 0;position:relative}
+.plan-timeline li::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--sun);border:2px solid var(--ink)}
+.plan-timeline b{font-family:var(--en);font-size:clamp(20px,2.2vw,28px);font-weight:700;display:block}
+.plan-timeline span{font-size:13px;font-weight:700;color:var(--steam)}
+
+/* ================= STUDENTS ================= */
+.students{
+  display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,80px);
+  padding:clamp(90px,14vh,160px) var(--pad);align-items:center;
+  background:linear-gradient(rgba(20,33,61,.04),transparent 30%);
+}
+.students h2{font-size:clamp(30px,3.8vw,52px);font-weight:900;line-height:1.42;letter-spacing:.02em;margin-bottom:22px}
+.students-lead{font-size:15px;color:var(--ink-90)}
+.students-teams{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.students-teams li{
+  border:1.5px solid var(--ink);border-radius:999px;
+  padding:8px 16px;font-size:12.5px;font-weight:500;
+  display:flex;gap:8px;align-items:center;
+  transition:background .25s,color .25s;
+}
+.students-teams li:hover{background:var(--ink);color:var(--paper)}
+.students-teams b{font-weight:900}
+.students-media img{border-radius:16px;box-shadow:0 24px 60px -20px rgba(20,33,61,.3);transform:rotate(1.2deg)}
+
+/* ================= SUPPORT ================= */
+.support{
+  background:var(--ink);color:var(--paper);text-align:center;
+  padding:clamp(110px,17vh,190px) var(--pad);
+  position:relative;overflow:hidden;
+}
+.support::before{
+  content:"御支縁";position:absolute;inset:auto -4% -8% auto;
+  font-family:var(--mincho);font-weight:800;font-size:clamp(180px,30vw,420px);
+  color:rgba(251,250,247,.04);line-height:1;pointer-events:none;
+}
+.support-eyebrow{font-family:var(--en);font-size:12px;letter-spacing:.34em;font-weight:700;color:var(--sun);margin-bottom:30px}
+.support-title{
+  font-family:var(--mincho);font-weight:800;
+  font-size:clamp(52px,9.5vw,132px);letter-spacing:.08em;line-height:1.2;
+}
+.support-title em{color:var(--ember)}
+.support-body{margin:34px auto 0;max-width:760px;font-size:clamp(14px,1.5vw,16.5px);color:rgba(251,250,247,.88)}
+.support-body b{color:var(--sun)}
+.support-count{margin-top:44px;display:flex;justify-content:center;align-items:baseline;gap:12px;font-weight:700;letter-spacing:.1em}
+.support-count b{font-family:var(--en);font-size:clamp(56px,7vw,96px);color:var(--sun);font-weight:700;line-height:1}
+.support-count span{font-size:14px}
+.support-btn{
+  display:inline-flex;flex-direction:column;gap:2px;margin-top:40px;
+  background:var(--ember);color:#fff;
+  font-weight:900;font-size:clamp(16px,1.8vw,20px);letter-spacing:.12em;
+  padding:22px 58px;border-radius:999px;
+  transition:transform .25s,box-shadow .25s;
+  box-shadow:0 18px 40px -12px rgba(217,58,43,.55);
+}
+.support-btn small{font-size:11px;font-weight:500;letter-spacing:.2em;color:rgba(255,255,255,.8)}
+.support-btn:hover{transform:translateY(-3px);box-shadow:0 24px 48px -12px rgba(217,58,43,.7)}
+
+/* ================= FOOTER ================= */
+.footer{padding:60px var(--pad) 34px;display:grid;grid-template-columns:1fr auto;gap:26px;border-top:4px solid var(--sun)}
+.footer-logo{font-weight:900;font-size:22px;display:flex;align-items:baseline;gap:12px}
+.footer-logo span{font-size:12px;color:var(--steam);letter-spacing:.14em}
+.footer-addr{margin-top:12px;font-size:12.5px;color:var(--steam)}
+.footer-links{display:flex;gap:22px;align-items:center}
+.footer-links a{font-size:13px;font-weight:700;border-bottom:2px solid var(--sun)}
+.footer-note{grid-column:1/-1;font-family:var(--en);font-size:10.5px;letter-spacing:.18em;color:var(--steam)}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .facility{grid-template-columns:1fr}
+  .facility-sticky{position:static}
+  .students{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .numbers ul{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .concept-pillars{grid-template-columns:1fr}
+  .story-tate{min-height:340px}
+  .pc{display:none}
+  .footer{grid-template-columns:1fr}
+}
+
+/* ================= MOTION SAFETY ================= */
+@media (prefers-reduced-motion:reduce){
+  .marquee-track,.hero-scroll span::after{animation:none}
+  html{scroll-behavior:auto}
+}
