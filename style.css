@@ -26,7 +26,7 @@ body{
   font-feature-settings:"palt";
   overflow-x:hidden;
 }
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 ul,ol{list-style:none}
 em{font-style:normal}
@@ -158,7 +158,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
 
 /* ================= FIELD NOTE / HUMAN VOICE ================= */
 .field-note{
-  position:relative;max-width:760px;margin:clamp(72px,11vh,120px) auto 0;
+  position:relative;max-width:920px;margin:clamp(72px,11vh,120px) auto 0;
   padding:clamp(38px,6vw,64px);
   background:
     repeating-linear-gradient(transparent 0,transparent 31px,rgba(20,33,61,.07) 32px),
@@ -179,8 +179,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
 .field-note-kicker i{font-family:var(--disp);font-style:normal;letter-spacing:.08em}
 .field-note blockquote{
   margin-top:22px;font-family:var(--mincho);font-weight:800;
-  font-size:clamp(25px,4vw,44px);line-height:1.65;letter-spacing:.04em;
+  font-size:clamp(25px,3vw,38px);line-height:1.65;letter-spacing:.04em;
 }
+.field-note blockquote span{display:block;white-space:nowrap}
+.field-note blockquote span+span{margin-top:4px}
 .field-note-by{margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.08em}
 .field-note-body{margin-top:26px;max-width:580px;font-size:14px;color:var(--steam)}
 .field-note-stamp{
@@ -222,7 +224,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
 /* ================= FACILITY ================= */
 .facility{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,70px);padding:clamp(90px,14vh,160px) var(--pad)}
 .facility-sticky{position:sticky;top:110px}
-.facility-sticky img{border-radius:16px;aspect-ratio:4/3.4;object-fit:cover;box-shadow:0 24px 60px -20px rgba(20,33,61,.35)}
+.facility-sticky img{width:100%;height:auto;border-radius:16px;box-shadow:0 24px 60px -20px rgba(20,33,61,.35)}
 .facility-caption{margin-top:12px;font-size:12px;color:var(--steam);letter-spacing:.08em}
 .facility-list ul{border-top:1px solid var(--line)}
 .facility-list li{
@@ -249,7 +251,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
 .plan{padding:clamp(90px,14vh,160px) var(--pad)}
 .plan-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
 .plan-grid figure{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.plan-grid img{width:100%}
+.plan-grid img{width:100%;height:auto}
 .plan-grid figcaption{padding:14px 18px;font-size:12.5px;color:var(--steam);border-top:1px solid var(--line);letter-spacing:.04em}
 .plan-timeline{
   display:flex;gap:0;margin-top:clamp(46px,7vh,70px);
@@ -277,7 +279,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
 }
 .students-teams li:hover{background:var(--ink);color:var(--paper)}
 .students-teams b{font-weight:900}
-.students-media img{border-radius:16px;box-shadow:0 24px 60px -20px rgba(20,33,61,.3);transform:rotate(1.2deg)}
+.students-media img{width:100%;height:auto;border-radius:16px;box-shadow:0 24px 60px -20px rgba(20,33,61,.3);transform:rotate(1.2deg)}
 
 /* ================= SUPPORT ================= */
 .support{
@@ -363,7 +365,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset
   .support-body br{display:none}
   .support-eyebrow{font-size:10px;letter-spacing:.22em}
   .field-note{padding:44px 24px 92px;transform:rotate(-.35deg)}
-  .field-note blockquote br{display:none}
+  .field-note blockquote span{white-space:normal}
   .field-note-stamp{right:22px;bottom:18px;width:64px;height:64px;font-size:13px}
 }
 
