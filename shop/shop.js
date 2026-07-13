@@ -3,15 +3,16 @@
   /* ---------- カート（デモ: localStorage） ---------- */
   const countEl = document.getElementById('cartCount');
   const toast = document.getElementById('toast');
-  const getCount = () => +(localStorage.getItem('hisuchi-cart') || 0);
+  const getCount = () => Math.max(0, +(localStorage.getItem('hisuchi-cart') || 0) || 0);
   const render = () => { if (countEl) countEl.textContent = getCount(); };
   render();
 
   window.hisuchiAdd = (qty) => {
-    localStorage.setItem('hisuchi-cart', getCount() + (qty || 1));
+    const safeQty = Math.min(9, Math.max(1, Number.isFinite(qty) ? Math.round(qty) : 1));
+    localStorage.setItem('hisuchi-cart', getCount() + safeQty);
     render();
     if (toast) {
-      toast.textContent = 'カートに追加しました（デモ）';
+      toast.textContent = `${safeQty}点をデモカートに追加しました。注文・決済は行われません。`;
       toast.classList.add('is-show');
       clearTimeout(toast._t);
       toast._t = setTimeout(() => toast.classList.remove('is-show'), 2200);
@@ -32,15 +33,24 @@
   const chips = document.getElementById('askChips');
   if (chips) {
     const cards = [...document.querySelectorAll('.card')];
+    const filterStatus = document.getElementById('filterStatus');
     chips.addEventListener('click', (e) => {
       const btn = e.target.closest('button[data-filter]');
       if (!btn) return;
-      chips.querySelectorAll('button').forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const f = btn.dataset.filter;
-      cards.forEach((c) => {
-        c.classList.toggle('is-hidden', f !== 'all' && !c.dataset.cat.split(' ').includes(f));
+      chips.querySelectorAll('button').forEach((b) => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
       });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
+      const f = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach((c) => {
+        const hidden = f !== 'all' && !c.dataset.cat.split(' ').includes(f);
+        c.classList.toggle('is-hidden', hidden);
+        if (!hidden) visibleCount += 1;
+      });
+      if (filterStatus) filterStatus.textContent = `${visibleCount}件の商品を表示しています`;
     });
   }
 

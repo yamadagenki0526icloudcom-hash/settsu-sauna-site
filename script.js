@@ -4,10 +4,25 @@
 
   /* ---------- countdown to 2026-08-01 JST ---------- */
   const target = new Date('2026-08-01T00:00:00+09:00');
-  const days = Math.max(0, Math.ceil((target - Date.now()) / 86400000));
+  const remaining = target - Date.now();
+  const days = Math.max(0, Math.ceil(remaining / 86400000));
   for (const id of ['cfDays', 'cfDays2']) {
     const el = document.getElementById(id);
     if (el) el.textContent = days;
+  }
+  if (remaining <= 0) {
+    const cfLabel = document.getElementById('cfLabel');
+    const cfPrefix = document.getElementById('cfPrefix');
+    const cfDays = document.getElementById('cfDays');
+    const cfDays2 = document.getElementById('cfDays2');
+    const cfUnit = document.getElementById('cfUnit');
+    const cfUnit2 = document.getElementById('cfUnit2');
+    if (cfLabel) cfLabel.textContent = 'CAMPFIREクラウドファンディング公開中';
+    if (cfPrefix) cfPrefix.textContent = 'クラウドファンディング';
+    if (cfDays) cfDays.textContent = '公開中';
+    if (cfDays2) cfDays2.textContent = '公開中';
+    if (cfUnit) cfUnit.textContent = '';
+    if (cfUnit2) cfUnit2.textContent = '';
   }
 
   /* ---------- nav background on scroll ---------- */
@@ -17,7 +32,7 @@
   onScroll();
 
   /* ---------- GSAP / Lenis (CDN欠落や省モーション時は静的表示のまま) ---------- */
-  if (reduced || typeof gsap === 'undefined') return;
+  if (reduced || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
   if (typeof Lenis !== 'undefined') {
@@ -27,7 +42,9 @@
     gsap.ticker.lagSmoothing(0);
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
-        const t = document.querySelector(a.getAttribute('href'));
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        const t = document.querySelector(href);
         if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -70 }); }
       });
     });

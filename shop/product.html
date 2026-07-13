@@ -9,11 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shop.css?v=2">
+<link rel="stylesheet" href="shop.css?v=3">
 </head>
 <body>
 
-<p class="topbar">クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</p>
+<a class="skip-link" href="#productMain">商品情報へ移動</a>
+<p class="topbar"><strong>現在はデザイン確認用デモです。注文・決済はできません。</strong><span>クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</span></p>
 
 <header class="snav">
   <a class="snav-back" href="./">← 避ス地商店</a>
@@ -24,12 +25,12 @@
   <button class="snav-cart" id="cartBtn" type="button">カート<b id="cartCount">0</b></button>
 </header>
 
-<main>
+<main id="productMain" tabindex="-1">
 
 <section class="pdp">
   <p class="pdp-crumb"><a href="../">避ス地トップ</a>　/　<a href="./">商店</a>　/　巻く・拭く　/　避ス地 サウナハット</p>
 
-  <div class="pdp-gallery">
+  <div class="pdp-gallery" role="region" aria-label="商品イメージ。横にスクロールして表示できます">
     <span class="card-media tone-clay">
       <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M28 78c0-26 14-44 32-44s32 18 32 44" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M22 78h76M34 90h52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       <span class="card-tag">画像準備中</span>
@@ -45,14 +46,21 @@
     <p class="pdp-price">¥4,950 <small>税込・送料別</small></p>
 
     <div class="pdp-row">
-      <select aria-label="カラー">
-        <option>生成り（アイボリー）</option>
-        <option>藍（ネイビー）</option>
-        <option>刺繍「避」入り（+¥550）</option>
-      </select>
-      <input type="number" value="1" min="1" max="9" aria-label="数量" id="qty">
+      <label class="pdp-field pdp-field-color" for="color">
+        <span>カラー</span>
+        <select id="color">
+          <option>生成り（アイボリー）</option>
+          <option>藍（ネイビー）</option>
+          <option>刺繍「避」入り（+¥550）</option>
+        </select>
+      </label>
+      <label class="pdp-field pdp-field-qty" for="qty">
+        <span>数量</span>
+        <input type="number" value="1" min="1" max="9" inputmode="numeric" id="qty">
+      </label>
     </div>
-    <button class="pdp-add" type="button" onclick="hisuchiAdd(+document.getElementById('qty').value)">カートに入れる</button>
+    <button class="pdp-add" type="button" aria-describedby="demoNote" onclick="hisuchiAdd(+document.getElementById('qty').value)">カートに入れる（デモ）</button>
+    <p class="pdp-demo" id="demoNote">操作確認用です。注文・決済は行われません。</p>
     <p class="pdp-cf">クラファン支援者は先行価格でご案内予定です。<a href="../#support">詳しくはこちら</a></p>
 
     <div class="pdp-acc">
@@ -86,6 +94,6 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="shop.js"></script>
+<script defer src="shop.js"></script>
 </body>
 </html>

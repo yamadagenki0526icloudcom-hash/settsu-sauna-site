@@ -9,11 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shop.css?v=2">
+<link rel="stylesheet" href="shop.css?v=3">
 </head>
 <body>
 
-<p class="topbar">クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</p>
+<a class="skip-link" href="#shopMain">商品一覧へ移動</a>
+<p class="topbar"><strong>現在はデザイン確認用デモです。注文・決済はできません。</strong><span>クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</span></p>
 
 <header class="snav">
   <a class="snav-back" href="../">← 避ス地トップ</a>
@@ -24,7 +25,7 @@
   <button class="snav-cart" id="cartBtn" type="button">カート<b id="cartCount">0</b></button>
 </header>
 
-<main>
+<main id="shopMain" tabindex="-1">
 
 <!-- ============ WELCOME(参考: Cucinelli AI) ============ -->
 <section class="welcome">
@@ -38,18 +39,20 @@
 <section class="ask">
   <p class="ask-q">今日は、どう整いたい？</p>
   <div class="ask-chips" id="askChips">
-    <button data-filter="all" class="is-active" type="button">すべて見る</button>
-    <button data-filter="totonou" type="button">サウナでととのいたい</button>
-    <button data-filter="maku" type="button">巻きたい・拭きたい</button>
-    <button data-filter="taberu" type="button">おいしく締めたい</button>
-    <button data-filter="ki" type="button">木とあそびたい</button>
-    <button data-filter="okuru" type="button">贈りものにしたい</button>
+    <button data-filter="all" class="is-active" type="button" aria-pressed="true" aria-controls="grid">すべて見る</button>
+    <button data-filter="totonou" type="button" aria-pressed="false" aria-controls="grid">サウナでととのいたい</button>
+    <button data-filter="maku" type="button" aria-pressed="false" aria-controls="grid">巻きたい・拭きたい</button>
+    <button data-filter="taberu" type="button" aria-pressed="false" aria-controls="grid">おいしく締めたい</button>
+    <button data-filter="ki" type="button" aria-pressed="false" aria-controls="grid">木とあそびたい</button>
+    <button data-filter="okuru" type="button" aria-pressed="false" aria-controls="grid">贈りものにしたい</button>
   </div>
 </section>
 
 <!-- ============ PRODUCTS ============ -->
 <section class="products">
-  <div class="products-grid" id="grid">
+  <h2 class="sr-only" id="productsTitle">商品一覧</h2>
+  <p class="sr-only" id="filterStatus" role="status" aria-live="polite">8件の商品を表示しています</p>
+  <div class="products-grid" id="grid" aria-labelledby="productsTitle">
 
     <article class="card" data-cat="maku okuru">
       <a class="card-media tone-clay" href="product.html">
@@ -64,6 +67,7 @@
     <article class="card" data-cat="maku totonou">
       <span class="card-media tone-ivory">
         <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="26" y="30" width="68" height="60" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M26 44h68M26 58h68M26 72h68" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>避ス地 サウナタオル</h3>
       <p class="card-meta">吸って、絞って、また整う。摂津を今治タオルの位置づけに</p>
@@ -73,6 +77,7 @@
     <article class="card" data-cat="totonou ki">
       <span class="card-media tone-wood">
         <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M24 84h72M30 84V52l30-20 30 20v32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M52 84V64h16v20" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>ヒノキのサウナマット</h3>
       <p class="card-meta">職人の手仕事。香りごと持ち歩くマイサウナ</p>
@@ -82,6 +87,7 @@
     <article class="card" data-cat="taberu okuru">
       <span class="card-media tone-ember">
         <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M24 72c10-6 22-6 36 0s26 6 36 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="60" cy="72" rx="38" ry="14" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M46 50c0-6 6-6 6-12M62 52c0-6 6-6 6-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>伝説のカレー（レトルト）</h3>
       <p class="card-meta">29年通われた味を、サ飯としてご自宅へ</p>
@@ -91,6 +97,7 @@
     <article class="card" data-cat="maku okuru">
       <span class="card-media tone-ivory">
         <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 34h60v52a8 8 0 01-8 8H38a8 8 0 01-8-8z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M30 34l-8 14M90 34l8 14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M44 60h32M44 72h32" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>御支縁 手ぬぐい</h3>
       <p class="card-meta">「求む。御支縁。」の一文を、藍一色で染めて</p>
@@ -100,6 +107,7 @@
     <article class="card" data-cat="maku">
       <span class="card-media tone-ink">
         <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M42 30l-16 10 8 14 8-6v42h36V48l8 6 8-14-16-10a14 14 0 01-36 0z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>避ス地 Tシャツ</h3>
       <p class="card-meta">背中に小さく「避」。街で着られるサウナ着</p>
@@ -109,6 +117,7 @@
     <article class="card" data-cat="ki okuru">
       <span class="card-media tone-wood">
         <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M20 74h58c12 0 20-8 22-16H36c-8 0-14 6-16 16z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="40" cy="82" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="74" cy="82" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 74h80" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span class="card-tag">商品情報 準備中</span>
       </span>
       <h3>端材の木のおもちゃ「新幹線」</h3>
       <p class="card-meta">現場の端材からうまれた、鳥飼基地の隣町みやげ</p>
@@ -151,6 +160,6 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="shop.js"></script>
+<script defer src="shop.js"></script>
 </body>
 </html>
