@@ -210,6 +210,36 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offs
   transform:rotate(8deg);opacity:.82;
 }
 
+/* ================= WHY SETTSU ================= */
+.why-settsu{
+  display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(42px,7vw,108px);
+  padding:clamp(90px,14vh,160px) var(--pad);background:var(--paper-warm);
+  position:relative;overflow:hidden;isolation:isolate;align-items:center;
+}
+.why-settsu::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  width:clamp(280px,40vw,620px);aspect-ratio:1.45;left:-14%;bottom:-12%;
+  background:var(--water);opacity:.58;border-radius:63% 37% 46% 54% / 42% 58% 38% 62%;transform:rotate(9deg);
+}
+.why-settsu>*{position:relative;z-index:1}
+.why-copy h2{font-size:clamp(34px,4.6vw,64px);font-weight:900;line-height:1.42;letter-spacing:.02em}
+.why-copy h2 span{display:block}
+.why-lead{margin-top:26px;max-width:620px;font-size:clamp(14px,1.35vw,16px);color:var(--ink-90)}
+.why-list{margin-top:36px;border-top:1px solid var(--line)}
+.why-list div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 2px;border-bottom:1px solid var(--line)}
+.why-list dt{font-weight:900;letter-spacing:.08em}
+.why-list dd{font-size:13px;color:var(--steam);line-height:1.75}
+.why-message{margin-top:34px;font-family:var(--mincho);font-size:clamp(20px,2.15vw,29px);font-weight:800;line-height:1.7;color:var(--ember)}
+.why-visuals{display:grid;grid-template-columns:1.35fr .82fr;gap:16px;align-items:end}
+.why-visuals figure{position:relative;overflow:hidden;background:var(--paper);box-shadow:0 22px 52px -34px rgba(83,57,42,.28)}
+.why-visuals img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.why-visuals figure:hover img{transform:scale(1.025)}
+.why-depot{aspect-ratio:1.42;border-radius:12% 5% 11% 6% / 8% 12% 7% 10%}
+.why-nasu{aspect-ratio:.9;border-radius:38% 9% 34% 10% / 16% 28% 12% 24%;margin-top:96px}
+.why-visuals figcaption{position:absolute;left:12px;bottom:12px;padding:5px 10px;background:rgba(255,252,247,.9);font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:999px}
+.why-visual-note{grid-column:1/-1;justify-self:end;margin-top:8px;border-right:3px solid var(--sun);padding-right:16px;text-align:right;font-size:13px;font-weight:700;color:var(--steam)}
+.why-visual-note span{display:block;font-family:var(--en);font-size:10px;letter-spacing:.24em;color:var(--ember)}
+
 /* ================= CONCEPT ================= */
 .concept{
   background:#EEEAE2;color:var(--ink);
@@ -318,6 +348,31 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offs
 .students-teams b{font-weight:900}
 .students-media img{width:100%;height:auto;border-radius:14% 8% 16% 7% / 10% 15% 8% 13%;box-shadow:0 24px 60px -24px rgba(83,57,42,.22);transform:rotate(.5deg)}
 
+/* ================= FOUNDER STORY ================= */
+.founder{
+  display:grid;grid-template-columns:.78fr 1.22fr;min-height:760px;
+  background:linear-gradient(112deg,#E8F0F0 0 38%,#F8F5EE 38% 100%);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.founder-portrait{position:relative;min-height:760px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.founder-orbit{
+  position:absolute;z-index:0;width:clamp(330px,37vw,560px);aspect-ratio:1;left:50%;bottom:6%;
+  transform:translateX(-50%) rotate(-8deg);background:rgba(216,139,101,.22);
+  border-radius:55% 45% 63% 37% / 44% 58% 42% 56%;
+}
+.founder-portrait img{position:relative;z-index:1;width:auto;height:clamp(590px,57vw,760px);max-width:none;filter:drop-shadow(0 22px 22px rgba(57,51,47,.13))}
+.founder-portrait p{
+  position:absolute;z-index:2;left:clamp(20px,4vw,64px);bottom:36px;
+  font-family:var(--mincho);font-weight:800;font-size:clamp(32px,4.4vw,64px);letter-spacing:.08em;
+  color:rgba(57,51,47,.18);writing-mode:vertical-rl;
+}
+.founder-copy{align-self:center;padding:clamp(90px,13vh,150px) var(--pad) clamp(90px,13vh,150px) clamp(42px,7vw,110px)}
+.founder-copy h2{font-family:var(--mincho);font-size:clamp(34px,4.5vw,64px);font-weight:800;line-height:1.5;letter-spacing:.025em;max-width:920px}
+.founder-body{margin-top:32px;max-width:700px;color:var(--ink-90);font-size:clamp(14px,1.35vw,16px)}
+.founder-body p+p{margin-top:14px}
+.founder blockquote{margin-top:38px;padding-left:22px;border-left:3px solid var(--sun);font-family:var(--mincho);font-size:clamp(25px,3.1vw,42px);font-weight:800;line-height:1.6;color:var(--ember)}
+.founder-name{margin-top:20px;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:var(--steam)}
+
 /* ================= SUPPORT ================= */
 .support{
   background:#F1D2BF;color:var(--ink);text-align:center;
@@ -374,6 +429,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offs
   .facility{grid-template-columns:1fr}
   .facility-sticky{position:static}
   .students{grid-template-columns:1fr}
+  .why-settsu{grid-template-columns:1fr}
+  .founder{grid-template-columns:1fr;background:linear-gradient(180deg,#E8F0F0 0 42%,#F8F5EE 42% 100%)}
+  .founder-portrait{min-height:600px}
+  .founder-copy{padding:90px var(--pad) 110px}
   .plan-grid{grid-template-columns:1fr}
   .numbers ul{grid-template-columns:repeat(2,1fr);row-gap:36px}
   .concept-pillars{grid-template-columns:1fr}
@@ -404,6 +463,19 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offs
   .field-note{padding:44px 24px 92px;transform:rotate(-.35deg)}
   .field-note blockquote span{white-space:normal}
   .field-note-stamp{right:22px;bottom:18px;width:64px;height:64px;font-size:13px}
+  .why-list div{grid-template-columns:1fr;gap:4px}
+  .why-settsu .sec-eyebrow{font-size:10px;letter-spacing:.16em;gap:10px}
+  .why-settsu .sec-eyebrow::before{width:26px}
+  .why-copy h2{font-size:30px;line-height:1.5;letter-spacing:0}
+  .why-visuals{grid-template-columns:1.25fr .75fr;gap:10px}
+  .why-nasu{margin-top:58px}
+  .why-visuals figcaption{left:8px;bottom:8px;font-size:9px;padding:3px 7px}
+  .founder-portrait{min-height:500px}
+  .founder-portrait img{height:430px}
+  .founder-portrait p{left:14px;bottom:22px;font-size:30px}
+  .founder-copy{padding:74px 20px 96px}
+  .founder-copy h2{font-size:clamp(29px,9vw,38px)}
+  .founder blockquote{padding-left:16px}
   .story::before{left:-42%;top:12%;opacity:.58}
   .story::after{right:-46%;bottom:9%;opacity:.08}
   .facility::before{left:-52%;bottom:12%;opacity:.5}
