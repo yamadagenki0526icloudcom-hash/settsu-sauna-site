@@ -370,7 +370,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   object-fit: cover;
   border: 1px solid var(--line);
 }
-.story-grid .portrait-card { object-position: center 21%; }
+.story-grid .portrait-card {
+  object-position: center top;
+  background: #f7f7f7;
+}
 .card-label {
   margin-top: 16px;
   color: #999;
