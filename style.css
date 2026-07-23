@@ -48,7 +48,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   background: #fff;
 }
 .brand {
-  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,28 +55,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   line-height: 1.15;
 }
 .brand img {
-  width: 58px;
-  height: 62px;
-  object-fit: cover;
-  object-position: center 12%;
-  mix-blend-mode: multiply;
-  margin-bottom: 7px;
-}
-.brand-name {
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: .03em;
-}
-.brand-name b {
-  display: block;
-  font-size: 9px;
-  letter-spacing: .16em;
+  height: 150px;
+  width: auto;
+  margin-bottom: 6px;
 }
 .brand-en {
-  margin-top: 4px;
-  font-size: 7px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: .12em;
+  color: #666;
 }
 .site-nav {
   position: relative;
@@ -456,12 +442,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   text-align: center;
 }
 .footer img {
-  width: 66px;
-  height: 72px;
-  margin: 0 auto 12px;
-  object-fit: cover;
-  object-position: center 10%;
-  mix-blend-mode: multiply;
+  height: 84px;
+  width: auto;
+  margin: 0 auto 14px;
 }
 .footer p { font-size: 10px; line-height: 1.7; }
 .footer .copyright { margin-top: 35px; color: #999; font-size: 8px; }
@@ -477,10 +460,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 @media (max-width: 760px) {
   :root { --wide: min(1120px, calc(100% - 32px)); --column: min(720px, calc(100% - 36px)); }
   body { font-size: 13px; }
-  .masthead { height: 148px; }
-  .brand { width: 130px; }
-  .brand img { width: 46px; height: 50px; }
-  .brand-name { font-size: 13px; }
+  .masthead { height: 128px; }
+  .brand img { height: 96px; }
+  .brand-en { font-size: 7px; }
   .site-nav { overflow-x: auto; scrollbar-width: none; }
   .site-nav::-webkit-scrollbar { display: none; }
   .site-nav-inner { justify-content: flex-start; gap: 24px; padding: 12px 18px; }
