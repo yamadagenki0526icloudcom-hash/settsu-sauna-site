@@ -215,8 +215,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .section-about { padding-top: 94px; }
 .section-about .section-inner { text-align: center; }
 .about-mark {
-  width: 176px;
-  height: 153px;
+  height: 200px;
+  width: auto;
   margin: 0 auto 32px;
   object-fit: contain;
 }
@@ -477,7 +477,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .section-heading { margin-bottom: 40px; }
   .news-list li { grid-template-columns: 88px 1fr; gap: 12px; padding: 14px 2px; }
   .news-list p { font-size: 11px; }
-  .about-mark { width: 150px; height: 163px; }
+  .about-mark { height: 150px; }
   .section-about p { text-align: left; }
   .section-about .about-lead, .section-about .about-signature { text-align: center; }
   .section-about p br { display: none; }
