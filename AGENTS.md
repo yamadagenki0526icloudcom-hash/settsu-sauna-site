@@ -5,25 +5,28 @@
 
 ## プロジェクト背景（要点）
 
-- 「避ス地 未知の駅 摂津サウナ」= 花岡工務店（大阪府摂津市新在家2-1-19）の地方創生プロジェクト。2027年5月竣工予定
-- **8/1にCAMPFIREクラウドファンディング開始** — 当面のサイトの最優先目的はクラファン送客
-- 詳細な背景・決定事項はObsidian Vault: `~/Documents/Obsidian Vault/Vault/Context/Project-摂津サウナ.md`（正本）
+- **NEXT SETTSU ALLIANCE** = 摂津をサウナの街にする学生主体の連合体（JSA＝ジャパンサウナ部アライアンスがモデル）。企業・学校・行政・地域が「部活」のような軽さで参加できる入口をつくる
+- 「避ス地 未知の駅 摂津サウナ」（花岡工務店運営、大阪府摂津市新在家2-1-19、2027年5月竣工予定）はALLIANCEの第一の拠点。花岡工務店単独ではなく学生主体の連合体として対外的に見せる方針
+- ロゴは**2026-07-23確定**。4つのサウナストーン（学生・企業・行政・地域）＋湯気3本＋`NEXT / SETTSU / ALLIANCE`ワードマーク。色は石=新幹線ブルー`#0756A6`、湯気=サウナオレンジ`#F05A24`、背景=ウォームアイボリー`#FAF7F1`。原本は`~/Documents/摂津サウナ/logo/`（`摂津サウナロゴ.svg`が確定版、README.mdに運用ルールあり）
+- クラウドファンディングは**7月末〜8月開始予定**（固定日ではない、正確な日付は都度Vaultで確認）
+- 詳細な背景・決定事項はObsidian Vault: `~/Documents/Obsidian Vault/Vault/Context/Project-摂津サウナ.md`（正本）。**このファイルは進行が早いので、作業前に必ず読み直すこと**
 
 ## 構成
 
 | パス | 内容 |
 | --- | --- |
-| `index.html` + `style.css` + `script.js` | クラファン公式サイトLP（developios.com風、GSAP+Lenis） |
-| `shop/` (`index.html` `product.html` `shop.css` `shop.js`) | ECたたき台「避ス地商店」（Brunello Cucinelli /ai 参考、静的デモ） |
-| `assets/` | クラファンPDF由来の画像（hero.jpg=パース、plan-*.jpg=図面、students.jpg=学生連盟） |
+| `index.html` + `style.css` + `script.js` | NEXT SETTSU ALLIANCE 公式LP（HOME/ALLIANCE/PLACE/STUDENTS/PEOPLE/PLAN/SHOP/JOIN の8アンカー構成） |
+| `shop/` (`index.html` `product.html` `shop.css` `shop.js`) | ECたたき台「避ス地商店」（静的デモ） |
+| `assets/` | `nsa-logo.svg`=確定ロゴ全体、`nsa-mark.svg`=アイコンのみ（viewBoxクロップでワードマークを除外）、他は施設パース・図面・人物写真等（webp） |
 
 - 公開URL: https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/ （GitHub Pages、`main`にpushで1〜2分後に自動反映）
 - ローカルプレビュー: `python3 -m http.server 8130 --directory ~/settsu-sauna-site`（Claude Codeはlaunch.json `settsu-sauna` 使用）
 
 ## デザイントークン（変えない）
 
-- **LP**: paper `#FBFAF7` / ink `#14213D` / sun `#F2B705` / ember `#D93A2B`（emberは「御支縁」等の縁関連のみ）。見出し=Zen Kaku Gothic New 900、クラファン部のみShippori Mincho B1
+- **LP**: 白背景`#fff` / 黒文字`#111`基調のミニマル構成（JSA参考）。CSS変数`--gold`/`--soft-gold`は変数名こそ旧配色時代のままだが、値は確定ロゴのブランドカラー（`--gold`=石の青`#0756A6`、`--soft-gold`=湯気の橙`#F05A24`）に更新済み。見出し等のフォントは`style.css`の`--sans`参照
 - **商店**: ivory `#F7F4EE` / char `#2B2A26` / 控えめなsun `#D9A404`。明朝+Cormorant Garamond、ヘアライン罫線。LPより静かなトーンを保つ
+- **連絡先ポリシー**: 電話番号はサイトに掲載しない（問い合わせ殺到防止のため、メール・LINEのみの窓口に統一する方針。窓口自体は準備中）
 
 ## 作業ルール
 
