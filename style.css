@@ -81,13 +81,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   gap: 34px;
   padding: 14px 20px;
 }
+/* 英日併記（BAUM参照）: 英語ラベルの下に日本語を小さく添える */
 .site-nav a {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.nav-en {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .04em;
-  white-space: nowrap;
 }
+.nav-ja {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  transition: color .2s;
+}
+.site-nav a:hover .nav-ja { color: var(--ink); }
 .site-nav a::after {
   content: "";
   position: absolute;
@@ -119,33 +135,46 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   object-fit: cover;
   object-position: center 48%;
 }
+/* 全面ベールをやめ、文字が乗る下部だけを起こす。パースの緑と木の色を残すため */
 .hero-wash {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,.48);
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.14) 0%,
+    rgba(255,255,255,.20) 34%,
+    rgba(255,255,255,.72) 68%,
+    rgba(255,255,255,.94) 100%
+  );
 }
 .hero-copy {
   position: absolute;
-  inset: auto 20px 26px;
+  inset: auto 20px 30px;
   text-align: center;
   color: #111;
 }
-.hero-kicker {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .18em;
+/* 巨大ワードマーク × 写真のレイヤリング（GAZU / ENOLA / Sage 参照） */
+.hero-wordmark {
+  margin: 0 auto 10px;
+  font-size: clamp(26px, 7.4vw, 104px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.005em;
+  white-space: nowrap;
 }
 .hero h1 {
-  margin-top: 6px;
-  font-size: clamp(24px, 3.3vw, 46px);
-  line-height: 1.45;
-  letter-spacing: .05em;
+  font-size: clamp(17px, 2.05vw, 27px);
+  line-height: 1.6;
+  letter-spacing: .07em;
+  font-weight: 700;
 }
-.hero-copy > p:last-child {
-  margin-top: 7px;
+.hero-lead {
+  margin-top: 12px;
+  color: #3f3f3f;
   font-size: 12px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
+.br-sp { display: none; }
 
 /* Shared section system */
 .section { padding: 118px 0; }
@@ -169,16 +198,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   background: var(--soft-gold);
   transform: translateX(-50%);
 }
+/* 見出しに階層をつける。旧: h2=13px / sub=11px でほぼ同寸=声の大きさが一定だった */
 .section-heading h2 {
-  font-size: 13px;
-  line-height: 1.4;
-  letter-spacing: .06em;
+  font-size: clamp(21px, 2.5vw, 32px);
+  line-height: 1.25;
+  letter-spacing: .04em;
+  font-weight: 800;
 }
 .section-heading p {
-  margin-top: 3px;
+  margin-top: 9px;
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: .04em;
 }
 .outline-button {
   width: 230px;
@@ -465,13 +497,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .brand-en { font-size: 7px; }
   .site-nav { overflow-x: auto; scrollbar-width: none; }
   .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav-inner { justify-content: flex-start; gap: 24px; padding: 12px 18px; }
-  .site-nav a { font-size: 9px; }
+  .site-nav-inner { justify-content: flex-start; gap: 22px; padding: 10px 18px; }
+  .nav-en { font-size: 9px; }
+  .nav-ja { font-size: 7px; }
   .hero { height: 76svh; min-height: 560px; max-height: 680px; }
   .hero-image { object-position: center; }
-  .hero-copy { bottom: 22px; }
-  .hero h1 { font-size: clamp(23px, 7.5vw, 32px); }
-  .hero-copy > p:last-child { font-size: 10px; }
+  .hero-copy { bottom: 24px; }
+  /* 狭い画面では1行に収まらないため、ロゴと同じ NEXT / SETTSU / ALLIANCE の3行組みにする */
+  .hero-wordmark { font-size: clamp(30px, 11.6vw, 50px); line-height: .98; margin-bottom: 12px; }
+  .hero-wordmark span { display: block; }
+  .hero h1 { font-size: clamp(15px, 4.3vw, 20px); line-height: 1.7; }
+  .hero-lead { margin-top: 10px; font-size: 10px; line-height: 1.85; text-align: left; }
+  .br-sp { display: inline; }
   .section { padding: 82px 0; }
   .section-news, .section-about, .section-place, .section-students, .section-people, .section-plan { padding-top: 76px; }
   .section-heading { margin-bottom: 40px; }
@@ -503,10 +540,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 }
 
 @media (max-width: 420px) {
-  .site-nav-inner { gap: 21px; }
-  .site-nav a { font-size: 8px; }
+  .site-nav-inner { gap: 19px; }
+  .nav-en { font-size: 8px; }
+  .nav-ja { font-size: 7px; letter-spacing: .02em; }
   .hero { min-height: 540px; }
-  .hero-kicker { font-size: 7px; }
+  .hero-wordmark { font-size: clamp(28px, 11.2vw, 44px); letter-spacing: 0; }
   .hero h1 { letter-spacing: .02em; }
   .facility-grid p, .team-list li { align-items: flex-start; }
   .facility-grid b, .team-list b { white-space: nowrap; }
