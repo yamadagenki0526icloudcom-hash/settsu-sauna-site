@@ -240,7 +240,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   object-fit: contain;
 }
 /* 本文段落のみ。グリッドのセルへ幅制限が効くと罫線が途切れるため除外する */
-.section-about > .section-inner > p {
+.section-about > .section-inner > p,
+.section-companies > .section-inner > p {
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
@@ -248,7 +249,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   font-size: 13px;
   line-height: 2.2;
 }
-.section-about .about-lead {
+/* 企業向けセクション。本文の体裁はALLIANCEセクションと共通にする */
+.section-companies { padding-top: 96px; }
+.section-companies .section-inner-narrow { text-align: center; }
+.section-about .about-lead,
+.section-companies .about-lead {
   margin-bottom: 16px;
   color: #111;
   font-weight: 700;
