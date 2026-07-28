@@ -239,7 +239,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   margin: 0 auto 32px;
   object-fit: contain;
 }
-.section-about p {
+/* 本文段落のみ。グリッドのセルへ幅制限が効くと罫線が途切れるため除外する */
+.section-about > .section-inner > p {
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
@@ -301,8 +302,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   border-bottom: 1px solid var(--line);
 }
 .facility-grid p:nth-child(odd) { border-right: 1px solid var(--line); }
-.facility-grid b { font-size: 13px; }
+.facility-grid b { font-size: 13px; white-space: nowrap; }
 .facility-grid span { color: var(--muted); font-size: 11px; text-align: right; }
+/* 3項目など奇数件で右下が空くレイアウト用。1列で並べ、縦罫線は引かない */
+.facility-grid-stack { grid-template-columns: 1fr; }
+.facility-grid-stack p:nth-child(odd) { border-right: 0; }
 
 .section-domains { padding-top: 96px; }
 .domains-note {
