@@ -424,6 +424,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   font-weight: 700;
   line-height: 1.85;
 }
+/* 一文ずつを行にする。狭い幅で語中（笑わ/れた）から割れるのを防ぐ */
+.human-quote span { display: block; }
 .quote-by { margin-top: 15px; color: #777; font-size: 11px; text-align: center; }
 
 /* Plan */
@@ -534,14 +536,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .about-mark { height: 200px; }
   .section-about p { text-align: left; }
   .section-about .about-lead, .section-about .about-signature { text-align: center; }
-  .section-about p br { display: none; }
   .feature-figure img { aspect-ratio: 1.25 / 1; }
   .facility-grid, .team-list { grid-template-columns: 1fr; }
   .facility-grid p:nth-child(odd), .team-list li:nth-child(odd) { border-right: 0; }
   .facility-grid p, .team-list li { padding-left: 5px; padding-right: 5px; }
   .statement { margin-top: 38px; font-size: clamp(23px, 7vw, 30px); }
   .center-copy { text-align: left; }
-  .center-copy br { display: none; }
   .story-grid { grid-template-columns: 1fr; gap: 48px; }
   .story-grid article { width: min(100%, 520px); margin: 0 auto; }
   .story-grid img { aspect-ratio: 1.5 / 1; }
@@ -553,7 +553,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .timeline span { font-size: 9px; }
   .support { padding: 86px 20px; }
   .support-inner > p:nth-of-type(2) { text-align: left; }
-  .support-inner > p:nth-of-type(2) br { display: none; }
+  .support-inner > p:nth-of-type(2) br:not(.br-sp) { display: none; }
 }
 
 @media (max-width: 420px) {
