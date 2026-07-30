@@ -470,16 +470,21 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .countdown { margin-top: 38px; display: flex; justify-content: center; align-items: baseline; gap: 10px; }
 .countdown span { font-size: 12px; }
 .countdown b { color: var(--soft-gold); font-size: 52px; line-height: 1; }
+/* a要素なので、中央寄せと文字の縦横中央を明示する */
 .support-button {
   width: min(300px, 100%);
   min-height: 56px;
-  margin-top: 36px;
+  margin: 36px auto 0;
+  display: grid;
+  place-items: center;
   border: 1px solid #666;
   background: transparent;
-  color: #aaa;
+  color: #ddd;
   font-size: 12px;
   letter-spacing: .08em;
+  transition: color .2s, border-color .2s, background .2s;
 }
+.support-button:hover { color: #111; border-color: #fff; background: #fff; }
 .support small { display: block; margin-top: 10px; color: #777; font-size: 10px; }
 
 /* Contact and footer */
