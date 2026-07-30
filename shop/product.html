@@ -12,12 +12,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shop.css?v=3">
+<link rel="stylesheet" href="shop.css?v=7">
 </head>
 <body>
 
 <a class="skip-link" href="#productMain">商品情報へ移動</a>
-<p class="topbar"><strong>現在はデザイン確認用デモです。注文・決済はできません。</strong><span>クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</span></p>
+<p class="topbar"><strong>デザイン検討中のページです。注文・決済はできません。</strong><span>商品・価格はすべて検討中のイメージです。クラウドファンディングは2026年7月31日〜10月15日</span></p>
 
 <header class="snav">
   <a class="snav-back" href="./">← 避ス地商店</a>
@@ -46,15 +46,16 @@
   <div class="pdp-info">
     <h1>避ス地 サウナハット</h1>
     <p class="pdp-lead">今治産タオル地／ウォッシャブル。熱からあたまを守り、ととのいをもう一段深く。</p>
-    <p class="pdp-price">¥4,950 <small>税込・送料別</small></p>
+    <p class="pdp-price" id="pdpPrice" data-base="4950"><span id="pdpTotal">¥4,950</span> <small>税込・送料別</small></p>
+    <p class="pdp-calc" id="pdpCalc" hidden></p>
 
     <div class="pdp-row">
       <label class="pdp-field pdp-field-color" for="color">
         <span>カラー</span>
         <select id="color">
-          <option>生成り（アイボリー）</option>
-          <option>藍（ネイビー）</option>
-          <option>刺繍「避」入り（+¥550）</option>
+          <option data-add="0">生成り（アイボリー）</option>
+          <option data-add="0">藍（ネイビー）</option>
+          <option data-add="550">刺繍「避」入り（+¥550）</option>
         </select>
       </label>
       <label class="pdp-field pdp-field-qty" for="qty">
@@ -97,6 +98,9 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script defer src="shop.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="shop.js?v=3"></script>
 </body>
 </html>

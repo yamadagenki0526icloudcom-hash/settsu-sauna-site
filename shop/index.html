@@ -12,12 +12,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shop.css?v=3">
+<link rel="stylesheet" href="shop.css?v=7">
 </head>
 <body>
 
 <a class="skip-link" href="#shopMain">商品一覧へ移動</a>
-<p class="topbar"><strong>現在はデザイン確認用デモです。注文・決済はできません。</strong><span>クラウドファンディング（8.1開始）の支援者さまには、全商品の先行販売を予定しています</span></p>
+<p class="topbar"><strong>デザイン検討中のページです。注文・決済はできません。</strong><span>商品・価格はすべて検討中のイメージです。クラウドファンディングは2026年7月31日〜10月15日</span></p>
 
 <header class="snav">
   <a class="snav-back" href="../">← 避ス地トップ</a>
@@ -55,6 +55,7 @@
 <section class="products">
   <h2 class="sr-only" id="productsTitle">商品一覧</h2>
   <p class="sr-only" id="filterStatus" role="status" aria-live="polite">8件の商品を表示しています</p>
+  <p class="products-count" id="productsCount">全 <b>8</b> 点（検討中）</p>
   <div class="products-grid" id="grid" aria-labelledby="productsTitle">
 
     <article class="card" data-cat="maku okuru">
@@ -137,6 +138,12 @@
       <p class="card-price">¥33,000 <small>税込</small></p>
     </article>
 
+    <p class="products-empty" id="productsEmpty" hidden>
+      <b>まだ、この棚は空です。</b>
+      <span>ほかの選び方も試してみてください。</span>
+      <span>品ぞろえは、ご意見から決めていきます。</span>
+    </p>
+
   </div>
   <p class="products-note">※ラインナップ・価格・画像はすべて検討中のイメージです（たたき台）。</p>
 </section>
@@ -154,6 +161,15 @@
   </div>
 </section>
 
+<!-- ============ 支援への導線 ============ -->
+<section class="buy">
+  <p class="buy-eyebrow">HOW TO SUPPORT</p>
+  <h2>この棚が並ぶのは、<br class="sp">未知の駅ができてから。</h2>
+  <p class="buy-body"><span>オンラインストアは、開業に合わせて準備中です。</span><span>いま確かな入口は、クラウドファンディング。</span><span>集まった御支縁が、この棚をつくります。</span></p>
+  <a class="buy-cta" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener">CAMPFIREで支援する</a>
+  <p class="buy-note">2026年7月31日〜10月15日<span class="sep">／</span><br class="br-sp">CAMPFIREのページへ移動します</p>
+</section>
+
 </main>
 
 <footer class="sfooter">
@@ -163,6 +179,9 @@
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-<script defer src="shop.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="shop.js?v=3"></script>
 </body>
 </html>
