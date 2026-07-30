@@ -42,7 +42,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 
 /* Masthead and repeated navigation */
 .masthead {
-  height: 220px;
+  height: 292px;
   display: grid;
   place-items: center;
   background: #fff;
@@ -55,7 +55,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   line-height: 1.15;
 }
 .brand img {
-  height: 150px;
+  height: 212px;
   width: auto;
   margin-bottom: 6px;
 }
@@ -140,20 +140,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   text-align: center;
   color: #111;
 }
-/* 巨大ワードマーク × 写真のレイヤリング（GAZU / ENOLA / Sage 参照） */
-.hero-wordmark {
-  margin: 0 auto 10px;
-  font-size: clamp(26px, 7.4vw, 104px);
-  font-weight: 800;
-  line-height: .95;
-  letter-spacing: -.005em;
-  white-space: nowrap;
-}
+/* ヘッダーの拡大ロゴと英字ワードマークが重複するため、日本語コピーをヒーローの主役にする */
 .hero h1 {
-  font-size: clamp(17px, 2.05vw, 27px);
-  line-height: 1.6;
-  letter-spacing: .07em;
-  font-weight: 700;
+  font-size: clamp(26px, 4.2vw, 54px);
+  line-height: 1.45;
+  letter-spacing: .05em;
+  font-weight: 800;
 }
 .hero-lead {
   margin-top: 12px;
@@ -234,7 +226,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .section-about { padding-top: 94px; }
 .section-about .section-inner { text-align: center; }
 .about-mark {
-  height: 200px;
+  height: 280px;
   width: auto;
   margin: 0 auto 32px;
   object-fit: contain;
@@ -470,7 +462,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   text-align: center;
 }
 .footer img {
-  height: 84px;
+  height: 112px;
   width: auto;
   margin: 0 auto 14px;
 }
@@ -488,8 +480,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 @media (max-width: 760px) {
   :root { --wide: min(1120px, calc(100% - 32px)); --column: min(720px, calc(100% - 36px)); }
   body { font-size: 13px; }
-  .masthead { height: 128px; }
-  .brand img { height: 96px; }
+  .masthead { height: 196px; }
+  .brand img { height: 142px; }
   .brand-en { font-size: 7px; }
   .site-nav { overflow-x: auto; scrollbar-width: none; }
   .site-nav::-webkit-scrollbar { display: none; }
@@ -499,8 +491,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .hero-image { object-position: center; }
   .hero-copy { bottom: 24px; }
   /* 狭い画面では1行に収まらないため、ロゴと同じ NEXT / SETTSU / ALLIANCE の3行組みにする */
-  .hero-wordmark { font-size: clamp(30px, 11.6vw, 50px); line-height: .98; margin-bottom: 12px; }
-  .hero-wordmark span { display: block; }
   .hero h1 { font-size: clamp(15px, 4.3vw, 20px); line-height: 1.7; }
   .hero-lead { margin-top: 10px; font-size: 10px; line-height: 1.85; text-align: left; }
   .br-sp { display: inline; }
@@ -509,7 +499,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .section-heading { margin-bottom: 40px; }
   .news-list li { grid-template-columns: 88px 1fr; gap: 12px; padding: 14px 2px; }
   .news-list p { font-size: 11px; }
-  .about-mark { height: 150px; }
+  .about-mark { height: 200px; }
   .section-about p { text-align: left; }
   .section-about .about-lead, .section-about .about-signature { text-align: center; }
   .section-about p br { display: none; }
@@ -538,7 +528,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .site-nav-inner { gap: 19px; }
   .site-nav a { font-size: 8px; }
   .hero { min-height: 540px; }
-  .hero-wordmark { font-size: clamp(28px, 11.2vw, 44px); letter-spacing: 0; }
   .hero h1 { letter-spacing: .02em; }
   .facility-grid p, .team-list li { align-items: flex-start; }
   .facility-grid b, .team-list b { white-space: nowrap; }
