@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# 商店はデザイン確認用のデモのため検索対象から外す
+Disallow: /shop/
+
+Sitemap: https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/sitemap.xml
