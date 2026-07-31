@@ -148,3 +148,12 @@
   /* 画像の遅延読み込みで高さが変わるため、読み込み完了後に位置を取り直す */
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();
+
+/* 主要な導線のクリックを計測する。どのボタンから動いたかを区別できるようにしておく */
+document.querySelectorAll('[data-track]').forEach(function (el) {
+  el.addEventListener('click', function () {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', { cta: el.dataset.track });
+    }
+  });
+});

@@ -546,6 +546,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .contact-note .sep { display: inline; }
 .contact-info { margin-top: 25px; line-height: 2; }
 .contact-info a { border-bottom: 1px solid var(--gold); }
+/* プライバシーポリシー等の文書ページ */
+.section-doc { padding-top: 84px; }
+.doc-body { color: #4d4d4d; font-size: 13px; line-height: 2.2; }
+.doc-body h3 {
+  margin: 40px 0 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.doc-body h3:first-of-type { margin-top: 34px; }
+.doc-body p + p,
+.doc-list + p { margin-top: 14px; }
+.doc-body a { border-bottom: 1px solid var(--gold); }
+.doc-list { margin: 12px 0 0 1.1em; }
+.doc-list li { list-style: disc; padding-left: .2em; }
+.doc-date { margin-top: 40px; color: #8a8a8a; font-size: 11px; }
+
 .footer {
   padding: 62px 20px 45px;
   border-top: 1px solid var(--line);
@@ -557,6 +577,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   margin: 0 auto 14px;
 }
 .footer p { font-size: 10px; line-height: 1.7; }
+.footer-links { margin-top: 14px; font-size: 10px; }
+.footer-links a { color: #8a8a8a; border-bottom: 1px solid #ddd; }
 .footer .copyright { margin-top: 35px; color: #999; font-size: 8px; }
 
 /* Motion */

@@ -200,6 +200,8 @@ a.card-media:hover{transform:translateY(-4px)}
 }
 .sfooter-logo span{font-family:var(--garam);font-size:10px;letter-spacing:.5em;color:var(--mute)}
 .sfooter-addr{margin-top:18px;font-size:11.5px;color:var(--mute);letter-spacing:.08em}
+.sfooter-links{margin-top:16px;font-size:11px}
+.sfooter-links a{color:var(--mute);border-bottom:1px solid var(--hair)}
 .sfooter-note{margin-top:26px;font-family:var(--garam);font-size:10.5px;letter-spacing:.24em;color:var(--mute)}
 
 /* ---------- toast ---------- */

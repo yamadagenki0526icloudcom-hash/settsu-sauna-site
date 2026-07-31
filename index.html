@@ -23,7 +23,15 @@
   <meta name="twitter:title" content="NEXT SETTSU ALLIANCE｜摂津から、つながる。">
   <meta name="twitter:description" content="サウナを入口に、学生が主体となって企業・地域をつなぐ。摂津から始める地方創生プロジェクトです。">
   <meta name="twitter:image" content="https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/assets/og-image.jpg">
-  <link rel="stylesheet" href="style.css?v=33">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SYT5TZ86Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4SYT5TZ86Y');
+  </script>
+  <link rel="stylesheet" href="style.css?v=35">
   <script>document.documentElement.classList.add('js-motion');</script>
   <!-- 構造化データ。住所は登記・住居表示の確認が取れるまで載せない。窓口が未整備のためcontactPointも入れない -->
   <script type="application/ld+json">
@@ -64,7 +72,7 @@
       <a href="#companies">企業の方へ</a>
       <a href="#people">人と街</a>
       <a href="#plan">計画</a>
-      <a href="shop/">商店</a>
+      <a href="shop/" data-track="to_shop">商店</a>
       <a href="#join">お問い合わせ</a>
     </div>
   </nav>
@@ -89,7 +97,7 @@
         <a href="#companies">企業の方へ</a>
         <a href="#people">人と街</a>
         <a href="#plan">計画</a>
-        <a href="shop/">商店</a>
+        <a href="shop/" data-track="to_shop">商店</a>
         <a href="#join">お問い合わせ</a>
       </div>
     </nav>
@@ -136,7 +144,7 @@
           <p><b>行政</b><span>地域課題を小さく試す</span></p>
           <p><b>地域</b><span>困りごとを一緒に解く</span></p>
         </div>
-        <a class="outline-button" href="#join">参加について</a>
+        <a class="outline-button" data-track="to_join" href="#join">参加について</a>
       </div>
     </section>
 
@@ -187,7 +195,7 @@
         <a href="#companies">企業の方へ</a>
         <a href="#people">人と街</a>
         <a href="#plan">計画</a>
-        <a href="shop/">商店</a>
+        <a href="shop/" data-track="to_shop">商店</a>
         <a href="#join">お問い合わせ</a>
       </div>
     </nav>
@@ -229,7 +237,7 @@
           <p><b>共創・事業</b><span>商品開発・イベント・発信を、学生と一緒に試す</span></p>
         </div>
         <p class="domains-note">つながる入口は、シンプルに。<br>個別のプロジェクトと企業メンバー登録は、<br class="br-sp">別途ご相談します。</p>
-        <a class="outline-button" href="#join">参加について</a>
+        <a class="outline-button" data-track="to_join" href="#join">参加について</a>
       </div>
     </section>
 
@@ -293,7 +301,7 @@
         <p class="support-kicker">クラウドファンディング　2026年7月31日〜10月15日</p>
         <h2 id="support-title">求む。御支縁。</h2>
         <p>お金を集めるだけではありません。<br>この先20年、<br class="br-sp">一緒に語り続ける仲間を集めます。</p>
-        <a class="support-button" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="support-note">CAMPFIREで支援する</a>
+        <a class="support-button" data-track="campfire_support" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="support-note">CAMPFIREで支援する</a>
         <small id="support-note">目標金額 1,000万円／CAMPFIREのページへ移動します</small>
       </div>
     </section>
@@ -305,7 +313,7 @@
           <p>この挑戦に、関わる</p>
         </header>
         <p>専用の窓口（メール・LINE）は準備中です。<br>クラウドファンディング期間中は、<br class="br-sp">CAMPFIREのメッセージからご連絡いただけます。</p>
-        <a class="outline-button" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="contact-note">CAMPFIREから問い合わせる</a>
+        <a class="outline-button" data-track="campfire_contact" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="contact-note">CAMPFIREから問い合わせる</a>
         <p class="contact-note" id="contact-note">CAMPFIREのアカウントが必要です<span class="sep">／</span><br class="br-sp">受付は2026年10月15日まで</p>
         <p class="contact-info">NEXT SETTSU ALLIANCE<br>運営: 株式会社花岡工務店（大阪府摂津市新在家2-1-19）</p>
       </div>
@@ -315,12 +323,13 @@
   <footer class="footer">
     <img src="assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
     <p>避ス地 未知の駅 摂津サウナ</p>
+    <p class="footer-links"><a href="privacy.html">プライバシーポリシー</a></p>
     <p class="copyright">Copyright © 2026 NEXT SETTSU ALLIANCE</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
