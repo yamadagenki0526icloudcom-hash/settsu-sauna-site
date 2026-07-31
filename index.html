@@ -23,8 +23,27 @@
   <meta name="twitter:title" content="NEXT SETTSU ALLIANCE｜摂津から、つながる。">
   <meta name="twitter:description" content="サウナを入口に、学生が主体となって企業・地域をつなぐ。摂津から始める地方創生プロジェクトです。">
   <meta name="twitter:image" content="https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/assets/og-image.jpg">
-  <link rel="stylesheet" href="style.css?v=32">
+  <link rel="stylesheet" href="style.css?v=33">
   <script>document.documentElement.classList.add('js-motion');</script>
+  <!-- 構造化データ。住所は登記・住居表示の確認が取れるまで載せない。窓口が未整備のためcontactPointも入れない -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NEXT SETTSU ALLIANCE",
+    "alternateName": "NSA",
+    "url": "https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/",
+    "logo": "https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/assets/logo-600.png",
+    "image": "https://yamadagenki0526icloudcom-hash.github.io/settsu-sauna-site/assets/og-image.jpg",
+    "description": "サウナを入口に、学生が主体となって企業・地域をつなぐ地方創生プロジェクト。第一の拠点は「避ス地 未知の駅 摂津サウナ」。",
+    "foundingDate": "2026-07",
+    "areaServed": {
+      "@type": "City",
+      "name": "摂津市",
+      "containedInPlace": { "@type": "AdministrativeArea", "name": "大阪府" }
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -285,7 +304,9 @@
           <h2 id="contact-title">お問い合わせ</h2>
           <p>この挑戦に、関わる</p>
         </header>
-        <p>ご相談はメール・LINEで承ります。<br>窓口は準備中です。</p>
+        <p>専用の窓口（メール・LINE）は準備中です。<br>クラウドファンディング期間中は、<br class="br-sp">CAMPFIREのメッセージからご連絡いただけます。</p>
+        <a class="outline-button" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="contact-note">CAMPFIREから問い合わせる</a>
+        <p class="contact-note" id="contact-note">CAMPFIREのアカウントが必要です<span class="sep">／</span><br class="br-sp">受付は2026年10月15日まで</p>
         <p class="contact-info">NEXT SETTSU ALLIANCE<br>運営: 株式会社花岡工務店（大阪府摂津市新在家2-1-19）</p>
       </div>
     </section>

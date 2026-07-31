@@ -536,6 +536,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .section-contact { padding-bottom: 110px; }
 .section-contact .section-inner { text-align: center; }
 .section-contact .section-inner > p { color: #555; font-size: 12px; }
+/* 窓口が整うまでの暫定導線に添える注記 */
+.section-contact .contact-note {
+  margin-top: 14px;
+  color: #8a8a8a;
+  font-size: 11px;
+  line-height: 1.9;
+}
+.contact-note .sep { display: inline; }
 .contact-info { margin-top: 25px; line-height: 2; }
 .contact-info a { border-bottom: 1px solid var(--gold); }
 .footer {
@@ -578,6 +586,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .hero h1 { font-size: clamp(15px, 4.3vw, 20px); line-height: 1.7; }
   .hero-lead { margin-top: 10px; font-size: 10px; line-height: 1.85; text-align: left; }
   .br-sp { display: inline; }
+  .contact-note .sep { display: none; }
   .section { padding: 82px 0; }
   .section-news, .section-about, .section-place, .section-students, .section-people, .section-plan { padding-top: 76px; }
   .section-heading { margin-bottom: 40px; }
