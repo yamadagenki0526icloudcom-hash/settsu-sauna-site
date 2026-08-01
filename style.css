@@ -234,6 +234,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   transition: color .2s, border-color .2s, background .2s;
 }
 .outline-button:hover { color: #fff; border-color: #111; background: #111; }
+/* 主導線用の塗りボタン。outline-buttonより一段強い */
+.solid-button {
+  min-width: 230px;
+  min-height: 52px;
+  margin: 30px auto 0;
+  padding: 0 28px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  transition: opacity .2s, transform .2s;
+}
+.solid-button:hover { opacity: .85; transform: translateY(-2px); }
+.section-students .section-inner { text-align: center; }
+.students-note {
+  margin-top: 40px;
+  color: #666;
+  font-size: 12px;
+  line-height: 2;
+}
 
 /* Project news */
 .section-news { padding-top: 100px; }
