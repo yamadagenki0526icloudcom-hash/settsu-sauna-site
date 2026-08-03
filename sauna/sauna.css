@@ -124,9 +124,15 @@
 .option-table tr:first-child td { border-top: 1px solid var(--line); }
 .option-note { margin-top: 16px; font-size: 12.5px; color: var(--muted); line-height: 1.95; }
 
+/* 注意書き。橙のアクセントは .section-heading::before と同じ「上罫に重ねる」形に揃える */
 .price-caution {
-  margin-top: 54px; padding: 30px 32px;
-  background: #fbfbfa; border-left: 3px solid var(--soft-gold);
+  position: relative;
+  margin-top: 54px; padding: 30px 30px 28px;
+  background: #fbfbfa; border: 1px solid var(--line);
+}
+.price-caution::before {
+  content: ""; position: absolute; top: -1px; left: -1px;
+  width: 64px; height: 2px; background: var(--soft-gold);
 }
 .price-caution h3 { font-size: 14px; font-weight: 700; letter-spacing: .08em; }
 .price-caution ul { margin-top: 16px; }
