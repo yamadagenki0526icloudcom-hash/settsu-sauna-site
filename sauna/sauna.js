@@ -54,18 +54,23 @@
       el.style.strokeDashoffset = len;
     });
 
+    /* 外形は最初に、寸法線は最後に引く（設計図を起こす順） */
+    const outline = plan.querySelector('.pl-outline');
+    const dimLines = plan.querySelectorAll('.pl-draw:not(.pl-outline)');
+
     const tl = gsap.timeline({
       scrollTrigger: { trigger: plan, start: 'top 82%', once: true }
     });
 
-    /* 1. 外形と寸法線が引かれる */
-    tl.to(draws, { strokeDashoffset: 0, duration: 1.4, stagger: 0.06, ease: 'power2.inOut' }, 0)
-      /* 2. 面が乗る */
-      .to(plan.querySelectorAll('.pl-fill'), { opacity: 1, duration: 0.9, ease }, 0.5)
-      .to(plan.querySelectorAll('.pl-part'), { opacity: 1, duration: 0.9, stagger: 0.1, ease }, 0.7)
-      /* 3. 名前と寸法が入る */
-      .to(plan.querySelectorAll('.pl-label'), { opacity: 1, duration: 0.8, stagger: 0.08, ease }, 1.15)
-      .to(plan.querySelectorAll('.pl-dim'), { opacity: 1, duration: 0.8, stagger: 0.05, ease }, 1.35);
+    /* 1. 外形の輪郭が引かれる */
+    tl.to(outline, { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut' }, 0)
+      /* 2. 中身が入る */
+      .to(plan.querySelectorAll('.pl-fill'), { opacity: 1, duration: 0.9, ease }, 0.35)
+      .to(plan.querySelectorAll('.pl-part'), { opacity: 1, duration: 0.9, stagger: 0.1, ease }, 0.6)
+      .to(plan.querySelectorAll('.pl-label'), { opacity: 1, duration: 0.8, stagger: 0.08, ease }, 0.95)
+      /* 3. 最後に寸法を入れる */
+      .to(dimLines, { strokeDashoffset: 0, duration: 0.9, stagger: 0.05, ease: 'power2.inOut' }, 1.2)
+      .to(plan.querySelectorAll('.pl-dim'), { opacity: 1, duration: 0.8, stagger: 0.05, ease }, 1.5);
   }
 
   /* ---------- 仕様表: 上から順に読ませる ---------- */

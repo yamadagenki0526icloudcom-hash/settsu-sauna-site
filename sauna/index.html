@@ -142,9 +142,8 @@
             <svg viewBox="0 0 420 470" role="img" aria-labelledby="plan-title plan-desc">
               <title id="plan-title">摂津サウナの内寸図</title>
               <desc id="plan-desc">上から見た平面図。最大幅1350mm、奥行1920mm。両側に幅330mmの椅子、中央に610mmの通路。</desc>
-              <!-- 外形。線を引いてから塗りを乗せる（設計図が描かれる順） -->
+              <!-- 外形の塗り。輪郭線は椅子に隠れないよう最後に重ねる -->
               <rect class="pl-fill" x="60" y="70" width="300" height="330" rx="10" fill="#fafafa"/>
-              <rect class="pl-draw" x="60" y="70" width="300" height="330" rx="10" fill="none" stroke="#111" stroke-width="1.5"/>
               <!-- 椅子（左右） -->
               <rect class="pl-part" x="60" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
               <rect class="pl-part" x="287" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
@@ -169,6 +168,8 @@
               <line class="pl-draw" x1="378" y1="70" x2="394" y2="70" stroke="#111" stroke-width="1"/>
               <line class="pl-draw" x1="378" y1="400" x2="394" y2="400" stroke="#111" stroke-width="1"/>
               <text class="plan-dim pl-dim" x="404" y="240" text-anchor="middle" transform="rotate(90 404 240)">奥行 1,920mm</text>
+              <!-- 外形の輪郭。椅子より上に重ねて、四辺すべてが見えるようにする -->
+              <rect class="pl-draw pl-outline" x="60" y="70" width="300" height="330" rx="10" fill="none" stroke="#111" stroke-width="1.5"/>
               <text class="plan-note pl-dim" x="210" y="460" text-anchor="middle">上から見た図（天井高 1,680mm）</text>
             </svg>
           </figure>
@@ -382,6 +383,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../script.js?v=14"></script>
-  <script src="sauna.js?v=1"></script>
+  <script src="sauna.js?v=2"></script>
 </body>
 </html>
