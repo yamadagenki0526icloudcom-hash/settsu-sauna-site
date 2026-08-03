@@ -327,7 +327,7 @@
   position: fixed;
   left: 0; right: 0; bottom: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255, 255, 255, .975);
   border-top: 1px solid var(--line, #eaeaea);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
