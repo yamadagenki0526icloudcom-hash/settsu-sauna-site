@@ -30,7 +30,7 @@
     gtag('config', 'G-4SYT5TZ86Y');
   </script>
   <link rel="stylesheet" href="../style.css?v=36">
-  <link rel="stylesheet" href="sauna.css?v=3">
+  <link rel="stylesheet" href="sauna.css?v=4">
   <script>document.documentElement.classList.add('js-motion');</script>
   <!-- 商品の構造化データ。価格は税別のため priceSpecification に valueAddedTaxIncluded:false を明示する -->
   <script type="application/ld+json">
@@ -142,33 +142,34 @@
             <svg viewBox="0 0 420 470" role="img" aria-labelledby="plan-title plan-desc">
               <title id="plan-title">摂津サウナの内寸図</title>
               <desc id="plan-desc">上から見た平面図。最大幅1350mm、奥行1920mm。両側に幅330mmの椅子、中央に610mmの通路。</desc>
-              <!-- 外形 -->
-              <rect x="60" y="70" width="300" height="330" rx="10" fill="#fafafa" stroke="#111" stroke-width="1.5"/>
+              <!-- 外形。線を引いてから塗りを乗せる（設計図が描かれる順） -->
+              <rect class="pl-fill" x="60" y="70" width="300" height="330" rx="10" fill="#fafafa"/>
+              <rect class="pl-draw" x="60" y="70" width="300" height="330" rx="10" fill="none" stroke="#111" stroke-width="1.5"/>
               <!-- 椅子（左右） -->
-              <rect x="60" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
-              <rect x="287" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
-              <text x="96" y="240" class="plan-in" text-anchor="middle">椅子</text>
-              <text x="323" y="240" class="plan-in" text-anchor="middle">椅子</text>
+              <rect class="pl-part" x="60" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
+              <rect class="pl-part" x="287" y="70" width="73" height="330" fill="#eef3f9" stroke="#c9d6e6"/>
+              <text class="plan-in pl-label" x="96" y="240" text-anchor="middle">椅子</text>
+              <text class="plan-in pl-label" x="323" y="240" text-anchor="middle">椅子</text>
               <!-- ストーブ -->
-              <rect x="188" y="80" width="44" height="44" rx="4" fill="#111"/>
-              <text x="210" y="146" class="plan-in" text-anchor="middle">ストーブ</text>
+              <rect class="pl-part" x="188" y="80" width="44" height="44" rx="4" fill="#111"/>
+              <text class="plan-in pl-label" x="210" y="146" text-anchor="middle">ストーブ</text>
               <!-- 幅の寸法線 -->
-              <line x1="60" y1="46" x2="360" y2="46" stroke="#111" stroke-width="1"/>
-              <line x1="60" y1="38" x2="60" y2="54" stroke="#111" stroke-width="1"/>
-              <line x1="360" y1="38" x2="360" y2="54" stroke="#111" stroke-width="1"/>
-              <text x="210" y="32" class="plan-dim" text-anchor="middle">最大幅 1,350mm</text>
+              <line class="pl-draw" x1="60" y1="46" x2="360" y2="46" stroke="#111" stroke-width="1"/>
+              <line class="pl-draw" x1="60" y1="38" x2="60" y2="54" stroke="#111" stroke-width="1"/>
+              <line class="pl-draw" x1="360" y1="38" x2="360" y2="54" stroke="#111" stroke-width="1"/>
+              <text class="plan-dim pl-dim" x="210" y="32" text-anchor="middle">最大幅 1,350mm</text>
               <!-- 内訳 -->
-              <line x1="133" y1="416" x2="133" y2="400" stroke="#9aa8b8" stroke-width="1"/>
-              <line x1="287" y1="416" x2="287" y2="400" stroke="#9aa8b8" stroke-width="1"/>
-              <text x="96" y="430" class="plan-sub" text-anchor="middle">330</text>
-              <text x="210" y="430" class="plan-sub" text-anchor="middle">610</text>
-              <text x="323" y="430" class="plan-sub" text-anchor="middle">330</text>
+              <line class="pl-draw" x1="133" y1="416" x2="133" y2="400" stroke="#9aa8b8" stroke-width="1"/>
+              <line class="pl-draw" x1="287" y1="416" x2="287" y2="400" stroke="#9aa8b8" stroke-width="1"/>
+              <text class="plan-sub pl-dim" x="96" y="430" text-anchor="middle">330</text>
+              <text class="plan-sub pl-dim" x="210" y="430" text-anchor="middle">610</text>
+              <text class="plan-sub pl-dim" x="323" y="430" text-anchor="middle">330</text>
               <!-- 奥行の寸法線 -->
-              <line x1="386" y1="70" x2="386" y2="400" stroke="#111" stroke-width="1"/>
-              <line x1="378" y1="70" x2="394" y2="70" stroke="#111" stroke-width="1"/>
-              <line x1="378" y1="400" x2="394" y2="400" stroke="#111" stroke-width="1"/>
-              <text x="404" y="240" class="plan-dim" text-anchor="middle" transform="rotate(90 404 240)">奥行 1,920mm</text>
-              <text x="210" y="460" class="plan-note" text-anchor="middle">上から見た図（天井高 1,680mm）</text>
+              <line class="pl-draw" x1="386" y1="70" x2="386" y2="400" stroke="#111" stroke-width="1"/>
+              <line class="pl-draw" x1="378" y1="70" x2="394" y2="70" stroke="#111" stroke-width="1"/>
+              <line class="pl-draw" x1="378" y1="400" x2="394" y2="400" stroke="#111" stroke-width="1"/>
+              <text class="plan-dim pl-dim" x="404" y="240" text-anchor="middle" transform="rotate(90 404 240)">奥行 1,920mm</text>
+              <text class="plan-note pl-dim" x="210" y="460" text-anchor="middle">上から見た図（天井高 1,680mm）</text>
             </svg>
           </figure>
 
@@ -361,6 +362,15 @@
 
   </main>
 
+  <!-- 価格を読んだ人が、どこまでスクロールしても問い合わせへ戻れるようにする。
+       価格セクションに入ってから、問い合わせセクションに届くまでの間だけ出す -->
+  <div class="sauna-bar" id="saunaBar" aria-hidden="true">
+    <div class="sauna-bar-inner">
+      <p class="sauna-bar-price">摂津サウナ<span>2,300,000円〜（税別）</span></p>
+      <a class="sauna-bar-cta" data-track="sticky_contact" href="#contact">相談する</a>
+    </div>
+  </div>
+
   <footer class="footer">
     <img src="../assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
     <p>避ス地 未知の駅 摂津サウナ</p>
@@ -372,5 +382,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../script.js?v=14"></script>
+  <script src="sauna.js?v=1"></script>
 </body>
 </html>

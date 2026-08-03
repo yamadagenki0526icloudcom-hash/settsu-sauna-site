@@ -277,3 +277,101 @@
   .flow-no { width: 30px; font-size: 12px; }
   .rental-plans { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   モーション（2026-08-03）
+   方針: 「遅く・少なく」。1.2秒級のcubic-bezier(.16,1,.3,1)で統一し、
+   速いUIアニメを使わないことで高額商材の落ち着きを出す。
+   JSが無い・省モーション設定のときは、すべて静的表示にフォールバックする。
+   ============================================================ */
+
+/* ---------- 写真: 置くときは色を少し抜き、触れると戻る ---------- */
+.type-list img,
+.rental-figure img,
+.spec-photo img {
+  filter: grayscale(12%);
+  transition: filter 1.2s cubic-bezier(.16, 1, .3, 1),
+              transform 1.2s cubic-bezier(.16, 1, .3, 1);
+}
+.type-list li:hover img,
+.rental-figure:hover img,
+.spec-photo:hover img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+/* 拡大が枠外へ出ないように、図版側で切る */
+.rental-figure, .spec-photo { overflow: hidden; }
+
+/* ---------- 3タイプ: 触れると静かに浮く ---------- */
+.type-list li {
+  transition: transform 1.2s cubic-bezier(.16, 1, .3, 1),
+              border-color 1.2s cubic-bezier(.16, 1, .3, 1);
+}
+.type-list li:hover {
+  transform: translateY(-6px);
+  border-color: #c9c9c9;
+}
+
+/* ---------- 平面図: 設計図が引かれる ---------- */
+/* JS稼働時だけ隠す。JSが無ければ最初から完成形が見える */
+.js-motion .spec-plan .pl-fill,
+.js-motion .spec-plan .pl-part,
+.js-motion .spec-plan .pl-label,
+.js-motion .spec-plan .pl-dim { opacity: 0; }
+
+/* ---------- 価格の数字 ---------- */
+.price-value { font-variant-numeric: tabular-nums; }
+
+/* ---------- 追従バー ---------- */
+.sauna-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, .94);
+  border-top: 1px solid var(--line, #eaeaea);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  transform: translateY(100%);
+  transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+  will-change: transform;
+}
+.sauna-bar.is-shown { transform: translateY(0); }
+.sauna-bar-inner {
+  width: var(--wide, min(1120px, calc(100% - 48px)));
+  margin: 0 auto;
+  padding: 14px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.sauna-bar-price {
+  font-size: 12px; letter-spacing: .04em; color: var(--muted, #747474); line-height: 1.6;
+}
+.sauna-bar-price span {
+  display: block;
+  font-size: 15px; font-weight: 700; letter-spacing: .02em; color: var(--ink, #111);
+  font-variant-numeric: tabular-nums;
+}
+.sauna-bar-cta {
+  flex: 0 0 auto;
+  padding: 13px 30px;
+  background: var(--ink, #111); color: #fff;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .12em;
+  transition: opacity .7s cubic-bezier(.16, 1, .3, 1);
+}
+.sauna-bar-cta:hover { opacity: .82; }
+
+@media (max-width: 600px) {
+  .sauna-bar-inner { padding: 11px 0; gap: 12px; }
+  .sauna-bar-price { font-size: 11px; }
+  .sauna-bar-price span { font-size: 13.5px; }
+  .sauna-bar-cta { padding: 11px 20px; font-size: 12px; letter-spacing: .08em; }
+}
+
+/* 省モーション設定では、動かさず最初から見せる */
+@media (prefers-reduced-motion: reduce) {
+  .type-list img, .rental-figure img, .spec-photo img,
+  .type-list li, .sauna-bar, .sauna-bar-cta { transition: none; }
+  .js-motion .spec-plan .pl-fill,
+  .js-motion .spec-plan .pl-part,
+  .js-motion .spec-plan .pl-label,
+  .js-motion .spec-plan .pl-dim { opacity: 1; }
+}
