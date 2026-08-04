@@ -380,6 +380,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   font-size: 12px;
   font-weight: 700;
 }
+.place-intro {
+  margin: -18px auto 34px;
+  max-width: 38em;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: .04em;
+}
 .facility-grid {
   width: min(860px, 100%);
   margin: 0 auto;
@@ -567,6 +576,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   line-height: 1.9;
 }
 .contact-note .sep { display: inline; }
+.contact-note a { border-bottom: 1px solid var(--gold); }
 .contact-info { margin-top: 25px; line-height: 2; }
 .contact-info a { border-bottom: 1px solid var(--gold); }
 /* プライバシーポリシー等の文書ページ */
