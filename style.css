@@ -462,8 +462,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .section-people { padding-top: 102px; }
 .story-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  width: min(720px, 100%);
+  margin: 0 auto;
 }
 .story-grid article { min-width: 0; }
 .story-grid img {
