@@ -30,7 +30,7 @@
     gtag('config', 'G-4SYT5TZ86Y');
   </script>
   <link rel="stylesheet" href="../style.css?v=39">
-  <link rel="stylesheet" href="sauna.css?v=5">
+  <link rel="stylesheet" href="sauna.css?v=6">
   <script>document.documentElement.classList.add('js-motion');</script>
   <!-- 商品の構造化データ。価格は税別のため priceSpecification に valueAddedTaxIncluded:false を明示する -->
   <script type="application/ld+json">
@@ -54,6 +54,40 @@
         "valueAddedTaxIncluded": false
       }
     }
+  }
+  </script>
+  <!-- FAQの構造化データ。本文のdl要素と文言を一致させること（食い違うとGoogleに無視される） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "軽トラックは付いてきますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "いいえ。車両はお客さまでご用意ください。「軽トラ型」は軽トラックの荷台に収まる寸法という意味で、車両は含みません。据え置いてお使いいただくこともできます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "電気式のストーブに変更できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "できます。薪ストーブ式との差額 200,000円（税別）で電気式サウナヒーターに変更いただけます。薪の準備なしに使えるため、ご自宅や店舗に据え置く場合に選ばれています。" }
+      },
+      {
+        "@type": "Question",
+        "name": "セットの仕様を変えることはできますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "「摂津サウナ セット」は仕様の決まった既製品のため、内容の変更はできません。薪置きデッキ、庫内のライトと電源、ロウリュのセットなどは、別途オプションとしてお選びいただけます。サイズから設計したい場合は、オーダーメイドのご相談を承ります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "天井テントに会社のロゴを入れられますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "入れられます。デザインデータをご入稿いただく場合は追加費用はかかりません。デザインの制作からご依頼いただく場合は 50,000円（税別）です。テントの大きさは縦1,930mm × 横2,090mmです。" }
+      },
+      {
+        "@type": "Question",
+        "name": "買う前に試すことはできますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "レンタルをご用意しています。30日プランで1日あたり4,033円（税別）です。設置場所の使い勝手や、お店での集客効果を確かめてからご検討いただけます。" }
+      }
+    ]
   }
   </script>
 </head>
@@ -346,6 +380,34 @@
         <p class="custom-note">お問い合わせいただければ、花岡工務店へおつなぎします。</p>
       </div>
     </section>
+
+    <!-- よくあるご質問。導入の流れで説明済みの内容（運送費・重機・納期の全体像）とは重複させず、
+         ページのどこにも書いていない前提条件だけを扱う -->
+    <section class="section section-faq" id="faq" aria-labelledby="faq-title">
+      <div class="section-inner section-inner-narrow" data-reveal>
+        <header class="section-heading">
+          <h2 id="faq-title">よくあるご質問</h2>
+          <p>お問い合わせの前に</p>
+        </header>
+        <dl class="faq-list">
+          <dt>軽トラックは付いてきますか？</dt>
+          <dd>いいえ。<b>車両はお客さまでご用意ください。</b>「軽トラ型」は軽トラックの荷台に収まる寸法という意味で、車両は含みません。据え置いてお使いいただくこともできます。</dd>
+
+          <dt>電気式のストーブに変更できますか？</dt>
+          <dd>できます。薪ストーブ式との差額 <b>200,000円（税別）</b> で電気式サウナヒーターに変更いただけます。薪の準備なしに使えるため、ご自宅や店舗に据え置く場合に選ばれています。</dd>
+
+          <dt>セットの仕様を変えることはできますか？</dt>
+          <dd>「摂津サウナ セット」は仕様の決まった既製品のため、<b>内容の変更はできません。</b>薪置きデッキ、庫内のライトと電源、ロウリュのセットなどは、別途オプションとしてお選びいただけます。サイズから設計したい場合は、オーダーメイドのご相談を承ります。</dd>
+
+          <dt>天井テントに会社のロゴを入れられますか？</dt>
+          <dd>入れられます。デザインデータをご入稿いただく場合は<b>追加費用はかかりません。</b>デザインの制作からご依頼いただく場合は 50,000円（税別）です。テントの大きさは縦1,930mm × 横2,090mmです。</dd>
+
+          <dt>買う前に試すことはできますか？</dt>
+          <dd>レンタルをご用意しています。30日プランで1日あたり4,033円（税別）です。設置場所の使い勝手や、お店での集客効果を確かめてからご検討いただけます。</dd>
+        </dl>
+      </div>
+    </section>
+
     <!-- 問い合わせ -->
     <section class="section section-contact sauna-contact" id="contact" aria-labelledby="contact-title">
       <div class="section-inner section-inner-narrow" data-reveal>

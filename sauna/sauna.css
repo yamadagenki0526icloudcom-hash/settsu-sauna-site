@@ -375,3 +375,40 @@
   .js-motion .spec-plan .pl-label,
   .js-motion .spec-plan .pl-dim { opacity: 1; }
 }
+
+/* ---------------- よくあるご質問 ---------------- */
+/* 質問＝dt、答え＝dd。開閉させず全文を出しておく（検索・AI引用に拾わせるため） */
+.faq-list { margin: 0; }
+.faq-list dt {
+  margin-top: 26px;
+  padding-left: 26px;
+  position: relative;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.faq-list dt:first-child { margin-top: 0; }
+.faq-list dt::before {
+  content: "Q";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+}
+.faq-list dd {
+  margin: 8px 0 0 26px;
+  color: #4d4d4d;
+  font-size: 13px;
+  line-height: 2;
+}
+.faq-list dd b { color: var(--ink); font-weight: 700; }
+.faq-list dt + dd { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.faq-list dt:last-of-type + dd { border-bottom: 0; padding-bottom: 0; }
+
+@media (max-width: 600px) {
+  .faq-list dt { margin-top: 22px; padding-left: 22px; font-size: 13.5px; }
+  .faq-list dt::before { font-size: 13.5px; }
+  .faq-list dd { margin-left: 22px; font-size: 12.5px; }
+}
