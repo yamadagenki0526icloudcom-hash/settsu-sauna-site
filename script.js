@@ -150,10 +150,24 @@
 })();
 
 /* 主要な導線のクリックを計測する。どのボタンから動いたかを区別できるようにしておく */
+
+/* 問い合わせに到達した導線は、GA4の「キーイベント」に指定できるよう独立した名前でも送る。
+   GA4の管理画面「イベントを作成」はカスタムイベント（cta_click）をトリガーに選べないため、
+   条件で絞るのではなく、最初から専用のイベント名で送る必要がある。 */
+var GOAL_EVENTS = {
+  contact_form: 'contact_submit',  // LPのフォームボタン
+  nsa_mail:     'contact_submit',  // LPのメールリンク
+  sauna_form:   'sauna_contact',   // サウナページのフォームボタン
+  sauna_mail:   'sauna_contact'    // サウナページのメールリンク
+};
+
 document.querySelectorAll('[data-track]').forEach(function (el) {
   el.addEventListener('click', function () {
-    if (typeof gtag === 'function') {
-      gtag('event', 'cta_click', { cta: el.dataset.track });
+    if (typeof gtag !== 'function') return;
+    var name = el.dataset.track;
+    gtag('event', 'cta_click', { cta: name });
+    if (GOAL_EVENTS[name]) {
+      gtag('event', GOAL_EVENTS[name], { cta: name });
     }
   });
 });
