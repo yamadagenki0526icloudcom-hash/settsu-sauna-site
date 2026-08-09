@@ -365,3 +365,4 @@ a.card-media:hover{transform:translateY(-4px)}
   .tk-list>div{grid-template-columns:1fr;gap:6px}
   .tk-list dt{font-size:12px}
 }
+.tk-pending--own{border-style:solid;border-color:rgba(43,42,38,.28);color:var(--mute);background:rgba(43,42,38,.04)}
