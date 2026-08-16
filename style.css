@@ -411,6 +411,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   line-height: 2;
   letter-spacing: .04em;
 }
+.name-note dd b { color: var(--ink); font-weight: 700; }
 .name-note dt:last-of-type + dd { border-bottom: 0; padding-bottom: 0; }
 .facility-grid {
   width: min(860px, 100%);
