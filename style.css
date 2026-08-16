@@ -389,6 +389,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   line-height: 2;
   letter-spacing: .04em;
 }
+/* 施設名の3語（避ス地／未知の駅／摂津サウナ）の意味。花岡さんの避ス地プレゼンが原典 */
+.name-note {
+  width: min(760px, 100%);
+  margin: 0 auto 40px;
+}
+.name-note dt {
+  margin-top: 22px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.name-note dt:first-child { margin-top: 0; }
+.name-note dd {
+  margin: 8px 0 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: .04em;
+}
+.name-note dt:last-of-type + dd { border-bottom: 0; padding-bottom: 0; }
 .facility-grid {
   width: min(860px, 100%);
   margin: 0 auto;
