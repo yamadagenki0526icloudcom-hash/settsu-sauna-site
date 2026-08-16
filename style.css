@@ -402,6 +402,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   letter-spacing: .08em;
 }
 .name-note dt:first-child { margin-top: 0; }
+/* 読みは平文で置く。かな検索で拾わせたいのでruby(rt)にはしない */
+.name-note dt .yomi {
+  margin-left: .7em;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .04em;
+}
 .name-note dd {
   margin: 8px 0 0;
   padding-bottom: 20px;
