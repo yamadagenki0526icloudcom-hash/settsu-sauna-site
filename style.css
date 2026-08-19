@@ -646,9 +646,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .footer p { font-size: 10px; line-height: 1.7; }
 /* SNSは「行き先」なので、実務リンク（プライバシー等）より一段強くする。
    TikTok等が増えても横に並べられるよう a + a で間隔を持たせている */
-.footer .footer-social { margin-top: 18px; font-size: 11px; letter-spacing: .08em; }
-.footer-social a { color: #444; border-bottom: 1px solid #ddd; }
-.footer-social a + a { margin-left: 20px; }
+.footer .footer-social { margin-top: 16px; line-height: 1; }
+/* アイコンだけだと押しにくいので、44pxのタップ領域を確保する（見た目は22px） */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #666;
+  transition: color .2s;
+}
+.footer-social a:hover { color: var(--ink); }
+.footer-social svg { display: block; }
+.footer-social a + a { margin-left: 4px; }
 .footer-links { margin-top: 14px; font-size: 10px; }
 .footer-links a { color: #8a8a8a; border-bottom: 1px solid #ddd; }
 .footer .copyright { margin-top: 35px; color: #999; font-size: 8px; }
