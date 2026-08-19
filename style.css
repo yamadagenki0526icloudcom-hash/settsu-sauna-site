@@ -646,7 +646,27 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .footer p { font-size: 10px; line-height: 1.7; }
 /* SNSは「行き先」なので、実務リンク（プライバシー等）より一段強くする。
    TikTok等が増えても横に並べられるよう a + a で間隔を持たせている */
-.footer .footer-social { margin-top: 16px; line-height: 1; }
+/* Instagramが2つ並ぶため、どのアカウントかをラベルで示す。
+   狭い画面ではグループ単位で折り返す */
+.footer-social {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 26px;
+}
+.footer-social .social-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.footer .footer-social .social-group > span {
+  margin-right: 6px;
+  color: #999;
+  font-size: 10px;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
 /* アイコンだけだと押しにくいので、44pxのタップ領域を確保する（見た目は22px） */
 .footer-social a {
   display: inline-flex;
@@ -659,7 +679,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 }
 .footer-social a:hover { color: var(--ink); }
 .footer-social svg { display: block; }
-.footer-social a + a { margin-left: 4px; }
+
 .footer-links { margin-top: 14px; font-size: 10px; }
 .footer-links a { color: #8a8a8a; border-bottom: 1px solid #ddd; }
 .footer .copyright { margin-top: 35px; color: #999; font-size: 8px; }
