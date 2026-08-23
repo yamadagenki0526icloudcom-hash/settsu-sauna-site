@@ -60,13 +60,14 @@
     const note = document.getElementById('preorderNote');
     const inStock = ['S', 'M', 'L', 'XL'].filter((s) => typeof links[s] === 'string' && links[s].startsWith('https://'));
 
+    const fee = document.getElementById('shipFee');
+    if (cfg.shipping && fee) fee.textContent = '・送料' + cfg.shipping;
+
     if (cfg.shipping && cfg.shipFrom && inStock.length) {
       [...sel.options].forEach((o) => { o.disabled = !inStock.includes(o.value); });
       sel.value = inStock[0];
       sel.disabled = false;
 
-      const fee = document.getElementById('shipFee');
-      if (fee) fee.textContent = '・送料' + cfg.shipping;
       const when = document.getElementById('shipWhen');
       if (when) when.textContent = cfg.shipFrom + 'の発送を予定しています。';
       const bar = document.getElementById('topbar');
