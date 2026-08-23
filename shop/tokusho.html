@@ -20,7 +20,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-4SYT5TZ86Y');
 </script>
-<link rel="stylesheet" href="shop.css?v=11">
+<link rel="stylesheet" href="shop.css?v=13">
 </head>
 <body>
 
@@ -82,7 +82,7 @@ gtag('config', 'G-4SYT5TZ86Y');
 
     <div>
       <dt>商品代金以外に必要な費用</dt>
-      <dd><span class="tk-pending tk-pending--own">社内で決定</span>
+      <dd id="tkShipping"><span class="tk-pending tk-pending--own">社内で決定</span>
         <small>送料。全国一律にするか、商品価格に含めるかを決めます。含める場合はその分が原価率に乗るため、乾さんと数字を共有してから決めます。</small>
       </dd>
     </div>
@@ -103,7 +103,7 @@ gtag('config', 'G-4SYT5TZ86Y');
 
     <div>
       <dt>商品の引渡時期</dt>
-      <dd><span class="tk-pending tk-pending--own">社内で決定</span>
+      <dd id="tkShipFrom"><span class="tk-pending tk-pending--own">社内で決定</span>
         <small>予約販売のため「◯年◯月◯日頃より順次発送」と明記します。印刷の発注から納品までの日程が固まり次第、こちらで記載します。</small>
       </dd>
     </div>
@@ -117,7 +117,7 @@ gtag('config', 'G-4SYT5TZ86Y');
 
   </dl>
 
-  <p class="tk-note">
+  <p class="tk-note" id="tkNote">
     このページは作成中です。「要確認」の項目が残っている間は販売を開始しません。
     ご不明な点は <a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> までお問い合わせください。
   </p>
@@ -135,6 +135,7 @@ gtag('config', 'G-4SYT5TZ86Y');
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="shop.js?v=4"></script>
+<script src="preorder.js?v=1"></script>
+<script src="shop.js?v=5"></script>
 </body>
 </html>

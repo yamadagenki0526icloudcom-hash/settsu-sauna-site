@@ -32,6 +32,57 @@
     showToast('カート画面はまだありません。商品と販売方法を検討中です。');
   });
 
+  /* ---------- 特定商取引法の表記（予約受付の設定から埋める） ---------- */
+  const tkShipping = document.getElementById('tkShipping');
+  if (tkShipping) {
+    const cfg = window.NSA_PREORDER || {};
+    const tkShipFrom = document.getElementById('tkShipFrom');
+    if (cfg.shipping) tkShipping.textContent = cfg.shipping;
+    if (cfg.shipFrom && tkShipFrom) tkShipFrom.textContent = cfg.shipFrom + 'より順次発送します。';
+    if (cfg.shipping && cfg.shipFrom) {
+      const bar = document.querySelector('.topbar');
+      if (bar) bar.remove();
+      const note = document.getElementById('tkNote');
+      if (note) note.innerHTML = 'ご不明な点は <a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> までお問い合わせください。';
+    }
+  }
+
+  /* ---------- Tシャツ 予約受付 ----------
+     設定は商品ページ側の window.NSA_PREORDER に置く。
+     送料・引渡時期・Payment Link が揃うまでは受付を開かない
+     （特定商取引法11条で、送料と引渡時期は広告時の表示義務がある）。 */
+  const preorder = document.getElementById('preorder');
+  if (preorder) {
+    const cfg = window.NSA_PREORDER || {};
+    const links = cfg.links || {};
+    const sel = document.getElementById('size');
+    const btn = document.getElementById('preorderBtn');
+    const note = document.getElementById('preorderNote');
+    const inStock = ['S', 'M', 'L', 'XL'].filter((s) => typeof links[s] === 'string' && links[s].startsWith('https://'));
+
+    if (cfg.shipping && cfg.shipFrom && inStock.length) {
+      [...sel.options].forEach((o) => { o.disabled = !inStock.includes(o.value); });
+      sel.value = inStock[0];
+      sel.disabled = false;
+
+      const fee = document.getElementById('shipFee');
+      if (fee) fee.textContent = '・送料' + cfg.shipping;
+      const when = document.getElementById('shipWhen');
+      if (when) when.textContent = cfg.shipFrom + 'の発送を予定しています。';
+      const bar = document.getElementById('topbar');
+      if (bar) bar.innerHTML = '<strong>予約を受け付けています。</strong>' +
+        '<span>ご注文をいただいてから印刷します。' + cfg.shipFrom + 'の発送予定です。</span>';
+
+      btn.disabled = false;
+      btn.textContent = '予約する（¥3,850）';
+      note.textContent = 'お支払いはStripeの決済ページで行います。送料' + cfg.shipping + 'が別途かかります。';
+      btn.addEventListener('click', () => {
+        const url = links[sel.value];
+        if (url) window.location.href = url;
+      });
+    }
+  }
+
   /* ---------- 質問チップ → 商品フィルタ ---------- */
   const chips = document.getElementById('askChips');
   if (chips) {

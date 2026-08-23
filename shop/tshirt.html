@@ -20,12 +20,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-4SYT5TZ86Y');
 </script>
-<link rel="stylesheet" href="shop.css?v=11">
+<link rel="stylesheet" href="shop.css?v=13">
 </head>
 <body>
 
 <a class="skip-link" href="#productMain">商品情報へ移動</a>
-<p class="topbar"><strong>準備中のページです。まだ予約は受け付けていません。</strong><span>写真は撮影後に差し替えます。発送時期は製造スケジュール確定後に記載します。</span></p>
+<p class="topbar" id="topbar"><strong>準備中のページです。まだ予約は受け付けていません。</strong><span>掲載しているのはイメージ図です。実物の写真は撮影後に差し替えます。</span></p>
 
 <header class="snav">
   <a class="snav-back" href="../">← NSAトップ</a>
@@ -41,32 +41,34 @@ gtag('config', 'G-4SYT5TZ86Y');
 <section class="pdp">
   <p class="pdp-crumb"><a href="../">NSAトップ</a>　/　オンラインストア　/　サウナ帰りに着るTシャツ</p>
 
-  <div class="pdp-gallery" role="region" aria-label="商品イメージ。横にスクロールして表示できます">
-    <span class="card-media tone-clay">
-      <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M36 34l-14 8 8 14 8-5v37h44V51l8 5 8-14-14-8-16-6a12 12 0 0 1-20 0z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-      <span class="card-tag">写真準備中</span>
+  <div class="pdp-gallery" role="region" aria-label="商品イメージ">
+    <span class="card-media tone-ivory pdp-shot">
+      <img src="../assets/tshirt-front.svg" width="800" height="880" loading="eager" decoding="async"
+           alt="黒のドライTシャツの胸中央に、NEXT SETTSU ALLIANCE のロゴを白1色でプリントした正面イメージ">
+      <span class="card-tag">イメージ図</span>
     </span>
-    <span class="card-media tone-ivory">
-      <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="42" width="52" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M34 55h52M60 42v40" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 4"/></svg>
-      <span class="card-tag">畳んだ状態</span>
+    <span class="card-media tone-ivory pdp-spec">
+      <img src="../assets/tshirt-print.svg" width="800" height="520" loading="lazy" decoding="async"
+           alt="胸のプリントの寸法図。横18センチ、縦7センチの範囲に白1色で刷る">
+      <span class="card-tag">プリント寸法</span>
     </span>
   </div>
 
   <div class="pdp-info">
     <h1>サウナ帰りに着るTシャツ</h1>
     <p class="pdp-lead">思い立った日に、行ける。<br>小さく畳んで、カバンに入れっぱなしにできる一枚。</p>
-    <p class="pdp-price"><span>¥3,850</span> <small>税込・送料別</small></p>
+    <p class="pdp-price"><span>¥3,850</span> <small>税込<span id="shipFee">・送料別</span></small></p>
 
-    <div class="pdp-row">
+    <div class="pdp-row" id="preorder">
       <label class="pdp-field pdp-field-color" for="size">
         <span>サイズ</span>
         <select id="size" disabled>
-          <option>S</option><option>M</option><option>L</option><option>XL</option>
+          <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>
         </select>
       </label>
     </div>
-    <button class="pdp-add" type="button" disabled>予約受付は準備中です</button>
-    <p class="pdp-demo">予約の開始日が決まりしだい、このページでお知らせします。</p>
+    <button class="pdp-add" id="preorderBtn" type="button" disabled>予約受付は準備中です</button>
+    <p class="pdp-demo" id="preorderNote">予約の開始日が決まりしだい、このページでお知らせします。</p>
 
     <div class="pdp-acc">
       <details open>
@@ -82,7 +84,7 @@ gtag('config', 'G-4SYT5TZ86Y');
       </details>
       <details>
         <summary>配送について</summary>
-        <p><strong>予約販売です。</strong>ご注文時にお支払いいただき、商品は後日まとめて発送します。発送予定時期は、製造スケジュールが確定しだいこのページに明記します。</p>
+        <p><strong>受注生産の予約販売です。</strong>ご注文をいただいてから印刷し、後日まとめて発送します。ご注文時にお支払いいただきます。<span id="shipWhen">発送予定時期は、印刷の日程が確定しだいこのページに明記します。</span></p>
       </details>
       <details>
         <summary>返品・交換</summary>
@@ -126,6 +128,7 @@ gtag('config', 'G-4SYT5TZ86Y');
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="shop.js?v=4"></script>
+<script src="preorder.js?v=1"></script>
+<script src="shop.js?v=5"></script>
 </body>
 </html>
