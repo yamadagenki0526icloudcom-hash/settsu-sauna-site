@@ -1,0 +1,115 @@
+/* 活動報告ページ専用。LPのトークン（--gold/--soft-gold/--line）と
+   モーションの言語（湯気のように下から立ち上がる／power3.out）をそのまま引き継ぐ。 */
+
+.log-wrap { position: relative; --axis: 106px; }
+
+/* 時間の軸。下地の細線と、スクロールで伸びる青の線を重ねる */
+.log-wrap::before {
+  content: "";
+  position: absolute;
+  left: var(--axis);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.log-axis {
+  position: absolute;
+  left: var(--axis);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--gold);
+  transform-origin: top;
+}
+
+.log { list-style: none; position: relative; }
+
+.log > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 28px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+.log > li:last-child { border-bottom: 1px solid var(--line); }
+
+/* 軸の上に打つ節目の点 */
+.log > li::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--axis) - 3px);
+  top: 32px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-sizing: border-box;
+}
+.log > li.milestone::before {
+  width: 9px;
+  height: 9px;
+  left: calc(var(--axis) - 4px);
+  top: 31px;
+  background: var(--soft-gold);
+  border-color: var(--soft-gold);
+}
+
+.log time {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+
+.log h3 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: .04em;
+}
+.log p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: .03em;
+}
+
+.log-note {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 2;
+  text-align: center;
+}
+
+/* ---- モーション。js-motion が付いているときだけ初期状態を伏せる ---- */
+html.js-motion .log-axis { transform: scaleY(0); }
+html.js-motion .log > li::before {
+  opacity: 0;
+  transform: scale(.4);
+  transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
+}
+html.js-motion .log > li.is-lit::before { opacity: 1; transform: scale(1); }
+/* 節目だけ、灯る瞬間にひと呼吸おいて広がる */
+html.js-motion .log > li.milestone::before { transition-duration: .7s; transition-delay: .08s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion .log-axis { transform: scaleY(1); }
+  html.js-motion .log > li::before { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 600px) {
+  .log-wrap { --axis: 75px; }
+  .log > li { grid-template-columns: 68px 1fr; gap: 14px; padding: 20px 0; }
+  .log > li::before { top: 26px; }
+  .log > li.milestone::before { top: 25px; }
+  .log time { font-size: 10px; }
+  .log h3 { font-size: 13px; }
+  .log p { font-size: 11.5px; }
+}
