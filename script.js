@@ -115,7 +115,7 @@
 
   /* ---------- 写真・図面は下から拭き上げるように現す ---------- */
   gsap.utils
-    .toArray('.feature-figure img, .plan-grid figure, .story-grid img, .about-mark')
+    .toArray('.feature-figure .pfx, .plan-grid figure, .story-grid img, .about-mark')
     .forEach((el) => {
       gsap.from(el, {
         clipPath: 'inset(0% 0% 100% 0%)',
@@ -125,6 +125,47 @@
         scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       });
     });
+
+  /* ---------- 大きな写真は枠の中でゆっくり流れる（奥行きを出す） ----------
+     imgを枠(.pfx)で包み、枠より14%高くした写真を上下に動かす。
+     枠は動かないので、レイアウトは一切変わらない。 */
+  gsap.utils.toArray('.feature-figure img').forEach((img) => {
+    const wrap = document.createElement('span');
+    wrap.className = 'pfx';
+    img.parentNode.insertBefore(wrap, img);
+    wrap.appendChild(img);
+    gsap.fromTo(img,
+      { yPercent: -4.5 },
+      {
+        yPercent: 4.5,
+        ease: 'none',
+        scrollTrigger: { trigger: wrap, start: 'top bottom', end: 'bottom top', scrub: 0.8 }
+      });
+  });
+
+  /* ---------- 計画の年表: 軸が左から引かれ、点が順に灯る ---------- */
+  const timeline = document.querySelector('.timeline');
+  if (timeline) {
+    const axis = document.createElement('span');
+    axis.className = 'timeline-axis';
+    axis.setAttribute('aria-hidden', 'true');
+    timeline.appendChild(axis);
+    gsap.fromTo(axis,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: { trigger: timeline, start: 'top 82%', end: 'bottom 72%', scrub: 0.6 }
+      });
+    timeline.querySelectorAll('li').forEach((li) => {
+      ScrollTrigger.create({
+        trigger: li,
+        start: 'top 78%',
+        once: true,
+        onEnter: () => li.classList.add('is-lit')
+      });
+    });
+  }
 
   /* ---------- 本文・ボタンはやわらかく ---------- */
   gsap.utils
