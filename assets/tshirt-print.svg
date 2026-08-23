@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 170" width="800" height="520" role="img" aria-labelledby="pTitle pDesc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 260 190" width="1000" height="730" role="img" aria-labelledby="pTitle pDesc">
   <title id="pTitle">胸のプリント寸法</title>
   <desc id="pDesc">横180ミリ、縦70ミリの範囲に、NEXT SETTSU ALLIANCE のロゴを白1色でシルクスクリーン印刷します。</desc>
-  <rect width="260" height="170" fill="#22222a"/>
+  <rect x="0" y="-10" width="260" height="190" fill="#22222a"/>
 
   <!-- 版の範囲 W180 × H70 -->
   <rect x="40" y="52" width="180" height="70" fill="none" stroke="#6d6d78" stroke-width=".8" stroke-dasharray="4 3"/>

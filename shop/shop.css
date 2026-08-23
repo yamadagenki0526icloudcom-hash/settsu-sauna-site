@@ -150,8 +150,7 @@ a.card-media:hover{transform:translateY(-4px)}
 .card-media svg{width:52%;color:var(--char);opacity:.75;transition:transform .6s}
 .card-media:hover svg{transform:scale(1.06)}
 .card-media img{width:100%;height:100%;object-fit:contain;display:block}
-.pdp-shot img{padding:6% 8%}
-.pdp-spec img{object-fit:contain}
+.pdp-gallery img{object-fit:cover}
 .tone-ivory{background:#EFEAE0}
 .tone-clay{background:var(--clay)}
 .tone-wood{background:var(--wood)}
@@ -222,8 +221,8 @@ a.card-media:hover{transform:translateY(-4px)}
 .pdp-crumb{grid-column:1/-1;font-size:11px;letter-spacing:.14em;color:var(--mute)}
 .pdp-crumb a:hover{color:var(--char)}
 .pdp-gallery{display:grid;gap:14px}
-.pdp-gallery .card-media{aspect-ratio:4/4.6;margin:0}
-.pdp-gallery .pdp-spec{aspect-ratio:260/170;background:#22222a}
+.pdp-gallery .card-media{aspect-ratio:1000/730;margin:0;background:#9a9a9a}
+.pdp-gallery .pdp-spec{background:#22222a}
 .pdp-info{position:sticky;top:110px;align-self:start}
 .pdp-info h1{font-family:var(--mincho);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:.12em;line-height:1.7}
 .pdp-lead{margin-top:12px;font-size:13px;font-weight:300;color:var(--mute);letter-spacing:.06em}
