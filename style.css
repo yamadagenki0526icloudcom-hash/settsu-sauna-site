@@ -47,6 +47,17 @@ button, input { font: inherit; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
 /* Masthead and repeated navigation */
+/* 開幕シークエンスの初期状態。js-motion が外れる（GSAP欠落・省モーション）と
+   このセレクタごと効かなくなり、静止画としてそのまま見える。 */
+html.js-motion .masthead .brand,
+html.js-motion .site-nav-inner > a,
+html.js-motion .hero-button { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion .masthead .brand,
+  html.js-motion .site-nav-inner > a,
+  html.js-motion .hero-button { opacity: 1; }
+}
+
 .masthead {
   height: 292px;
   display: grid;

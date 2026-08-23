@@ -44,12 +44,19 @@
   const ease = 'power3.out';
 
   /* ---------- ヒーロー: 読み込み時のシークエンス ---------- */
+  /* 額縁（ロゴ→ナビ）が立ち上がってから、ヒーローが開く。
+     ロゴは湯気のマークなので、ページ全体と同じく下から現す。
+     伏せた初期状態はCSSの html.js-motion 側に置いてあり、
+     GSAPが無い／省モーション時は js-motion が外れてそのまま見える。 */
   const intro = gsap.timeline({ defaults: { ease } });
   intro
-    .from('.hero-image', { scale: 1.09, duration: 1.8, ease: 'power2.out' }, 0)
-    .from('.hero-wordmark .wm i', { yPercent: 115, duration: 1.1, stagger: 0.085 }, 0.15)
-    .from('.hero h1', { y: 26, opacity: 0, duration: 0.9 }, 0.6)
-    .from('.hero-lead', { y: 18, opacity: 0, duration: 0.9 }, 0.75);
+    .from('.hero-image', { scale: 1.09, duration: 1.6, ease: 'power2.out' }, 0)
+    .fromTo('.masthead .brand', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.95 }, 0.05)
+    .fromTo('.site-nav-inner > a', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.04 }, 0.35)
+    .from('.hero-wordmark .wm i', { yPercent: 115, duration: 1.0, stagger: 0.08 }, 0.4)
+    .from('.hero h1', { y: 26, opacity: 0, duration: 0.85 }, 0.8)
+    .from('.hero-lead', { y: 18, opacity: 0, duration: 0.85 }, 0.95)
+    .fromTo('.hero-button', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7 }, 1.08);
 
   /* ---------- ヒーロー: スクロールで奥へ引く ---------- */
   gsap.to('.hero-image', {
