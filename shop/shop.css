@@ -66,9 +66,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 }
 .snav-back{font-size:12px;letter-spacing:.02em;color:var(--mute);transition:color .3s;display:inline-flex;align-items:center;min-height:44px}
 .snav-back:hover{color:var(--char)}
-.snav-logo{text-align:center;display:flex;flex-direction:column;gap:2px}
-.snav-logo-en{font-family:var(--garam);font-size:11px;letter-spacing:.04em;text-indent:.5em;color:var(--mute)}
-.snav-logo-jp{font-family:var(--mincho);font-weight:800;font-size:22px;letter-spacing:.04em;text-indent:.3em}
+.snav-logo{display:flex;align-items:center;justify-content:center;text-decoration:none}
+.snav-logo img{height:42px;width:auto;display:block}
 .snav-cart{
   justify-self:end;display:flex;align-items:center;gap:8px;
   background:none;border:1px solid var(--hair);border-radius:999px;
@@ -348,9 +347,7 @@ a.card-media:hover{transform:translateY(-4px)}
   .topbar{font-size:10px;letter-spacing:normal}
   .snav{padding:12px 16px}
   .snav-back{font-size:10.5px;white-space:nowrap}
-  .snav-logo-en{font-size:9px;letter-spacing:.04em}
-  .snav-logo-jp{font-size:17px;letter-spacing:.04em}
-  .snav-cart{white-space:nowrap;padding:6px 12px;font-size:11px;gap:6px;min-height:44px}
+      .snav-cart{white-space:nowrap;padding:6px 12px;font-size:11px;gap:6px;min-height:44px}
   .snav-cart b{width:18px;height:18px;font-size:11px}
   .welcome-en{letter-spacing:.04em;font-size:11px}
   .welcome-title{letter-spacing:.02em}
