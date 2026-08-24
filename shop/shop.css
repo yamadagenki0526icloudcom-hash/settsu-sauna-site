@@ -88,7 +88,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
 /* ---------- welcome ---------- */
 .welcome{
-  min-height:82svh;display:flex;flex-direction:column;
+  min-height:58svh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;text-align:center;
   padding:80px var(--pad) 60px;position:relative;
 }
@@ -134,8 +134,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
 /* ---------- products ---------- */
 .products{padding:clamp(50px,8vh,90px) var(--pad)}
+/* 列数は固定せず、点数に応じて並ぶ。商品が少ないときは中央に寄る */
 .products-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,400px));
+  justify-content:center;
   gap:clamp(26px,3vw,44px) clamp(18px,2.4vw,32px);
 }
 .card{transition:opacity .45s,transform .45s}
@@ -222,6 +224,10 @@ a.card-media:hover{transform:translateY(-4px)}
 .pdp-crumb a:hover{color:var(--char)}
 .pdp-gallery{display:grid;gap:14px}
 .pdp-gallery .card-media{aspect-ratio:1000/730;margin:0;background:#9a9a9a}
+/* 一覧: 写真のカードは商品画像の比率に合わせ、アイコンのカードも高さを揃える */
+.products .card-media{aspect-ratio:1000/730}
+.products .card-photo{background:#9a9a9a}
+.products .card-photo img{object-fit:cover}
 .pdp-gallery .pdp-spec{background:#22222a}
 .pdp-info{position:sticky;top:110px;align-self:start}
 .pdp-info h1{font-family:var(--mincho);font-weight:600;font-size:clamp(24px,2.6vw,34px);letter-spacing:.12em;line-height:1.7}
@@ -305,9 +311,7 @@ a.card-media:hover{transform:translateY(-4px)}
 .pdp-calc{margin-top:8px;font-size:11.5px;color:var(--sun-text);letter-spacing:.08em}
 
 /* ---------- responsive ---------- */
-@media (max-width:1080px){.products-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:860px){
-  .products-grid{grid-template-columns:repeat(2,1fr)}
   .edit{grid-template-columns:1fr}
   .edit-media{min-height:300px}
   .pdp{grid-template-columns:1fr}
@@ -330,7 +334,7 @@ a.card-media:hover{transform:translateY(-4px)}
   .snav-cart b{width:18px;height:18px;font-size:11px}
   .welcome-en{letter-spacing:.3em;font-size:11px}
   .welcome-title{letter-spacing:.1em}
-  .products-grid{grid-template-columns:1fr;gap:34px}
+  .products-grid{gap:34px}
   .pdp-row{gap:10px}
   .products-count{letter-spacing:.16em}
   .buy-cta{width:100%;letter-spacing:.12em;text-indent:.12em}

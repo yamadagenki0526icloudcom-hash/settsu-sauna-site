@@ -1,51 +1,9 @@
-/* 避ス地商店 — filter / cart(demo) / motion
+/* オンラインストア — 予約受付 / 特商法の表記 / モーション
    モーションはトップページと同じ「下から立ち上がる」コンセプトで統一する。
    GSAP / Lenis が読めない場合と省モーション設定では静的表示にフォールバックする。 */
 (function () {
   const root = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- カート（デモ: localStorage） ---------- */
-  const countEl = document.getElementById('cartCount');
-  const toast = document.getElementById('toast');
-  const getCount = () => Math.max(0, +(localStorage.getItem('hisuchi-cart') || 0) || 0);
-  const render = () => { if (countEl) countEl.textContent = getCount(); };
-  render();
-
-  const showToast = (message) => {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add('is-show');
-    clearTimeout(toast._t);
-    toast._t = setTimeout(() => toast.classList.remove('is-show'), 2600);
-  };
-
-  window.hisuchiAdd = (qty) => {
-    const safeQty = Math.min(9, Math.max(1, Number.isFinite(qty) ? Math.round(qty) : 1));
-    localStorage.setItem('hisuchi-cart', getCount() + safeQty);
-    render();
-    showToast(`${safeQty}点をデモカートに追加しました。注文・決済は行われません。`);
-  };
-
-  const cartBtn = document.getElementById('cartBtn');
-  if (cartBtn) cartBtn.addEventListener('click', () => {
-    showToast('カート画面はまだありません。商品と販売方法を検討中です。');
-  });
-
-  /* ---------- 特定商取引法の表記（予約受付の設定から埋める） ---------- */
-  const tkShipping = document.getElementById('tkShipping');
-  if (tkShipping) {
-    const cfg = window.NSA_PREORDER || {};
-    const tkShipFrom = document.getElementById('tkShipFrom');
-    if (cfg.shipping) tkShipping.textContent = cfg.shipping;
-    if (cfg.shipFrom && tkShipFrom) tkShipFrom.textContent = cfg.shipFrom + 'より順次発送します。';
-    if (cfg.shipping && cfg.shipFrom) {
-      const bar = document.querySelector('.topbar');
-      if (bar) bar.remove();
-      const note = document.getElementById('tkNote');
-      if (note) note.innerHTML = 'ご不明な点は <a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> までお問い合わせください。';
-    }
-  }
 
   /* ---------- Tシャツ 予約受付 ----------
      設定は商品ページ側の window.NSA_PREORDER に置く。
@@ -83,86 +41,6 @@
       });
     }
   }
-
-  /* ---------- 質問チップ → 商品フィルタ ---------- */
-  const chips = document.getElementById('askChips');
-  if (chips) {
-    const cards = [...document.querySelectorAll('.card')];
-    const filterStatus = document.getElementById('filterStatus');
-    const countEl2 = document.getElementById('productsCount');
-    const emptyEl = document.getElementById('productsEmpty');
-    chips.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-filter]');
-      if (!btn) return;
-      chips.querySelectorAll('button').forEach((b) => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-pressed', 'true');
-      const f = btn.dataset.filter;
-      const shown = [];
-      cards.forEach((c) => {
-        const hidden = f !== 'all' && !c.dataset.cat.split(' ').includes(f);
-        c.classList.toggle('is-hidden', hidden);
-        if (!hidden) shown.push(c);
-      });
-      if (filterStatus) filterStatus.textContent = `${shown.length}件の商品を表示しています`;
-      if (countEl2) {
-        countEl2.innerHTML = f === 'all'
-          ? `全 <b>${shown.length}</b> 点（検討中）`
-          : `<b>${btn.textContent}</b> に合う品 <b>${shown.length}</b> 点`;
-      }
-      if (emptyEl) emptyEl.hidden = shown.length > 0;
-      /* 絞り込み後に残ったカードを順に出し直し、切り替わりを体感できるようにする */
-      if (typeof gsap !== 'undefined' && !reduced) {
-        gsap.fromTo(shown, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'power2.out', overwrite: true });
-      }
-    });
-  }
-
-  /* ---------- 商品詳細: 選んだ内容で合計金額を出す ---------- */
-  const priceEl = document.getElementById('pdpPrice');
-  if (priceEl) {
-    const base = +priceEl.dataset.base || 0;
-    const totalEl = document.getElementById('pdpTotal');
-    const calcEl = document.getElementById('pdpCalc');
-    const colorSel = document.getElementById('color');
-    const qtyInput = document.getElementById('qty');
-    const yen = (n) => `¥${n.toLocaleString('ja-JP')}`;
-
-    const updatePrice = () => {
-      const opt = colorSel && colorSel.selectedOptions[0];
-      const add = opt ? +opt.dataset.add || 0 : 0;
-      const qty = Math.min(9, Math.max(1, Math.round(+qtyInput.value) || 1));
-      const unit = base + add;
-      if (totalEl) totalEl.textContent = yen(unit * qty);
-      if (calcEl) {
-        /* 単価と個数が分かる内訳。加算なし・1点のときは出さない */
-        const parts = [];
-        if (add) parts.push(`刺繍 +${yen(add)}`);
-        if (qty > 1) parts.push(`${yen(unit)} × ${qty}点`);
-        calcEl.textContent = parts.join('／');
-        calcEl.hidden = parts.length === 0;
-      }
-    };
-
-    if (colorSel) colorSel.addEventListener('change', updatePrice);
-    if (qtyInput) {
-      qtyInput.addEventListener('input', updatePrice);
-      qtyInput.addEventListener('change', updatePrice);
-    }
-    updatePrice();
-  }
-
-  /* 主要な導線のクリックを計測する。どのボタンから動いたかを区別できるようにしておく */
-  document.querySelectorAll('[data-track]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      if (typeof gtag === 'function') {
-        gtag('event', 'cta_click', { cta: el.dataset.track });
-      }
-    });
-  });
 
   /* ---------- モーション ---------- */
   const revealTargets = document.querySelectorAll('.card, .edit-text, .edit-media, .ask-q, .ask-chips, .buy > *, .pdp-gallery, .pdp-info, .pdp-story');
