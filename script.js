@@ -167,9 +167,9 @@
     });
   }
 
-  /* ---------- 本文・ボタンはやわらかく ---------- */
+  /* ---------- 本文・補足はやわらかく ---------- */
   gsap.utils
-    .toArray('.about-lead, .about-signature, .statement, .center-copy, .domains-note, .outline-button, .human-quote, .quote-by, .feature-name')
+    .toArray('.about-lead, .about-signature, .statement, .center-copy, .domains-note, .outline-button, .human-quote, .quote-by, .feature-name, .place-intro, .students-note, .contact-note, .contact-info')
     .forEach((el) => {
       gsap.from(el, {
         y: 18,
@@ -179,6 +179,22 @@
         scrollTrigger: { trigger: el, start: 'top 92%', once: true }
       });
     });
+
+  /* ---------- 主要なCTAは、少し遅れて確かに現れる ----------
+     サウナを見る / 学生メンバーに登録する / フォームで問い合わせる の3本。
+     周りの本文より一拍おいて出すことで、押す場所だとわかるようにする。 */
+  /* ヒーロー内のボタンは読み込み時のシークエンスで既に動かしているため除く。
+     重ねるとintroとscrollTriggerが競合し、初期表示で消える */
+  gsap.utils.toArray('.solid-button:not(.hero-button)').forEach((el) => {
+    gsap.from(el, {
+      y: 22,
+      opacity: 0,
+      duration: 0.9,
+      delay: 0.12,
+      ease,
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true }
+    });
+  });
 
   /* ---------- クラウドファンディング ---------- */
   const support = document.querySelector('.support-inner');
