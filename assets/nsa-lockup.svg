@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
      width="180mm" height="70mm" viewBox="0 0 1400 545">
+  <style>
+    /* master/nsa-logo_color-transparent.svg と同じ色。湯気=橙・石=青・文字=黒 */
+    #steam-gather-left,#steam-settsu-s-center,#steam-spread-right{fill:#f05a24}
+    #stone-top-left,#stone-bottom-left,#stone-top-right,#stone-bottom-right{fill:#0756a6}
+  </style>
   <title>NEXT SETTSU ALLIANCE horizontal product lockup</title>
   <desc>Official NSA mark with a one-line wordmark. Every letter is a separate editable vector object.</desc>
   
