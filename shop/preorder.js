@@ -16,5 +16,10 @@
 window.NSA_PREORDER = {
   shipping: '全国一律 250円',
   shipFrom: 'ご注文から最長4週間以内に発送します',
-  links: { S: '', M: '', L: '', XL: '' }
+  links: {
+    S:  'https://buy.stripe.com/5kQbIU8H1drycpUfCg2oE01',
+    M:  'https://buy.stripe.com/00waEQ8H19biey2gGk2oE02',
+    L:  'https://buy.stripe.com/3cI8wIcXh4V2fC689O2oE03',
+    XL: 'https://buy.stripe.com/eVq6oAcXh1IQ2PkfCg2oE04'
+  }
 };
