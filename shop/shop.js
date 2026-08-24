@@ -26,11 +26,13 @@
       sel.value = inStock[0];
       sel.disabled = false;
 
+      /* shipFrom は文全体（例: 'ご注文から最長3週間以内に発送します'）。
+         固定の暦日ではなく、注文からの経過日数で動くため。 */
       const when = document.getElementById('shipWhen');
-      if (when) when.textContent = cfg.shipFrom + 'の発送を予定しています。';
+      if (when) when.textContent = cfg.shipFrom + '。';
       const bar = document.getElementById('topbar');
       if (bar) bar.innerHTML = '<strong>予約を受け付けています。</strong>' +
-        '<span>ご注文をいただいてから印刷します。' + cfg.shipFrom + 'の発送予定です。</span>';
+        '<span>' + cfg.shipFrom + '。</span>';
 
       btn.disabled = false;
       btn.textContent = '予約する（¥3,850）';
@@ -39,6 +41,28 @@
         const url = links[sel.value];
         if (url) window.location.href = url;
       });
+    }
+  }
+
+  /* ---------- 特定商取引法の表記（予約受付の設定から埋める） ----------
+     shop/tokusho.html が読む。tshirt.html と同じ window.NSA_PREORDER を
+     参照するので、数字を2か所に分けて書かない。
+     「開いているか」の判定は商品ページ側と同じにする。送料・引渡時期
+     だけ埋めてPayment Linkが無い段階で「作成中です」の注記を消すと、
+     このページだけ受付中に見えてしまい、実際の状態とずれる。 */
+  const tkShipping = document.getElementById('tkShipping');
+  if (tkShipping) {
+    const cfg = window.NSA_PREORDER || {};
+    const tkShipFrom = document.getElementById('tkShipFrom');
+    const tkOpen = !!(cfg.shipping && cfg.shipFrom &&
+      ['S', 'M', 'L', 'XL'].some((s) => typeof (cfg.links || {})[s] === 'string' && cfg.links[s].startsWith('https://')));
+    if (cfg.shipping) tkShipping.textContent = cfg.shipping;
+    if (cfg.shipFrom && tkShipFrom) tkShipFrom.textContent = cfg.shipFrom + '。';
+    if (tkOpen) {
+      const bar = document.querySelector('.topbar');
+      if (bar) bar.remove();
+      const note = document.getElementById('tkNote');
+      if (note) note.innerHTML = 'ご不明な点は <a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> までお問い合わせください。';
     }
   }
 
