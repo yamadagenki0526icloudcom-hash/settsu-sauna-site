@@ -90,7 +90,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .welcome{
   min-height:58svh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;text-align:center;
-  padding:80px var(--pad) 60px;position:relative;
+  padding:80px var(--pad) 140px;position:relative;
 }
 .welcome-en{
   font-family:var(--garam);font-size:clamp(13px,1.6vw,17px);
