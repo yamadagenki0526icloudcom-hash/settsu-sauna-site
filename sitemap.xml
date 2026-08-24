@@ -19,6 +19,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://nsa-settsu.jp/shop/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nsa-settsu.jp/shop/tshirt.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://nsa-settsu.jp/privacy.html</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>yearly</changefreq>
