@@ -232,7 +232,11 @@ a.card-media:hover{transform:translateY(-4px)}
 .pdp-crumb{grid-column:1/-1;font-size:11px;letter-spacing:.02em;color:var(--mute)}
 .pdp-crumb a:hover{color:var(--char)}
 .pdp-gallery{display:grid;gap:14px}
-.pdp-gallery .card-media{aspect-ratio:1000/730;margin:0;background:#9a9a9a}
+/* 商品写真は1000x1000の正方形。枠を横長にすると上下が切れる */
+.pdp-gallery .card-media{aspect-ratio:1/1;margin:0;background:var(--tile)}
+/* プリント寸法図だけは横長のまま、切らずに収める */
+.pdp-gallery .pdp-spec{aspect-ratio:260/190}
+.pdp-gallery .pdp-spec img{object-fit:contain}
 /* 一覧: 商品タイルは正方形・枠なし・角丸なし。写真だけが主役になる */
 .products .card-media{
   aspect-ratio:1/1;background:var(--tile);border-radius:0;
@@ -340,6 +344,8 @@ a.card-media:hover{transform:translateY(-4px)}
     overscroll-behavior-inline:contain;padding-bottom:8px;
   }
   .pdp-gallery .card-media{min-width:88%;scroll-snap-align:start}
+  /* flexだと高さが揃ってしまうため、寸法図の比率をここでも明示する */
+  .pdp-gallery .pdp-spec{aspect-ratio:260/190;align-self:start}
   .snav-back{font-size:11px}
   .sp{display:block}
 }
