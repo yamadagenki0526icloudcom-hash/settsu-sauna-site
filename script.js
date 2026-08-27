@@ -209,6 +209,19 @@
     });
   }
 
+  /* ---------- 完成イメージパースへ、スクロールで入っていく ----------
+     5案を試して残した1つ。他の4案は落とした理由を含めてコミットログに残してある。 */
+  const placeFig = document.querySelector('.section-place .feature-figure');
+  const placeImg = placeFig && placeFig.querySelector('img');
+  if (placeImg) {
+    gsap.fromTo(placeImg,
+      { scale: 1.0 },
+      {
+        scale: 1.28, ease: 'none',
+        scrollTrigger: { trigger: placeFig, start: 'top 80%', end: 'bottom top', scrub: 0.9 }
+      });
+  }
+
   /* 画像の遅延読み込みで高さが変わるため、読み込み完了後に位置を取り直す */
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();

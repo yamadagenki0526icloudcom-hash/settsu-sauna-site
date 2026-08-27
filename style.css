@@ -697,6 +697,10 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
    TikTok等が増えても横に並べられるよう a + a で間隔を持たせている */
 /* Instagramが2つ並ぶため、どのアカウントかをラベルで示す。
    狭い画面ではグループ単位で折り返す */
+/* パースへスクロールで入っていく: 枠の外に出た分を隠す */
+.section-place .feature-figure { overflow: hidden; }
+.section-place .feature-figure img { will-change: transform; }
+
 /* ============ フォロー導線 ============
    SNSはこれまでフッター最下部(ページの98.6%地点)に22pxのアイコンで
    置いていただけで、ほぼ気づかれなかった。独立したセクションにして
