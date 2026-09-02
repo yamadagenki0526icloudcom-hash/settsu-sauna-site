@@ -359,8 +359,9 @@ html.js-motion .hero-button { opacity: 0; }
   color: #111;
   font-weight: 700;
 }
-.section-about .about-signature {
-  margin-top: 25px;
+.about-signature {
+  margin: 25px 0 34px;
+  text-align: center;
   color: #111;
   font-size: 16px;
   font-weight: 700;
@@ -812,7 +813,7 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
   .news-list p { font-size: 11px; }
   .about-mark { height: 200px; }
   .section-about p { text-align: left; }
-  .section-about .about-lead, .section-about .about-signature { text-align: center; }
+  .section-about .about-lead, .about-signature { text-align: center; }
   .feature-figure img { aspect-ratio: 1.25 / 1; }
   .facility-grid, .team-list { grid-template-columns: 1fr; }
   .facility-grid p:nth-child(odd), .team-list li:nth-child(odd) { border-right: 0; }
