@@ -2,6 +2,7 @@
 .pdp > *{min-width:0}
 .pdp-wear{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
 .pdp-wear-photo{display:block;min-width:0;overflow:hidden}
+.pdp-product-shot{position:relative;background:var(--tile)}
 .pdp-wear-photo:first-child{grid-column:1/-1}
 .pdp-wear-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
 .pdp-wear-photo:focus-visible,.pdp-wear:focus-visible{outline:2px solid var(--char);outline-offset:4px}
