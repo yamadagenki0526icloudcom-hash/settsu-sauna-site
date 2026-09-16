@@ -1,0 +1,16 @@
+/* 着用写真は元の3:4の構図を保つ。 */
+.pdp > *{min-width:0}
+.pdp-wear{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start}
+.pdp-wear-photo{display:block;min-width:0;overflow:hidden}
+.pdp-wear-photo:first-child{grid-column:1/-1}
+.pdp-wear-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+.pdp-wear-photo:focus-visible,.pdp-wear:focus-visible{outline:2px solid var(--char);outline-offset:4px}
+.pdp-reference{display:grid;gap:12px;margin:16px 0}
+.pdp-reference .card-media{margin:0;aspect-ratio:1/1}
+.pdp-reference .pdp-spec{aspect-ratio:260/190;background:#22222a}
+.pdp-reference img{object-fit:contain}
+.products .card-wear{aspect-ratio:3/4}
+@media(max-width:860px){
+  .pdp-wear{align-items:flex-start}
+  .pdp-wear-photo{flex:0 0 88%;scroll-snap-align:start}
+}
