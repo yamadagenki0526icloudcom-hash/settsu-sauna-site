@@ -113,3 +113,8 @@ html.js-motion .log > li.milestone::before { transition-duration: .7s; transitio
   .log h3 { font-size: 13px; }
   .log p { font-size: 11.5px; }
 }
+
+/* 活動から商品・SNSへ直接進めるリンク。 */
+.log-links a{color:var(--gold);text-decoration:underline;text-underline-offset:.2em}
+.log-links a:hover{text-decoration-thickness:2px}
+.log-links a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
