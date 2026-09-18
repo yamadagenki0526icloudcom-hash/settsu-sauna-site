@@ -232,6 +232,16 @@ html.js-motion .hero-button { opacity: 0; }
   line-height: 1.7;
   letter-spacing: .04em;
 }
+/* 起承転結の章ラベル。h2の上に小さく置く */
+.section-heading .chapter {
+  margin: 0 0 12px;
+  color: var(--soft-gold);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .4em;
+  font-weight: 700;
+}
+.story-statement { margin-top: 56px; font-size: clamp(19px, 2.2vw, 28px); font-weight: 700; }
 .outline-button {
   width: 230px;
   min-height: 48px;
@@ -813,6 +823,7 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
   .news-list p { font-size: 11px; }
   .about-mark { height: 200px; }
   .section-about p { text-align: left; }
+  .section-about .section-heading p { text-align: center; }
   .section-about .about-lead, .about-signature { text-align: center; }
   .feature-figure img { aspect-ratio: 1.25 / 1; }
   .facility-grid, .team-list { grid-template-columns: 1fr; }
