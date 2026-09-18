@@ -232,16 +232,12 @@ html.js-motion .hero-button { opacity: 0; }
   line-height: 1.7;
   letter-spacing: .04em;
 }
-/* 起承転結の章ラベル。h2の上に小さく置く */
-.section-heading .chapter {
-  margin: 0 0 12px;
-  color: var(--soft-gold);
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: .4em;
-  font-weight: 700;
+/* 物語の入口。問題提起を見出しとして大きく出す */
+.section-heading-lead h2 {
+  font-size: clamp(23px, 3.4vw, 44px);
+  line-height: 1.5;
 }
-.story-statement { margin-top: 56px; font-size: clamp(19px, 2.2vw, 28px); font-weight: 700; }
+.section-heading-lead p { margin-top: 14px; }
 .outline-button {
   width: 230px;
   min-height: 48px;
