@@ -223,6 +223,18 @@
 
   /* 画像の遅延読み込みで高さが変わるため、読み込み完了後に位置を取り直す */
   window.addEventListener('load', () => ScrollTrigger.refresh());
+
+  /* ---------- 追従CTA: 支援セクションとフッターの上では隠す ---------- */
+  const floatingCta = document.querySelector('.floating-cta');
+  if (floatingCta && 'IntersectionObserver' in window) {
+    const hideZones = document.querySelectorAll('#support, .footer');
+    const seen = new Set();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)));
+      floatingCta.classList.toggle('is-hidden', seen.size > 0);
+    }, { rootMargin: '-40% 0px 0px 0px' });
+    hideZones.forEach((el) => io.observe(el));
+  }
 })();
 
 /* 主要な導線のクリックを計測する。どのボタンから動いたかを区別できるようにしておく */

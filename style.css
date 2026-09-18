@@ -854,3 +854,56 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
   .timeline li::before { top: 20px; left: 5px; transform: none; }
   .countdown b { font-size: 46px; }
 }
+
+/* ===== デザイン案 v2: 章を地色で切り、固有名詞の見出しを大きくする ===== */
+.section-dark {
+  background: #111;
+  color: #fff;
+}
+.section-dark .section-heading { border-top-color: rgba(255,255,255,.16); }
+.section-dark .section-heading p,
+.section-dark .name-note dd { color: #a9a9a9; }
+.section-dark > .section-inner > p,
+.section-dark .center-copy,
+.section-dark p { color: #d6d6d6; }
+.section-dark b, .section-dark .name-note dt { color: #fff; }
+.section-dark .name-note { border-color: rgba(255,255,255,.16); }
+.section-dark .name-note dt { color: #fff; }
+.section-dark .name-note dd b { color: #fff; }
+.section-dark .outline-button { border-color: rgba(255,255,255,.4); color: #fff; }
+.section-dark .outline-button:hover { background: #fff; color: #111; }
+.section-dark .center-copy { color: #d6d6d6; }
+
+.section-tint { background: #f4f3f1; }
+
+/* 固有名詞の見出しは大きく。セクションの説明文は小さいまま置いて差をつくる */
+.section-heading-xl h2 {
+  font-size: clamp(24px, 4.4vw, 52px);
+  line-height: 1.32;
+  letter-spacing: .02em;
+}
+.section-heading-xl p { margin-top: 16px; }
+
+/* 追従CTA。画面下中央に常時出す */
+.floating-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  z-index: 60;
+  transform: translateX(-50%);
+  padding: 13px 30px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  box-shadow: 0 8px 26px rgba(0,0,0,.22);
+  transition: background .25s, transform .25s, opacity .25s;
+}
+.floating-cta:hover { background: #063f79; }
+.floating-cta.is-hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(14px); }
+@media (max-width: 760px) {
+  .floating-cta { bottom: 16px; padding: 12px 26px; font-size: 11px; }
+  .section-dark .section-about p { text-align: left; }
+}
