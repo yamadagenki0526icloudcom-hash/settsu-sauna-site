@@ -1,4 +1,40 @@
+# NEXT SETTSU ALLIANCE
+# 検索エンジン・AI検索エンジンとも全ページの取得を許可しています。
+# 知ってもらうことが目的の団体のため、引用・参照は歓迎します。
+
 User-agent: *
+Allow: /
+
+# 検索エンジン
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI検索・回答エンジン（明示的に許可）
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://nsa-settsu.jp/sitemap.xml

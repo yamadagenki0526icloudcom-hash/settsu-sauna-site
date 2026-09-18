@@ -35,7 +35,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="stylesheet" href="style.css?v=60">
   <script>document.documentElement.classList.add('js-motion');</script>
-  <!-- 構造化データ。住所は登記・住居表示の確認が取れるまで載せない。窓口が未整備のためcontactPointも入れない -->
+  <!-- 構造化データ。NSA自体の所在地は未確定のため address は載せない（運営者=花岡工務店の住所とは別物）。窓口はメールのみ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,10 +48,24 @@
     "image": "https://nsa-settsu.jp/assets/og-image.jpg",
     "description": "サウナを入口に、企業・学生・行政・地域が手を組む連合体。第一の拠点は「避ス地 未知の駅 摂津サウナ」。",
     "foundingDate": "2026-07",
+    "email": "nsa.settsu@gmail.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "一般のお問い合わせ",
+      "email": "nsa.settsu@gmail.com",
+      "availableLanguage": "ja"
+    },
     "areaServed": {
       "@type": "City",
       "name": "摂津市",
       "containedInPlace": { "@type": "AdministrativeArea", "name": "大阪府" }
+    },
+    "knowsAbout": ["地方創生", "サウナ", "まちづくり", "産学連携", "空き家活用"],
+    "subOrganization": {
+      "@type": "Organization",
+      "name": "学生連合",
+      "url": "https://nsa-settsu.jp/students/",
+      "description": "NEXT SETTSU ALLIANCE を立ち上げた大学生の組織。空き家再生・Web集客・イベント企画の3つを学生が主体で動かしています。"
     }
   }
   </script>
@@ -60,7 +74,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "NEXT SETTSU ALLIANCE",
-    "alternateName": ["NSA", "ネクスト摂津アライアンス"],
+    "alternateName": ["NSA", "ネクスト摂津アライアンス", "ネクストセッツアライアンス"],
     "url": "https://nsa-settsu.jp/",
     "inLanguage": "ja",
     "publisher": { "@type": "Organization", "name": "NEXT SETTSU ALLIANCE", "url": "https://nsa-settsu.jp/" }
