@@ -1006,3 +1006,7 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
   .section-faq p { text-align: left; }
   .section-faq .section-heading p { text-align: center; }
 }
+/* 2文字の語が行末で割れるのを防ぐ（「とは」が「と／は」になる事故） */
+.nw { white-space: nowrap; }
+/* 「NEXT SETTSU ALLIANCEとは」は720pxの本文幅に1行で収める（52pxだと757pxで溢れる） */
+#alliance-title { font-size: clamp(24px, 3.6vw, 46px); }
