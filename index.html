@@ -33,7 +33,7 @@
   </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="stylesheet" href="style.css?v=60">
+  <link rel="stylesheet" href="style.css?v=61">
   <script>document.documentElement.classList.add('js-motion');</script>
   <!-- 構造化データ。NSA自体の所在地は未確定のため address は載せない（運営者=花岡工務店の住所とは別物）。窓口はメールのみ -->
   <script type="application/ld+json">
@@ -80,6 +80,45 @@
     "publisher": { "@type": "Organization", "name": "NEXT SETTSU ALLIANCE", "url": "https://nsa-settsu.jp/" }
   }
   </script>
+  <!-- FAQの構造化データ。本文のdl要素と文言を一致させること（食い違うとGoogleに無視される） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "NEXT SETTSU ALLIANCE とは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "企業・大学生・行政・地域が、それぞれの得意を持ち寄って摂津のまちづくりに取り組む連合体です。ひとつの会社やひとつの団体が単独で運営するものではありません。2026年7月に始動しました。" }
+      },
+      {
+        "@type": "Question",
+        "name": "なぜサウナなのですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "摂津市にはスターバックスもコストコも道の駅もなく、新幹線が通り過ぎるだけで、わざわざ降りる理由のない街でした。その「訪れる理由」を自分たちでつくるための入口として、サウナを選びました。" }
+      },
+      {
+        "@type": "Question",
+        "name": "避ス地（ひすち）とは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "「避ストレス地」を縮めた造語です。NSAの最初の拠点となる複合施設「避ス地 未知の駅 摂津サウナ」の名前で、新幹線の鳥飼車両基地のとなりに建設予定です。2027年5月竣工予定で、まだ開業していません。" }
+      },
+      {
+        "@type": "Question",
+        "name": "学生連合とは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "NEXT SETTSU ALLIANCE を立ち上げた大学生の組織です。空き家再生・Web集客・イベント企画の3つを、学生が主体で動かしています。活動の中身と登録は 学生連合のページ にあります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "企業はどう関われますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "ロゴを並べる協賛ではなく、自社の技術・製品・空間を使って学生と実証実験や事業づくりに取り組む「共創パートナー」としての参加を想定しています。関わり方は、地域・交流／採用・学生接点／共創・事業の3つです。まずは お問い合わせ からご相談ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "個人でも応援できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "できます。2026年10月15日までCAMPFIREでクラウドファンディングを実施しています。オンラインストアでのTシャツの予約販売や、SNSのフォローという関わり方もあります。" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -102,6 +141,7 @@
       <a href="#companies">企業の方へ</a>
       <a href="sauna/" data-track="to_sauna">サウナ</a>
       <a href="shop/" data-track="to_shop">ストア</a>
+      <a href="#faq">よくある質問</a>
       <a href="#join">お問い合わせ</a>
     </div>
   </nav>
@@ -128,6 +168,7 @@
         <a href="#companies">企業の方へ</a>
         <a href="sauna/" data-track="to_sauna">サウナ</a>
         <a href="shop/" data-track="to_shop">ストア</a>
+        <a href="#faq">よくある質問</a>
         <a href="#join">お問い合わせ</a>
       </div>
     </nav>
@@ -309,6 +350,34 @@
         <p>集めているのは、<br class="br-sp">資金だけではありません。<br><br class="br-sp">完成したその先を、<br class="br-sp">一緒に面白がり、育てていく仲間です。</p>
         <a class="support-button" data-track="campfire_support" href="https://camp-fire.jp/projects/959370/view" target="_blank" rel="noopener" aria-describedby="support-note">CAMPFIREで支援する</a>
         <small id="support-note">目標金額 1,000万円／CAMPFIREのページへ移動します</small>
+      </div>
+    </section>
+
+    <section class="section section-tint section-faq" id="faq" aria-labelledby="faq-title">
+      <div class="section-inner section-inner-narrow" data-reveal>
+        <header class="section-heading">
+          <h2 id="faq-title">よくあるご質問</h2>
+          <p>はじめての方へ</p>
+        </header>
+        <dl class="faq-list">
+          <dt>NEXT SETTSU ALLIANCE とは何ですか？</dt>
+          <dd><b>企業・大学生・行政・地域が、それぞれの得意を持ち寄って摂津のまちづくりに取り組む連合体です。</b>ひとつの会社やひとつの団体が単独で運営するものではありません。2026年7月に始動しました。</dd>
+
+          <dt>なぜサウナなのですか？</dt>
+          <dd>摂津市にはスターバックスもコストコも道の駅もなく、<b>新幹線が通り過ぎるだけで、わざわざ降りる理由のない街でした。</b>その「訪れる理由」を自分たちでつくるための入口として、サウナを選びました。</dd>
+
+          <dt>避ス地（ひすち）とは何ですか？</dt>
+          <dd><b>「避ストレス地」を縮めた造語です。</b>NSAの最初の拠点となる複合施設「避ス地 未知の駅 摂津サウナ」の名前で、新幹線の鳥飼車両基地のとなりに建設予定です。<b>2027年5月竣工予定で、まだ開業していません。</b></dd>
+
+          <dt>学生連合とは何ですか？</dt>
+          <dd><b>NEXT SETTSU ALLIANCE を立ち上げた大学生の組織です。</b>空き家再生・Web集客・イベント企画の3つを、学生が主体で動かしています。活動の中身と登録は <a href="students/" data-track="faq_to_students">学生連合のページ</a> にあります。</dd>
+
+          <dt>企業はどう関われますか？</dt>
+          <dd>ロゴを並べる協賛ではなく、<b>自社の技術・製品・空間を使って学生と実証実験や事業づくりに取り組む「共創パートナー」</b>としての参加を想定しています。関わり方は、地域・交流／採用・学生接点／共創・事業の3つです。まずは <a href="#join">お問い合わせ</a> からご相談ください。</dd>
+
+          <dt>個人でも応援できますか？</dt>
+          <dd>できます。<b>2026年10月15日までCAMPFIREでクラウドファンディングを実施しています。</b>オンラインストアでのTシャツの予約販売や、SNSのフォローという関わり方もあります。</dd>
+        </dl>
       </div>
     </section>
 
