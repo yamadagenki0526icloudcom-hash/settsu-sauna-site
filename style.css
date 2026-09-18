@@ -907,3 +907,62 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
   .floating-cta { bottom: 16px; padding: 12px 26px; font-size: 11px; }
   .section-dark .section-about p { text-align: left; }
 }
+
+/* ===== v2 演出: 章を全面写真にする ===== */
+.section-media {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  align-content: center;
+  min-height: min(84svh, 780px);
+  padding: 130px 0;
+}
+.section-media .media-bg {
+  position: absolute;
+  inset: -12% 0;
+  z-index: -2;
+}
+.section-media .media-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+/* 文字を読ませるための覆い。写真は雰囲気だけ残す */
+.section-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.87) 45%, rgba(10,10,10,.95) 100%);
+}
+.section-answer .media-bg img { object-position: center 60%; }
+.section-beyond .media-bg img { object-position: center 8%; }
+
+/* 暗い章の本文を読みやすく */
+.section-dark > .section-inner > p { font-size: 15px; line-height: 2.15; }
+.section-dark .name-note-panel {
+  width: min(560px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 22px 26px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 4px;
+  background: rgba(255,255,255,.05);
+  text-align: left;
+}
+.section-dark .name-note-panel dt { text-align: left; }
+.section-dark .name-note-panel dd { color: #c9c9c9; font-size: 13px; line-height: 2.05; text-align: left; }
+
+/* 拠点のパースは画面幅いっぱいに置く */
+.feature-figure-bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+.feature-figure-bleed > img { aspect-ratio: 2.35 / 1; border: 0; }
+.feature-figure-bleed figcaption { width: var(--wide); margin-left: auto; margin-right: auto; }
+
+@media (max-width: 760px) {
+  .section-media { min-height: min(78svh, 620px); padding: 92px 0; }
+  .section-dark > .section-inner > p { font-size: 14px; }
+  .section-dark .name-note-panel { padding: 18px 18px; }
+  .feature-figure-bleed > img { aspect-ratio: 1.5 / 1; }
+}

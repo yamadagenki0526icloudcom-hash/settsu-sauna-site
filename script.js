@@ -235,6 +235,17 @@
     }, { rootMargin: '-40% 0px 0px 0px' });
     hideZones.forEach((el) => io.observe(el));
   }
+
+  /* ---------- 全面写真の章をスクロールでゆっくり動かす ---------- */
+  gsap.utils.toArray('.section-media').forEach((sec) => {
+    const img = sec.querySelector('.media-bg img');
+    if (!img) return;
+    gsap.fromTo(img, { yPercent: -7 }, {
+      yPercent: 7,
+      ease: 'none',
+      scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: true },
+    });
+  });
 })();
 
 /* 主要な導線のクリックを計測する。どのボタンから動いたかを区別できるようにしておく */
