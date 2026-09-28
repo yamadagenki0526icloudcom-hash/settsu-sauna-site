@@ -328,6 +328,7 @@ a.card-media:hover{transform:translateY(-4px)}
 .buy-cta:hover{opacity:.88;transform:translateY(-2px)}
 .buy-note{margin-top:16px;font-size:11px;color:var(--mute);letter-spacing:.02em;line-height:1.9}
 .br-sp{display:none}
+.nw{white-space:nowrap}
 .buy-note .sep{display:inline}
 
 /* ---------- PDP 合計金額 ---------- */
