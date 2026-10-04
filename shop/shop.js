@@ -35,7 +35,7 @@
         '<span>' + cfg.shipFrom + '。</span>';
 
       btn.disabled = false;
-      btn.textContent = '予約する（¥3,850）';
+      btn.textContent = '予約する（¥2,850）';
       note.textContent = 'お支払いはStripeの決済ページで行います。送料' + cfg.shipping + 'が別途かかります。';
       btn.addEventListener('click', () => {
         const url = links[sel.value];
