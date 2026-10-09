@@ -1010,3 +1010,32 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 .nw { white-space: nowrap; }
 /* 「NEXT SETTSU ALLIANCEとは」は720pxの本文幅に1行で収める（52pxだと757pxで溢れる） */
 #alliance-title { font-size: clamp(24px, 3.6vw, 46px); }
+
+/* 説明文を読みやすくする（2026-10-09 げんきさん依頼「薄い字を読みやすく」）。
+   見出し下の薄い小見出しは削除済み。本文の説明はグレーをやめて黒に近づけ、小さすぎる字を少し大きくする。
+   .section-dark の中は詳細度の高い既存ルール（明るいグレー）が優先されるので影響しない */
+.hero-lead { color: #222; font-size: 14px; }
+.center-copy { color: #222; }
+/* 本文段落は .section-about > .section-inner > p などの既存ルール（#4d4d4d）の方が詳細度が高いので、暗い背景の節を除いて上書きする */
+.section:not(.section-dark) .center-copy { color: #222; }
+.section-about:not(.section-dark) > .section-inner > p,
+.section-companies > .section-inner > p,
+.section-about .logo-note p,
+.faq-list dd { color: #333; }
+.place-intro,
+.name-note dd,
+.domains-note,
+.students-note,
+.facility-grid span,
+.story-grid article > p:last-child,
+.timeline span,
+.follow-desc,
+.section-contact .section-inner > p { color: #333; }
+.domains-note,
+.section-contact .section-inner > p { font-size: 14px; }
+.facility-grid span,
+.story-grid article > p:last-child,
+.timeline span { font-size: 12px; }
+@media (max-width: 760px) {
+  .hero-lead { font-size: 12px; }
+}
