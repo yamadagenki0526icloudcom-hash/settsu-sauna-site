@@ -28,7 +28,7 @@
   </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="stylesheet" href="../style.css?v=67">
+  <link rel="stylesheet" href="../style.css?v=70">
   <script>document.documentElement.classList.add('js-motion');</script>
   <script type="application/ld+json">
   {
@@ -64,16 +64,28 @@
 
   <main id="main" tabindex="-1">
 
-    <section class="section section-students" id="about" aria-labelledby="about-title">
+    <section class="yh-hero" id="about" aria-labelledby="about-title" data-hide-cta>
+      <div class="yh-hero-inner" data-reveal>
+        <p class="yh-kicker">NEXT SETTSU ALLIANCE の学生・若者チーム</p>
+        <h1 id="about-title"><span class="yh-name">NEXT SETTSU YOUTH</span>まだない景色を、<br>自分の手で。</h1>
+        <p class="yh-lead">用意された活動に参加するだけでなく、<br class="br-pc">自分で考えた企画を、摂津のまちや会社を舞台に本当に試せます。<br>ふだんは出会えない職人さんやまちの会社の社長とも、<br class="br-pc">同じ目標に向かって動きます。</p>
+        <a class="yh-cta" data-track="to_register_hero" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
+        <p class="yh-cta-note">学生でも、働いていても、どこに住んでいても入れます。<br>学生は参加費無料。特別なスキルはいりません。</p>
+      </div>
+    </section>
+
+    <section class="section yh-gain" aria-labelledby="gain-title">
       <div class="section-inner section-inner-wide" data-reveal>
         <header class="section-heading">
-          <h1 id="about-title">NEXT SETTSU YOUTH</h1>
+          <h2 id="gain-title">入ると、こんなことができる</h2>
         </header>
-        <figure class="feature-figure student-figure">
-          <img src="../assets/students.webp" srcset="../assets/students-700.webp 700w, ../assets/students.webp 1400w" sizes="(max-width: 760px) 92vw, 64vw" width="1400" height="990" loading="lazy" decoding="async" alt="学生メンバーのビジョンと活動内容をまとめた初期の資料">
-        </figure>
-        <h3 class="statement">「やってみたい」が、<br>形になる。</h3>
-        <p class="center-copy">一人の大工職人の「何もないなら創ればいい」から<br class="br-sp">始まった挑戦に、学生も加わりました。<br>地域の声を聞き、企画し、企業へ提案し、<br class="br-sp">実施して、振り返る。<br>その全部に、学生・若者が当事者として関わります。</p>
+        <ol class="yh-gain-list">
+          <li><b>自分の企画が、本当に形になる</b><span>Tシャツは、企画からモデル撮影、予約販売まで学生で回しています。動画やWebサイトも、学生が作って公開しています。</span></li>
+          <li><b>関わった場所が、本当に建つ</b><span>新幹線が見えるサウナ「避ス地」は、2027年7月に完成予定。できあがった施設を使う側ではなく、つくる側から関われます。</span></li>
+          <li><b>ふだん会えない大人と、同じチームになれる</b><span>20代から80代の職人さん、まちの会社の社長、新規事業や広告の専門家と、見学ではなく同じチームとして一緒に考え、動きます。</span></li>
+          <li><b>就活や起業で話せる実績が残る</b><span>関わった活動は、肩書きより「これ、自分がやりました」と言える経験になります。</span></li>
+          <li><b>遠くに住んでいても関われる</b><span>発信やWebの仕事なら、関西の外からでも参加できます。</span></li>
+        </ol>
       </div>
     </section>
 
@@ -115,13 +127,16 @@
       </div>
     </section>
 
-    <section class="section section-students" id="register" aria-labelledby="register-title">
-      <div class="section-inner section-inner-narrow" data-reveal>
-        <header class="section-heading">
-          <h2 id="register-title">登録する</h2>
-        </header>
-        <p class="students-note">学生でも、働いていても、どこに住んでいても登録できます。<br>登録しても、毎回の活動や会議に出る必要はありません。<br class="br-sp">興味のある活動に、参加できるときだけ参加できます。</p>
-        <a class="solid-button" data-track="to_register" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
+    <section class="yh-register" id="register" aria-labelledby="register-title" data-hide-cta>
+      <div class="yh-register-inner" data-reveal>
+        <h2 id="register-title">登録する</h2>
+        <ol class="yh-steps">
+          <li><span>1</span>登録フォームに回答</li>
+          <li><span>2</span>メンバーのLINEグループに招待</li>
+          <li><span>3</span>興味のある活動に参加</li>
+        </ol>
+        <a class="yh-cta" data-track="to_register" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
+        <p class="yh-cta-note">登録しても、毎回の活動や会議に出る必要はありません。<br>興味のある活動に、参加できるときだけ参加できます。</p>
       </div>
     </section>
 
@@ -153,6 +168,8 @@
 
   </main>
 
+  <a class="floating-cta" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener" data-track="floating_register" aria-label="メンバーに登録する（登録フォームを新しいタブで開きます）">メンバーに登録する</a>
+
   <footer class="footer">
     <img src="../assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
     <p>避ス地 未知の駅 摂津サウナ</p>
@@ -167,6 +184,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="../script.js?v=26"></script>
+  <script src="../script.js?v=27"></script>
 </body>
 </html>
