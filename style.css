@@ -586,7 +586,7 @@ html.js-motion .hero-button { opacity: 0; }
   width: min(840px, 100%);
   margin: 66px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line);
 }
 /* スクロールに合わせて左から引かれる軸。JSが挿入する */
