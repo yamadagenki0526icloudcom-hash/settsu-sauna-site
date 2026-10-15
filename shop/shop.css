@@ -416,3 +416,29 @@ a.card-media:hover{transform:translateY(-4px)}
 @media (max-width:900px){
   .pdp-points{grid-template-columns:1fr;gap:28px;padding-bottom:72px}
 }
+
+/* クラファン終了後の支援の節（2026-10-16 げんきさん「商店ページも揃えて」）。トップの支援の節と同じ青地・3つの数字にそろえる */
+.buy{background:#0756A6;border-top:0;color:#fff}
+.buy-eyebrow{color:#fff;opacity:.8}
+.buy h2{color:#fff;word-break:auto-phrase}
+.buy-stats{
+  margin:34px auto 0;max-width:720px;display:grid;grid-template-columns:1.7fr 1fr 1fr;
+  border-top:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);
+}
+.buy-stats>div{padding:20px 8px}
+.buy-stats>div+div{border-left:1px solid rgba(255,255,255,.35)}
+.buy-stats dt{font-size:11px;letter-spacing:.1em;opacity:.85}
+.buy-stats dd{margin-top:8px;font-size:clamp(24px,4vw,42px);font-weight:700;line-height:1;letter-spacing:.02em;white-space:nowrap}
+.buy-stats dd small{margin-left:3px;font-size:.38em;font-weight:700}
+.buy-body{color:#fff;font-weight:400;line-height:2;word-break:auto-phrase}
+.buy-cta{background:#fff;color:#0756A6;font-weight:700;transition:background .3s,color .3s}
+.buy-cta:hover{background:#F05A24;color:#fff;opacity:1}
+.buy-note{color:rgba(255,255,255,.75)}
+@media (max-width:600px){
+  .buy-stats{grid-template-columns:1fr 1fr}
+  .buy-stats>div:first-child{grid-column:1/-1;border-bottom:1px solid rgba(255,255,255,.35)}
+  .buy-stats>div:nth-child(2){border-left:0}
+  .buy-stats dd{font-size:30px}
+  .buy-stats>div:first-child dd{font-size:38px}
+  .buy-body{text-align:left}
+}
