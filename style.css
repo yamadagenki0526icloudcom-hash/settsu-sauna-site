@@ -1039,3 +1039,39 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 @media (max-width: 760px) {
   .hero-lead { font-size: 12px; }
 }
+
+/* クラファン終了後の支援の節（2026-10-16 げんきさん「暗い・達成があっさり」）。
+   黒地をやめてブランドの青にし、最終の支援総額・支援者・達成率を大きく見せる。数字は10/16にCAMPFIREの終了画面で確認 */
+.support { background: var(--gold); }
+.support-kicker { color: #fff; opacity: .8; font-size: 11px; }
+.support h2 { font-size: clamp(30px, 4.6vw, 54px); letter-spacing: .04em; }
+.support-stats {
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,.35);
+  border-bottom: 1px solid rgba(255,255,255,.35);
+}
+.support-stats > div { padding: 22px 8px; }
+.support-stats > div + div { border-left: 1px solid rgba(255,255,255,.35); }
+.support-stats dt { font-size: 11px; letter-spacing: .1em; opacity: .85; }
+.support-stats dd { margin-top: 8px; font-size: clamp(26px, 4.4vw, 46px); font-weight: 700; line-height: 1; letter-spacing: .02em; }
+.support-stats dd small { margin-left: 3px; font-size: .38em; font-weight: 700; }
+.support-stats > div:first-child dd { color: #fff; }
+.support .support-inner > p.support-body { margin-top: 30px; color: #fff; font-size: 14px; line-height: 2.1; }
+.support-button { border-color: #fff; background: #fff; color: var(--gold); font-weight: 700; font-size: 13px; }
+.support-button:hover { background: var(--soft-gold); border-color: var(--soft-gold); color: #fff; }
+.support small#support-note { color: rgba(255,255,255,.75); }
+.support h2, .support .support-inner > p.support-body { word-break: auto-phrase; }
+.support .support-stats dd small { display: inline; margin-top: 0; color: inherit; }
+.support-stats { grid-template-columns: 1.7fr 1fr 1fr; }
+.support-stats dd { white-space: nowrap; }
+@media (max-width: 600px) {
+  .support h2 { font-size: 28px; }
+  .support-stats { grid-template-columns: 1fr 1fr; }
+  .support-stats > div:first-child { grid-column: 1 / -1; border-bottom: 1px solid rgba(255,255,255,.35); }
+  .support-stats > div:nth-child(2) { border-left: 0; }
+  .support-stats dd { font-size: 30px; }
+  .support-stats > div:first-child dd { font-size: 38px; }
+  .support .support-inner > p.support-body { text-align: left; font-size: 13px; }
+}
