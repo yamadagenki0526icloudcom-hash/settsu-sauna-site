@@ -31,11 +31,11 @@
       const when = document.getElementById('shipWhen');
       if (when) when.textContent = cfg.shipFrom + '。';
       const bar = document.getElementById('topbar');
-      if (bar) bar.innerHTML = '<strong>予約を受け付けています。</strong>' +
+      if (bar) bar.innerHTML = '<strong>在庫があります。</strong>' +
         '<span>' + cfg.shipFrom + '。</span>';
 
       btn.disabled = false;
-      btn.textContent = '予約する（¥2,850）';
+      btn.textContent = '購入する（¥2,850）';
       note.textContent = 'お支払いはStripeの決済ページで行います。送料' + cfg.shipping + 'が別途かかります。';
       btn.addEventListener('click', () => {
         const url = links[sel.value];
