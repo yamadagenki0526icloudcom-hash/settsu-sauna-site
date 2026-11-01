@@ -54,7 +54,7 @@
     .fromTo('.masthead .brand', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.95 }, 0.05)
     .fromTo('.site-nav-inner > a', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.04 }, 0.35)
     .from('.hero-wordmark .wm i', { yPercent: 115, duration: 1.0, stagger: 0.08 }, 0.4)
-    .from('.hero h1', { y: 26, opacity: 0, duration: 0.85 }, 0.8)
+    .from('.hero-catch', { y: 26, opacity: 0, duration: 0.85 }, 0.8)
     .from('.hero-lead', { y: 18, opacity: 0, duration: 0.85 }, 0.95);
 
   /* ---------- ヒーロー: スクロールで奥へ引く ---------- */

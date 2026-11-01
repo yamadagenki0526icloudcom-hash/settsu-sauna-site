@@ -157,8 +157,10 @@ html.js-motion .hero-button { opacity: 0; }
   text-align: center;
   color: #111;
 }
-/* 巨大ワードマーク × 写真のレイヤリング。単語ごとにマスクからせり上がる */
+/* 巨大ワードマーク × 写真のレイヤリング。単語ごとにマスクからせり上がる。
+   2026-11-02: 検索で団体名が見出しとして読まれるよう、ワードマークをh1の中に入れた（見た目は同じ） */
 .hero-wordmark {
+  display: block;
   margin: 0 auto 10px;
   font-size: clamp(26px, 7.4vw, 104px);
   font-weight: 800;
@@ -182,6 +184,7 @@ html.js-motion .hero-button { opacity: 0; }
   letter-spacing: .07em;
   font-weight: 700;
 }
+.hero-catch { display: block; }
 .hero-lead {
   margin-top: 12px;
   color: #3f3f3f;
@@ -1123,4 +1126,14 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 .floating-cta[data-track="floating_register"]:hover { background: #d94a17; }
 @media (max-width: 760px) {
   .floating-cta[data-track="floating_register"] { padding: 15px 34px; font-size: 14px; }
+}
+
+/* 組織概要（/about/）の表。長い説明が入るので、項目名と内容を左右の2列にし、狭い画面では縦に積む（2026-11-02） */
+.facility-grid-table { grid-template-columns: minmax(0, 1fr); }
+.facility-grid-table p { display: grid; grid-template-columns: 10em minmax(0, 1fr); gap: 18px; align-items: baseline; }
+.facility-grid-table b { white-space: normal; }
+.facility-grid-table span { text-align: left; min-width: 0; overflow-wrap: anywhere; }
+.facility-grid-table + .outline-button { margin-top: 36px; }
+@media (max-width: 600px) {
+  .facility-grid-table p { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
