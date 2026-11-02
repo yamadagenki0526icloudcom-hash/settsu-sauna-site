@@ -1133,7 +1133,7 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 .facility-grid-table p { display: grid; grid-template-columns: 10em minmax(0, 1fr); gap: 18px; align-items: baseline; }
 .facility-grid-table b { white-space: normal; }
 .facility-grid-table span { text-align: left; min-width: 0; overflow-wrap: anywhere; }
-.facility-grid-table + .outline-button { display: table; margin: 36px auto 0; }
+.facility-grid-table + .outline-button { margin-top: 36px; }
 @media (max-width: 600px) {
   .facility-grid-table p { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
@@ -1211,7 +1211,7 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 .project-q { font-size: 17px; line-height: 1.6; }
 .project-tags { font-size: 11.5px; color: #555; letter-spacing: .02em; }
 .project-name { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 700; }
-.section-projects .outline-button { display: table; margin: 0 auto; }
+.section-projects .outline-button { margin-top: 0; }
 
 @media (max-width: 900px) {
   .entry-grid, .project-grid { grid-template-columns: minmax(0, 1fr); }
@@ -1226,7 +1226,24 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 /* 企業向けページ（/companies/） */
 .co-hero { text-align: center; }
 .co-hero .about-lead { text-align: center; }
-.co-cta { display: table; margin: 30px auto 0; }
+.co-cta { display: grid; width: fit-content; margin: 30px auto 0; }
 .co-steps li { border-color: var(--line); background: #fff; }
 .project-card-open { border-style: dashed; border-color: var(--soft-gold); }
 .project-card-open .project-status { background: #fff1ea; color: var(--soft-gold); }
+
+/* ボタンの文字を読みやすい大きさにする（2026-11-02 げんきさん「文字の大きさがダメ」） */
+.outline-button { width: auto; min-width: 240px; width: fit-content; padding: 0 28px; min-height: 52px; color: #222; border-color: #bbb; font-size: 14px; font-weight: 700; }
+.solid-button { min-height: 56px; font-size: 15px; }
+@media (max-width: 600px) {
+  .outline-button { font-size: 13px; }
+  .solid-button { font-size: 14px; }
+}
+/* 表とナビの文字も読みやすく（2026-11-02） */
+.facility-grid-table b { font-size: 14px; }
+.facility-grid-table span { font-size: 14px; line-height: 1.8; }
+.site-nav a { font-size: 12px; }
+@media (max-width: 600px) {
+  .facility-grid-table b { font-size: 13px; }
+  .facility-grid-table span { font-size: 13px; }
+  .site-nav a { font-size: 11px; }
+}
