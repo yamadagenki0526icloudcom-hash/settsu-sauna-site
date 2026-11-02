@@ -1133,7 +1133,100 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 .facility-grid-table p { display: grid; grid-template-columns: 10em minmax(0, 1fr); gap: 18px; align-items: baseline; }
 .facility-grid-table b { white-space: normal; }
 .facility-grid-table span { text-align: left; min-width: 0; overflow-wrap: anywhere; }
-.facility-grid-table + .outline-button { margin-top: 36px; }
+.facility-grid-table + .outline-button { display: table; margin: 36px auto 0; }
 @media (max-width: 600px) {
   .facility-grid-table p { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
+
+/* ===== 2026-11-02 動線の作り直し（SHIBUYA QWSを参考） ===== */
+/* ナビの「お問い合わせ」はボタンにする */
+.site-nav a.nav-contact {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #fff;
+}
+.site-nav a.nav-contact::after { display: none; }
+.site-nav a.nav-contact:hover { background: #063f79; }
+
+/* 画像の下の入口3つ */
+.section-entry { padding-top: 72px; padding-bottom: 72px; }
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+.entry-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 24px 22px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.entry-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+.entry-who { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .06em; }
+.entry-title { font-size: 19px; line-height: 1.45; }
+.entry-desc { font-size: 13px; line-height: 1.8; color: #333; }
+.entry-go { margin-top: auto; padding-top: 8px; font-size: 12px; font-weight: 700; color: var(--soft-gold); }
+.entry-go::after { content: " →"; }
+
+/* プロジェクトを「問い」のカードで並べる */
+.section-projects { padding-top: 72px; }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: min(1040px, 100%);
+  margin: 36px auto 40px;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 230px;
+  padding: 22px 22px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .3s, transform .3s;
+}
+.project-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.project-status {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef3fa;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+}
+.project-q { font-size: 17px; line-height: 1.6; }
+.project-tags { font-size: 11.5px; color: #555; letter-spacing: .02em; }
+.project-name { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 700; }
+.section-projects .outline-button { display: table; margin: 0 auto; }
+
+@media (max-width: 900px) {
+  .entry-grid, .project-grid { grid-template-columns: minmax(0, 1fr); }
+  .project-card { min-height: 0; }
+}
+@media (max-width: 600px) {
+  .site-nav-inner { gap: 14px; }
+  .site-nav a { font-size: 11px; }
+  .entry-title { font-size: 17px; }
+  .project-q { font-size: 16px; }
+}
+/* 企業向けページ（/companies/） */
+.co-hero { text-align: center; }
+.co-hero .about-lead { text-align: center; }
+.co-cta { display: table; margin: 30px auto 0; }
+.co-steps li { border-color: var(--line); background: #fff; }
+.project-card-open { border-style: dashed; border-color: var(--soft-gold); }
+.project-card-open .project-status { background: #fff1ea; color: var(--soft-gold); }

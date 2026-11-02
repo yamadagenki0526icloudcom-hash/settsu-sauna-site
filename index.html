@@ -133,23 +133,17 @@
 
   <nav class="site-nav" aria-label="メインナビゲーション">
     <div class="site-nav-inner">
-      <a href="#top">ホーム</a>
-      <a href="#issue">なぜ摂津か</a>
-      <a href="#answer">私たちの答え</a>
-      <a href="#place">拠点</a>
-      <a href="#alliance">NSAとは</a>
-        <a href="about/">組織概要</a>
+      <a href="about/" data-track="nav_about">NSAとは</a>
+      <a href="#projects" data-track="nav_projects">プロジェクト</a>
       <a href="students/" data-track="to_students">学生・若者</a>
-      <a href="#companies">企業の方へ</a>
-      <a href="sauna/" data-track="to_sauna">サウナ</a>
+      <a href="companies/" data-track="to_companies">企業の方へ</a>
       <a href="shop/" data-track="to_shop">ストア</a>
-      <a href="#faq">よくある質問</a>
-      <a href="#join">お問い合わせ</a>
+      <a class="nav-contact" href="#join" data-track="nav_contact">お問い合わせ</a>
     </div>
   </nav>
 
   <main id="main" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" data-hide-cta>
       <img class="hero-image" src="assets/hero.webp" srcset="assets/hero-1100.webp 1100w, assets/hero.webp 2200w" sizes="110vw" width="2200" height="1523" fetchpriority="high" alt="新幹線基地の横に建つ未知の駅 摂津サウナの完成イメージパース">
       <div class="hero-wash" aria-hidden="true"></div>
       <div class="hero-copy">
@@ -158,24 +152,81 @@
       </div>
     </section>
 
-    <nav class="site-nav repeat-nav" aria-label="ページ内ナビゲーション">
-      <div class="site-nav-inner">
-        <a href="#top">ホーム</a>
-        <a href="#issue">なぜ摂津か</a>
-        <a href="#answer">私たちの答え</a>
-        <a href="#place">拠点</a>
-        <a href="#alliance">NSAとは</a>
-        <a href="about/">組織概要</a>
-        <a href="students/" data-track="to_students">学生・若者</a>
-        <a href="#companies">企業の方へ</a>
-        <a href="sauna/" data-track="to_sauna">サウナ</a>
-        <a href="shop/" data-track="to_shop">ストア</a>
-        <a href="#faq">よくある質問</a>
-        <a href="#join">お問い合わせ</a>
+    <section class="section section-entry" id="entry" aria-labelledby="entry-title">
+      <div class="section-inner section-inner-wide" data-reveal>
+        <header class="section-heading">
+          <h2 id="entry-title">関わり方を選ぶ</h2>
+        </header>
+        <div class="entry-grid">
+          <a class="entry-card" href="students/" data-track="entry_students">
+            <span class="entry-who">学生・若者の方</span>
+            <b class="entry-title">自分の企画を、摂津で試す</b>
+            <span class="entry-desc">NEXT SETTSU YOUTHのメンバーになって、アパレル、発信、イベントなどを動かします。学生は参加費無料です。</span>
+            <span class="entry-go">YOUTHのページへ</span>
+          </a>
+          <a class="entry-card" href="companies/" data-track="entry_companies">
+            <span class="entry-who">企業・団体の方</span>
+            <b class="entry-title">学生と、新しいことを試す</b>
+            <span class="entry-desc">自社の技術・製品・空間を使い、学生と一緒に商品開発やイベント、発信に取り組みます。</span>
+            <span class="entry-go">企業の方へ</span>
+          </a>
+          <a class="entry-card" href="shop/" data-track="entry_shop">
+            <span class="entry-who">応援したい方</span>
+            <b class="entry-title">グッズで応援する</b>
+            <span class="entry-desc">学生が企画から販売まで手がけた、NSAのTシャツを販売しています。</span>
+            <span class="entry-go">ストアへ</span>
+          </a>
+        </div>
       </div>
-    </nav>
+    </section>
 
-
+    <section class="section section-projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-inner section-inner-wide" data-reveal>
+        <header class="section-heading">
+          <h2 id="projects-title">プロジェクト</h2>
+        </header>
+        <p class="center-copy">NSAで動いているプロジェクトです。<br class="br-sp">どれも、ひとつの問いから始まっています。</p>
+        <div class="project-grid">
+          <a class="project-card" href="#place" data-track="project_hisuchi">
+            <span class="project-status">進行中</span>
+            <b class="project-q">何もない土地に、<br>人が集まる場所はつくれるか？</b>
+            <span class="project-tags">#まちづくり #建築 #2027年7月完成予定</span>
+            <span class="project-name">避ス地 未知の駅 摂津サウナ</span>
+          </a>
+          <a class="project-card" href="shop/" data-track="project_apparel">
+            <span class="project-status">販売中</span>
+            <b class="project-q">学生がつくった服で、<br>サウナ好きの心をつかめるか？</b>
+            <span class="project-tags">#アパレル #学生が企画から販売まで</span>
+            <span class="project-name">NSAアパレル</span>
+          </a>
+          <a class="project-card" href="activity/" data-track="project_enkai">
+            <span class="project-status">開催済み</span>
+            <b class="project-q">まちのお祭りを、<br>企業と学生でつくれるか？</b>
+            <span class="project-tags">#イベント #2026年10月12日開催</span>
+            <span class="project-name">縁会</span>
+          </a>
+          <a class="project-card" href="sauna/" data-track="project_sauna">
+            <span class="project-status">販売・レンタル中</span>
+            <b class="project-q">軽トラに積めるサウナで、<br>どこでもととのう場所にできるか？</b>
+            <span class="project-tags">#プロダクト #国産杉</span>
+            <span class="project-name">摂津サウナ</span>
+          </a>
+          <a class="project-card" href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener" data-track="project_sauna_go_today">
+            <span class="project-status">発信中</span>
+            <b class="project-q">検索より、<br>街の人のおすすめは当たるか？</b>
+            <span class="project-tags">#SNS #取材 #動画</span>
+            <span class="project-name">今日サウナ行こ</span>
+          </a>
+          <a class="project-card project-card-open" href="students/#register" data-track="project_new">
+            <span class="project-status">募集中</span>
+            <b class="project-q">あなたの問いを、<br>摂津で試してみませんか？</b>
+            <span class="project-tags">#企画の持ち込み #小さく始める</span>
+            <span class="project-name">新しいプロジェクト</span>
+          </a>
+        </div>
+        <a class="outline-button" data-track="to_activity" href="activity/">活動報告を見る</a>
+      </div>
+    </section>
     <section class="section section-about section-issue" id="issue" aria-labelledby="issue-title">
       <div class="section-inner section-inner-wide" data-reveal>
         <header class="section-heading section-heading-lead">
@@ -334,7 +385,7 @@
           <p><b>共創・事業</b><span>商品開発・イベント・発信を、学生と一緒に試す</span></p>
         </div>
         <p class="domains-note">まずは気軽なご相談から。<br>企業登録や個別プロジェクトの詳細は、<br class="br-sp">お気軽にお問い合わせください。</p>
-        <a class="outline-button" data-track="to_join" href="#join">参加について</a>
+        <a class="outline-button" data-track="to_companies" href="companies/">企業の方へ</a>
       </div>
     </section>
 
@@ -394,7 +445,7 @@
     </section>
   </main>
 
-  <a class="floating-cta" href="shop/tshirt.html" data-track="floating_tshirt" aria-label="Tシャツで応援する（NSA DRY Tシャツのページへ移動します）">Tシャツで応援する</a>
+  <a class="floating-cta" href="#entry" data-track="floating_entry" aria-label="関わり方を選ぶ（このページの入口へ移動します）">NSAに参加する</a>
 
   <footer class="footer">
     <img src="assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
@@ -403,7 +454,7 @@
       <p class="social-group"><span>NSA公式</span><a href="https://www.instagram.com/nsa_from_settsu/" target="_blank" rel="noopener" data-track="ig_nsa" aria-label="NEXT SETTSU ALLIANCE 公式Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></p>
       <p class="social-group"><span>今日サウナ行こ</span><a href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener" data-track="ig_sauna" aria-label="今日サウナ行こ Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.tiktok.com/@sauna_go_today" target="_blank" rel="noopener" data-track="tt_sauna" aria-label="今日サウナ行こ TikTok（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></p>
     </div>
-    <p class="footer-links"><a href="about/">組織概要</a><span class="sep">／</span><a href="activity/">活動報告</a><span class="sep">／</span><a href="privacy.html">プライバシーポリシー</a></p>
+    <p class="footer-links"><a href="about/">組織概要</a><span class="sep">／</span><a href="companies/">企業の方へ</a><span class="sep">／</span><a href="activity/">活動報告</a><span class="sep">／</span><a href="privacy.html">プライバシーポリシー</a></p>
     <p class="copyright">Copyright © 2026 NEXT SETTSU ALLIANCE</p>
   </footer>
 

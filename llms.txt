@@ -26,6 +26,7 @@
 
 - [トップ](https://nsa-settsu.jp/): NSA の目的、摂津の課題、避ス地の計画、企業の参加方法
 - [組織概要](https://nsa-settsu.jp/about/): 名称・略称・読み方、活動地域、構成、最初の拠点、これまでの歩み、連絡先
+- [企業・団体のみなさまへ](https://nsa-settsu.jp/companies/): 企業の関わり方、学生と一緒にできることの例、これまでにやったこと、参加の流れ
 - [NEXT SETTSU YOUTH](https://nsa-settsu.jp/students/): 学生・若者共創チームの活動と、メンバー登録
 - [摂津サウナ](https://nsa-settsu.jp/sauna/): 軽トラに積めるプライベートサウナの仕様・価格・レンタル
 - [オンラインストア](https://nsa-settsu.jp/shop/): NSA DRY Tシャツとサウナレンタル
