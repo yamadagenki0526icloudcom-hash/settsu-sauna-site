@@ -33,7 +33,7 @@
         const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        lenis.scrollTo(target, { offset: -20 });
+        lenis.scrollTo(target, { offset: window.innerWidth > 960 ? -92 : -16 });
       });
     });
   }
@@ -43,32 +43,13 @@
 
   const ease = 'power3.out';
 
-  /* ---------- ヒーロー: 読み込み時のシークエンス ---------- */
-  /* 額縁（ロゴ→ナビ）が立ち上がってから、ヒーローが開く。
-     ロゴは湯気のマークなので、ページ全体と同じく下から現す。
-     伏せた初期状態はCSSの html.js-motion 側に置いてあり、
-     GSAPが無い／省モーション時は js-motion が外れてそのまま見える。 */
-  const intro = gsap.timeline({ defaults: { ease } });
-  intro
-    .from('.hero-image', { scale: 1.09, duration: 1.6, ease: 'power2.out' }, 0)
-    .fromTo('.masthead .brand', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.95 }, 0.05)
-    .fromTo('.site-nav-inner > a', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.04 }, 0.35)
-    .from('.hero-wordmark .wm i', { yPercent: 115, duration: 1.0, stagger: 0.08 }, 0.4)
-    .from('.hero-catch', { y: 26, opacity: 0, duration: 0.85 }, 0.8)
-    .from('.hero-lead', { y: 18, opacity: 0, duration: 0.85 }, 0.95);
-
-  /* ---------- ヒーロー: スクロールで奥へ引く ---------- */
-  gsap.to('.hero-image', {
-    yPercent: 9,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
-  gsap.to('.hero-copy', {
-    y: -34,
-    opacity: 0.25,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: '45% top', end: 'bottom top', scrub: true }
-  });
+  /* ---------- 冒頭: 団体名が下から立ち上がり、写真が開く ---------- */
+  if (document.querySelector('.lead')) {
+    gsap.timeline({ defaults: { ease } })
+      .from('.hero-wordmark .wm i', { yPercent: 115, duration: 0.9, stagger: 0.07 }, 0.05)
+      .from('.lead-catch, .lead-side', { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.4)
+      .from('.mosaic figure', { clipPath: 'inset(0 0 100% 0)', duration: 0.9, stagger: 0.1, clearProps: 'clipPath' }, 0.35);
+  }
 
   /* ---------- 見出しの橙のアクセント線が中央から伸びる（共通の合図） ---------- */
   document.querySelectorAll('.section-heading').forEach((heading) => {
