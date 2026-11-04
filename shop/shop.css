@@ -4,9 +4,9 @@
    ============================================================ */
 :root{
   /* hermes.com/jp/ja の実測値。地はオフホワイト3トーン、文字は純黒、アクセントなし */
-  --ivory:#FCF7F1;      /* ページの地 */
-  --tile:#FFFCF7;       /* 商品タイルの地 */
-  --band:#F6F1EB;       /* 帯・区切り */
+  --ivory:#FFFFFF;      /* ページの地 */
+  --tile:#F5F5F5;       /* 商品タイルの地 */
+  --band:#F0F0F0;       /* 帯・区切り */
   --char:#000;
   --mute:#6E6E6E;
   --hair:rgba(0,0,0,.13);
@@ -194,7 +194,7 @@ a.card-media:hover{transform:translateY(-4px)}
   font-family:var(--mincho);font-weight:600;
   font-size:clamp(26px,3.4vw,42px);letter-spacing:.04em;line-height:1.8;margin-bottom:24px;
 }
-.edit-text p{font-size:14px;font-weight:300;color:#57534A;letter-spacing:normal}
+.edit-text p{font-size:14px;font-weight:300;color:#333;letter-spacing:normal}
 .edit-link{
   display:inline-flex;align-items:center;min-height:44px;margin-top:28px;font-size:13px;letter-spacing:.02em;
   border-bottom:1px solid var(--char);padding-bottom:3px;
@@ -291,7 +291,7 @@ a.card-media:hover{transform:translateY(-4px)}
   padding:clamp(50px,8vh,80px) var(--pad);text-align:center;max-width:780px;margin:0 auto;
 }
 .pdp-story h2{font-family:var(--mincho);font-weight:600;font-size:clamp(20px,2.4vw,28px);letter-spacing:.04em;margin-bottom:20px}
-.pdp-story p{font-size:13.5px;font-weight:300;color:#57534A}
+.pdp-story p{font-size:13.5px;font-weight:300;color:#333}
 
 /* ---------- 絞り込み結果 ---------- */
 .products-count{
@@ -316,7 +316,7 @@ a.card-media:hover{transform:translateY(-4px)}
 }
 .buy-eyebrow{font-family:var(--garam);font-size:12px;letter-spacing:.04em;color:var(--mute);margin-bottom:20px}
 .buy h2{font-family:var(--mincho);font-weight:600;font-size:clamp(21px,2.8vw,32px);letter-spacing:.04em;line-height:1.85}
-.buy-body{margin:22px auto 0;max-width:620px;font-size:13.5px;font-weight:300;color:#57534A;letter-spacing:normal}
+.buy-body{margin:22px auto 0;max-width:620px;font-size:13.5px;font-weight:300;color:#333;letter-spacing:normal}
 .buy-body span{display:block}
 .buy-cta{
   display:inline-flex;align-items:center;justify-content:center;
@@ -441,4 +441,27 @@ a.card-media:hover{transform:translateY(-4px)}
   .buy-stats dd{font-size:30px}
   .buy-stats>div:first-child dd{font-size:38px}
   .buy-body{text-align:left}
+}
+
+/* 2026-11 サイト共通のヘッダーに合わせる。地の色は無彩色、文字は13px以上 */
+.site-header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #eaeaea}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1240px,calc(100% - 48px));height:76px;margin:0 auto;position:relative}
+.site-logo{display:block;flex:none}
+.site-logo img{display:block;width:auto;height:56px}
+.site-header .site-nav{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
+.site-header .site-nav a{position:relative;color:#111;font-size:15px;font-weight:700;line-height:1.2;white-space:nowrap;text-decoration:none}
+.site-header .site-nav a:not(.nav-contact)::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:#0756A6;transform:scaleX(0);transform-origin:left;transition:transform .2s ease-out}
+.site-header .site-nav a:not(.nav-contact):hover::after,.site-header .site-nav a[aria-current="page"]::after{transform:scaleX(1)}
+.site-header .site-nav .nav-contact{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:6px;background:#0756A6;color:#fff}
+.storehead-crumb,.sfooter-links,.sfooter-note,.sfooter-addr,.buy-note,.card-meta,.card-price small{font-size:13px}
+.storehead-crumb,.sfooter-links a,.sfooter-note,.sfooter-addr,.card-meta,.card-price small{color:#444}
+.buy-note{color:#fff}
+@media (max-width:960px){
+  .site-header{position:static}
+  .site-header-inner{flex-wrap:wrap;height:auto;padding:8px 0 10px;gap:6px 16px;width:calc(100% - 32px)}
+  .site-logo img{height:46px}
+  .site-header .site-nav{flex:1 1 100%;flex-wrap:wrap;gap:0 12px;order:3}
+  .site-header .site-nav a{font-size:13px;padding:8px 0;font-feature-settings:"palt"}
+  .site-header .site-nav a:not(.nav-contact)::after{bottom:2px}
+  .site-header .site-nav .nav-contact{position:absolute;top:4px;right:0;min-height:40px;padding:0 14px;font-size:14px}
 }

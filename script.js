@@ -43,12 +43,61 @@
 
   const ease = 'power3.out';
 
+  /* ---------- 開幕: 石が現れ、湯気が立ち上がって、画面が開く（セッションの最初の1回だけ） ---------- */
+  let introTime = 0;
+  if (root.classList.contains('intro-on') && document.querySelector('.intro')) {
+    introTime = 0.85;
+    gsap.timeline()
+      .from('.intro #stones', { opacity: 0, y: 14, duration: 0.3, ease }, 0)
+      .from('.intro #steam > *', { opacity: 0, y: 70, scaleY: 0.6, transformOrigin: '50% 100%', duration: 0.6, stagger: 0.09, ease }, 0.12)
+      .to('.intro', { clipPath: 'inset(0 0 100% 0)', duration: 0.5, ease: 'power3.inOut', onComplete: () => root.classList.remove('intro-on') }, 0.8);
+  }
+
   /* ---------- 冒頭: 団体名が下から立ち上がり、写真が開く ---------- */
   if (document.querySelector('.lead')) {
-    gsap.timeline({ defaults: { ease } })
+    gsap.timeline({ defaults: { ease }, delay: introTime })
       .from('.hero-wordmark .wm i', { yPercent: 115, duration: 0.9, stagger: 0.07 }, 0.05)
       .from('.lead-catch, .lead-side', { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.4)
       .from('.mosaic figure', { clipPath: 'inset(0 0 100% 0)', duration: 0.9, stagger: 0.1, clearProps: 'clipPath' }, 0.35);
+  }
+
+  /* ---------- 見せ場: 「足りない」から「サウナをその理由にする」へ ---------- */
+  const why = document.querySelector('.why');
+  if (why) {
+    why.classList.add('is-live');
+    const answer = why.querySelector('.why-a');
+    /* 文章が画面に収まらない小さな画面では、動かさず普通に読ませる */
+    if (answer.scrollHeight > answer.clientHeight + 1 || window.innerHeight < 620) {
+      why.classList.remove('is-live');
+    } else {
+      const wide = window.innerWidth > 960;
+      gsap.set('.why-a > *', { opacity: 0, y: 28 });
+      gsap.set('.why-img', { clipPath: wide ? 'inset(0 100% 0 0)' : 'inset(0 0 100% 0)' });
+      gsap.timeline({ scrollTrigger: { trigger: why, start: 'top top', end: 'bottom bottom', scrub: 0.6 } })
+        .to({}, { duration: 0.14 })
+        .to('.why-q', { opacity: 0, y: -40, duration: 0.16, ease: 'power1.in' })
+        .to('.why-img', { clipPath: 'inset(0 0% 0% 0)', duration: 0.3, ease: 'power2.inOut' }, '<0.02')
+        .from('.why-img img', { scale: 1.14, duration: 0.42, ease: 'none' }, '<')
+        .to('.why-a > *', { opacity: 1, y: 0, duration: 0.16, stagger: 0.04, ease: 'power2.out' }, '<0.12')
+        .to({}, { duration: 0.18 });
+    }
+  }
+
+  /* ---------- スケジュール: 線が「いま」まで伸びる ---------- */
+  const steps = document.querySelector('.line-steps');
+  if (steps) {
+    const fill = steps.querySelector('.line-fill');
+    const next = steps.querySelector('.is-next');
+    const measure = () => {
+      const a = steps.getBoundingClientRect();
+      const n = next.getBoundingClientRect();
+      const wide = window.innerWidth > 760;
+      steps.style.setProperty('--line-done', (wide ? n.left - a.left : n.top - a.top - 9) + 'px');
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    const axis = window.innerWidth > 760 ? 'scaleX' : 'scaleY';
+    gsap.fromTo(fill, { [axis]: 0 }, { [axis]: 1, ease: 'none', scrollTrigger: { trigger: steps, start: 'top 88%', end: 'top 50%', scrub: 0.5 } });
   }
 
   /* ---------- 見出しの橙のアクセント線が中央から伸びる（共通の合図） ---------- */
