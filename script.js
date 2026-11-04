@@ -53,12 +53,24 @@
       .to('.intro', { clipPath: 'inset(0 0 100% 0)', duration: 0.5, ease: 'power3.inOut', onComplete: () => root.classList.remove('intro-on') }, 0.8);
   }
 
-  /* ---------- 冒頭: 団体名が下から立ち上がり、写真が開く ---------- */
-  if (document.querySelector('.lead')) {
+  /* ---------- 冒頭: 合言葉が下から立ち上がり、スクロールで「まだない景色」が現れる ---------- */
+  const lead = document.querySelector('.lead');
+  if (lead) {
     gsap.timeline({ defaults: { ease }, delay: introTime })
-      .from('.hero-wordmark .wm i', { yPercent: 115, duration: 0.9, stagger: 0.07 }, 0.05)
-      .from('.lead-catch, .lead-side', { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.4)
-      .from('.mosaic figure', { clipPath: 'inset(0 0 100% 0)', duration: 0.9, stagger: 0.1, clearProps: 'clipPath' }, 0.35);
+      .from('.lead-line i', { yPercent: 112, duration: 1.0, stagger: 0.1 }, 0.05)
+      .from('.lead-name, .lead-foot', { y: 16, opacity: 0, duration: 0.7, stagger: 0.1 }, 0.4)
+      .from('.lead-now img', { scale: 1.08, duration: 1.6, ease: 'power2.out' }, 0);
+    lead.classList.add('is-live');
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: lead, start: 'top top', end: 'bottom bottom', scrub: 0.6,
+        onUpdate: (st) => lead.classList.toggle('is-next', st.progress > 0.5)
+      }
+    })
+      .to({}, { duration: 0.08 })
+      .to('.lead-next', { clipPath: 'inset(0% 0 0 0)', duration: 0.74, ease: 'power1.inOut' })
+      .from('.lead-next img', { scale: 1.1, duration: 0.74, ease: 'none' }, '<')
+      .to({}, { duration: 0.18 });
   }
 
   /* ---------- 見せ場: 「足りない」から「サウナをその理由にする」へ ---------- */
