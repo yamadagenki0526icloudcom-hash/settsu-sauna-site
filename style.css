@@ -1124,3 +1124,8 @@ html.js-motion .timeline li.is-lit::before { opacity: 1; transform: translateX(-
 @media (max-width: 760px) {
   .floating-cta[data-track="floating_register"] { padding: 15px 34px; font-size: 14px; }
 }
+
+/* 2026-11-10 パソコンのナビの文字を大きくする（スマホは今のまま） */
+@media (min-width: 761px) {
+  .site-nav a { font-size: 15px; }
+}
