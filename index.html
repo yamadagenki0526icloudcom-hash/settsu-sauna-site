@@ -108,7 +108,7 @@
 
   /* hero */
   .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;color:#fff}
-  .hero-bg{position:absolute;inset:0;background:url(assets/site-now.webp) center 40%/cover no-repeat;transform:scale(1.08);animation:kb 14s ease-out forwards}
+  .hero-bg{position:absolute;inset:0;background:url(assets/ir/y-site-may.webp) center 45%/cover no-repeat;transform:scale(1.08);animation:kb 14s ease-out forwards}
   @keyframes kb{to{transform:scale(1)}}
   .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 45% at 50% 50%,rgba(4,40,90,.42),rgba(4,40,90,0) 75%),linear-gradient(180deg,rgba(4,40,90,.18) 0%,rgba(4,40,90,.08) 45%,rgba(0,0,0,.4) 100%)}
   .hero-copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
@@ -268,7 +268,7 @@
 
   /* contact */
   .contact{position:relative;color:#fff;padding:130px 20px;text-align:center;overflow:hidden}
-  .contact-bg{position:absolute;inset:0;background:url(assets/ir/g07.webp) center/cover}
+  .contact-bg{position:absolute;inset:0;background:url(assets/ir/y-crowd2.webp) center/cover}
   .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,86,166,.9),rgba(6,71,138,.95))}
   .contact .wrap{position:relative}
   .contact h2{font-size:clamp(26px,3vw,40px);line-height:1.5}
@@ -359,6 +359,14 @@
     .strip{animation:none;overflow-x:auto;width:auto}
   }
 </style>
+<style>
+  .prog{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .prog figure{margin:0}
+  .prog img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+  .prog figcaption{font-size:14px;margin-top:10px;opacity:.95}
+  @media (max-width:900px){.hero-bg{background-image:url(assets/ir/y-site-may-1100.webp)!important}}
+  @media (max-width:600px){.prog{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -375,20 +383,20 @@
 </header>
 
 <section class="hero" aria-label="NEXT SETTSU ALLIANCE">
-  <div class="hero-bg" role="img" aria-label="草地の奥の高架を新幹線が走る、避ス地の建設予定地"></div>
+  <div class="hero-bg" role="img" aria-label="草の生えた避ス地の建設予定地。奥に新幹線の高架"></div>
   <div class="hero-copy">
     <p class="hero-kicker">摂津に、まだない景色を。</p>
     <h1 class="hero-name">NEXT SETTSU<br>ALLIANCE</h1>
   </div>
-  <p class="hero-cap">いまの摂津　避ス地の建設予定地</p>
+  <p class="hero-cap">避ス地の建設予定地（2026年5月）</p>
 </section>
 
 <section class="intro" id="intro">
   <div class="intro-bg" aria-hidden="true"></div>
-  <figure class="float f1" data-speed="-0.12"><img src="assets/ir/enkai-stall.webp" alt="縁会の出店で買い物をする人たち"></figure>
+  <figure class="float f1" data-speed="-0.12"><img src="assets/ir/y-booth2.webp" alt="縁会の出店の前で笑う2人"></figure>
   <figure class="float f2" data-speed="0.10"><img src="assets/ir/ts-atsui-sq.webp" alt="NSAのTシャツを着た学生2人"></figure>
-  <figure class="float f3" data-speed="-0.08"><img src="assets/ir/g00.webp" alt="縁会の会場の入口"></figure>
-  <figure class="float f4" data-speed="0.14"><img src="assets/ir/enkai-show.webp" alt="縁会でパフォーマンスを見る人たち"></figure>
+  <figure class="float f3" data-speed="-0.08"><img src="assets/ir/y-curry.webp" alt="縁会のカレーの出店"></figure>
+  <figure class="float f4" data-speed="0.14"><img src="assets/ir/y-kitchen.webp" alt="縁会に並んだキッチンカー"></figure>
   <figure class="float f5" data-speed="-0.05"><img src="assets/ir/enkai-tent.webp" alt="縁会の段ボールのテント"></figure>
   <div class="intro-text">
     <h2>会社も、学生も、<wbr>地域の人も。<br>みんなで摂津を<wbr>おもしろく<wbr>しています</h2>
@@ -399,8 +407,8 @@
 <section class="why" id="why">
   <div class="wrap why-grid">
     <div class="why-photo">
-      <img src="assets/site-now-1100.webp" alt="避ス地の建設予定地。奥の高架を新幹線が走る">
-      <img class="sub" src="assets/ir/g02.webp" alt="縁会のステージで話す人">
+      <img src="assets/ir/y-site-jul.webp" alt="重機で整地が進む避ス地の建設予定地（2026年7月）">
+      <img class="sub" src="assets/ir/y-talk.webp" alt="縁会のステージで話す人">
     </div>
     <div>
       <p class="why-k">始まり</p>
@@ -423,7 +431,7 @@
         <span class="card-plus" aria-hidden="true">+</span>
       </article>
       <article class="card">
-        <img src="assets/ir/enkai-crowd.webp" alt="キッチンカーやテントが並ぶ縁会の会場">
+        <img src="assets/ir/y-enkai-crowd.webp" alt="キッチンカーやテントが並び、人でにぎわう縁会の会場">
         <div class="card-t"><p class="card-k">縁会</p><h3 class="card-h">思い付きから38日で、<br>空き地を<wbr>お祭りに</h3></div>
         <div class="card-more"><b>縁会 Vol.0（2026年10月12日）</b>思い付いたのは、本番のわずか38日前。そんな無謀な呼びかけに、農家さんも、大道芸人も、ドローンのプロも乗ってくれました。朝まで「本当に人は来るのか」と不安だった会場は、始まって5分でにぎわいました。</div>
         <span class="card-plus" aria-hidden="true">+</span>
@@ -486,12 +494,17 @@
     </div>
     <div class="enkai-txt"><p>始まりは9月4日の思い付きでした。準備できるのは、たった38日。「この指とまれ」と声をかけると、農家さん、飲食店、大道芸人、ワークショップが得意な地域の人、ドローンのプロ、キッチンカー、足つぼ整体師、印刷屋さんが集まってくれました。</p><p>当日の朝まで、本当にお客さんが来てくれるのか不安でいっぱいでした。ふたを開けてみると、始まって5分で会場はたくさんの人でにぎわいました。出店した人も、来てくれた人も、みんながワクワクした1日です。</p></div>
   </div>
-  <div class="strip" aria-label="縁会の写真"><img src="assets/ir/g10.webp" alt="" loading="lazy"><img src="assets/ir/g04.webp" alt="" loading="lazy"><img src="assets/ir/g08.webp" alt="" loading="lazy"><img src="assets/ir/g00.webp" alt="" loading="lazy"><img src="assets/ir/g07.webp" alt="" loading="lazy"><img src="assets/ir/g02.webp" alt="" loading="lazy"><img src="assets/ir/g09.webp" alt="" loading="lazy"><img src="assets/ir/g05.webp" alt="" loading="lazy"><img src="assets/ir/g03.webp" alt="" loading="lazy"><img src="assets/ir/g06.webp" alt="" loading="lazy"><img src="assets/ir/g01.webp" alt="" loading="lazy"><img src="assets/ir/g10.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g04.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g08.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g00.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g07.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g02.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g09.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g05.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g03.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g06.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/g01.webp" alt="" aria-hidden="true" loading="lazy"></div>
+  <div class="strip" aria-label="縁会の写真"><img src="assets/ir/y-enkai-crowd.webp" alt="" loading="lazy"><img src="assets/ir/y-kitchen.webp" alt="" loading="lazy"><img src="assets/ir/y-booth2.webp" alt="" loading="lazy"><img src="assets/ir/y-stage.webp" alt="" loading="lazy"><img src="assets/ir/y-curry.webp" alt="" loading="lazy"><img src="assets/ir/y-tent.webp" alt="" loading="lazy"><img src="assets/ir/y-stall.webp" alt="" loading="lazy"><img src="assets/ir/y-tables.webp" alt="" loading="lazy"><img src="assets/ir/y-booth.webp" alt="" loading="lazy"><img src="assets/ir/y-stage2.webp" alt="" loading="lazy"><img src="assets/ir/y-stall2.webp" alt="" loading="lazy"><img src="assets/ir/y-talk.webp" alt="" loading="lazy"><img src="assets/ir/y-tent2.webp" alt="" loading="lazy"><img src="assets/ir/y-crowd2.webp" alt="" loading="lazy"><img src="assets/ir/y-enkai-crowd.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-kitchen.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-booth2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stage.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-curry.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tent.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stall.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tables.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-booth.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stage2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stall2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-talk.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tent2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-crowd2.webp" alt="" aria-hidden="true" loading="lazy"></div>
 </section>
 
 <section class="tl" id="timeline">
   <div class="wrap">
     <h2 class="sec-h">始まって4か月。<br>ここから、<wbr>避ス地が<wbr>建ちます</h2>
+    <div class="prog">
+      <figure><img src="assets/ir/y-site-may-s.webp" alt="草の生えた建設予定地" loading="lazy"><figcaption>2026年5月　草の生えた空き地</figcaption></figure>
+      <figure><img src="assets/ir/y-site-jul.webp" alt="重機で整地する建設予定地" loading="lazy"><figcaption>2026年7月　重機で整地</figcaption></figure>
+      <figure><img src="assets/ir/y-enkai-crowd.webp" alt="人でにぎわう縁会の会場" loading="lazy"><figcaption>2026年10月　お祭り「縁会」を開催</figcaption></figure>
+    </div>
     <ol class="tl-list"><span class="tl-fill" aria-hidden="true"></span>
       <li><p class="tl-d">2026.07</p><p class="tl-t">NEXT SETTSU ALLIANCEが始動。公式サイトを公開</p></li>
       <li><p class="tl-d">2026.07–10</p><p class="tl-t">クラウドファンディング。235人の支援で目標の1,000万円を達成</p></li>
