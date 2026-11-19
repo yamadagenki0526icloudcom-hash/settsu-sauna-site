@@ -407,7 +407,6 @@
   .contact .dl{margin-top:26px}
   .contact .dl .btn{margin:0}
   @media (max-width:600px){.inq{padding:24px 18px}.inq-row{grid-template-columns:1fr;gap:0}}
-  .hero-dl{background:transparent!important;color:#fff!important;border:2px solid #fff;margin-left:10px}
 </style>
 </head>
 <body>
@@ -429,7 +428,7 @@
     <p class="hero-kicker">企業・団体のみなさまへ</p>
     <h1 class="hero-name">「応援する企業」から、<br>「共に挑戦する<wbr>共創パートナー」へ。</h1>
     <p class="hero-sub">ロゴを並べるだけの協賛ではありません。自社の技術・製品・場所を持ち寄って、学生と一緒に新しい商品やイベント、発信を試す。そんな関わり方です。</p>
-    <p class="hero-cta"><a data-track="biz_hero_contact" class="btn" href="#contact">お問い合わせ・ご相談</a><a data-track="biz_pdf_hero" class="btn hero-dl" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料（PDF）</a></p>
+    <p class="hero-cta"><a data-track="biz_hero_contact" class="btn" href="#contact">お問い合わせ・ご相談</a></p>
   </div>
   <figure class="yhero-ph"><img class="kc" src="../assets/ir/biz-kc.webp" alt="縁会に出店したキッチンカー"><figcaption>縁会には、地域の会社やお店が出店しました</figcaption></figure>
 </section>
@@ -539,7 +538,6 @@
           <option>取材・メディア掲載</option>
           <option>イベントへの出店・協賛</option>
           <option>学生との接点（採用・職場体験など）</option>
-          <option>資料のご請求</option>
           <option>その他</option>
         </select></label>
       </div>
@@ -548,7 +546,6 @@
       <button class="btn" type="submit">内容を確認してメールを作成する</button>
       <p class="inq-note">ボタンを押すと、入力した内容が入ったメールがお使いのメールソフトで開きます。そのまま送信してください。メールソフトが開かない場合は、<a data-track="biz_mail" href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> へ直接お送りいただくか、<a data-track="contact_form" href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">Googleフォーム</a>をご利用ください。お預かりした情報の扱いは<a href="../privacy.html">プライバシーポリシー</a>をご覧ください。</p>
     </form>
-    <p class="dl"><a data-track="biz_pdf_contact" class="btn ghost" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料をダウンロード（PDF）</a></p>
   </div>
 </section>
 
@@ -603,8 +600,7 @@
 (() => {
   const GOAL = {
     contact_form: 'contact_submit', nsa_mail: 'contact_submit', biz_form_submit: 'contact_submit', biz_contact_form: 'contact_submit', biz_mail: 'contact_submit',
-    register_hero: 'student_register', register_join: 'student_register', register_bottom: 'student_register', register_nav: 'student_register',
-    biz_pdf_hero: 'company_pdf', biz_pdf_contact: 'company_pdf'
+    register_hero: 'student_register', register_join: 'student_register', register_bottom: 'student_register', register_nav: 'student_register'
   };
   window.nsaTrack = name => {
     if (typeof gtag !== 'function') return;
