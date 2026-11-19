@@ -19,17 +19,17 @@
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Google tag (gtag.js) -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SYT5TZ86Y"></script>
+  
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-4SYT5TZ86Y');
   </script>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="stylesheet" href="../style.css?v=75">
-  <script>document.documentElement.classList.add('js-motion');</script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,133 +40,580 @@
     ]
   }
   </script>
+  <style>
+  :root{
+    --blue:#0756A6; --blue-deep:#06478a; --ink:#111; --body:#3d4652; --mut:#6b7480;
+    --line:#e3e7ec; --orange:#F05A24; --paper:#f4f6f8;
+    --sans:"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  h1,h2,h3,p,dt,dd,summary,b,span,li,.card-more{word-break:auto-phrase;text-wrap:pretty}
+  h1,h2,h3,.card-h{text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+
+  /* header */
+  .hd{position:fixed;inset:0 0 auto 0;z-index:50;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.05)}
+  .hd-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em}
+  .hd-logo img{height:42px;width:auto}
+  .hd nav{display:flex;gap:28px;font-size:14px;font-weight:600;letter-spacing:.04em}
+  .hd nav a:hover{color:var(--blue)}
+  .hd .cta{background:var(--blue);color:#fff;padding:9px 18px;border-radius:999px}
+  .hd .cta:hover{color:#fff;background:var(--blue-deep)}
+
+  /* hero */
+  .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;color:#fff}
+  .hero-bg{position:absolute;inset:0;background:url(../assets/site-now.webp) center 40%/cover no-repeat;transform:scale(1.08);animation:kb 14s ease-out forwards}
+  @keyframes kb{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 45% at 50% 50%,rgba(4,40,90,.42),rgba(4,40,90,0) 75%),linear-gradient(180deg,rgba(4,40,90,.18) 0%,rgba(4,40,90,.08) 45%,rgba(0,0,0,.4) 100%)}
+  .hero-copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+  .hero-kicker{font-size:clamp(15px,1.6vw,22px);letter-spacing:.32em;font-weight:600;text-shadow:0 2px 16px rgba(0,0,0,.35);opacity:0;animation:up 1s .3s forwards}
+  .hero-name{font-size:clamp(46px,9.4vw,150px);font-weight:700;line-height:.98;letter-spacing:.02em;margin-top:14px;text-shadow:0 4px 30px rgba(0,0,0,.3);opacity:0;animation:up 1.2s .55s forwards}
+  .hero-cap{position:absolute;left:28px;bottom:24px;z-index:2;font-size:12px;letter-spacing:.08em;opacity:.9}
+  @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* intro (blue tinted photo + floating photos) */
+  .intro{position:relative;padding:150px 20px 170px;color:#fff;overflow:hidden}
+  .intro-bg{position:absolute;inset:0;background:url(../assets/ir/enkai-crowd2.webp) center/cover no-repeat}
+  .intro-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,120,190,.86),rgba(7,86,166,.94))}
+  .intro-text{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center}
+  .intro h2{font-size:clamp(24px,3vw,38px);line-height:1.5;letter-spacing:.06em}
+  .intro p{font-size:clamp(15px,1.25vw,17px);line-height:2.15;letter-spacing:.06em;margin:28px auto 0;max-width:30em;text-wrap:balance}
+  .float{position:absolute;z-index:1;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.22);opacity:0;transition:opacity 1.1s ease;will-change:transform}
+  .float.in{opacity:.95}
+  .float img{width:100%;height:100%;object-fit:cover}
+  .f1{width:240px;height:170px;left:2.5%;top:16%}
+  .f2{width:220px;height:168px;left:5%;top:58%}
+  .f3{width:230px;height:160px;right:2.5%;top:12%}
+  .f4{width:220px;height:160px;right:4%;top:56%}
+  .f5{display:none}
+
+  /* section heading */
+  .sec{padding:120px 20px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .sec-h{font-size:clamp(26px,3.2vw,42px);font-weight:700;color:var(--blue);letter-spacing:.04em;line-height:1.4}
+  .sec-lead{color:var(--body);margin-top:14px;font-size:15px}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  .card{position:relative;aspect-ratio:7/10;border-radius:20px;overflow:hidden;color:#fff;cursor:pointer;transform:translateY(30px);opacity:0;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .9s}
+  .card.in{transform:none;opacity:1}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .card:hover img{transform:scale(1.05)}
+  .card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,86,166,.82) 0%,rgba(7,86,166,.35) 34%,rgba(7,86,166,0) 60%)}
+  .card-t{position:absolute;z-index:2;left:22px;right:22px;top:22px}
+  .card-k{font-size:12px;letter-spacing:.14em;font-weight:600;opacity:.9}
+  .card-h{font-size:clamp(16px,1.35vw,19px);font-weight:700;line-height:1.55;margin-top:6px;word-break:keep-all;overflow-wrap:anywhere}
+  .sec-h,.intro h2{word-break:keep-all;overflow-wrap:anywhere}
+  .num-v{white-space:nowrap}
+  .card-plus{position:absolute;z-index:3;right:16px;bottom:16px;width:38px;height:38px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:22px;line-height:1;transition:transform .3s}
+  .card-more{position:absolute;inset:0;z-index:2;background:rgba(7,86,166,.94);padding:26px 22px;display:flex;flex-direction:column;justify-content:flex-end;font-size:14px;line-height:1.9;opacity:0;transition:opacity .35s}
+  .card.open .card-more{opacity:1}
+  .card-t{transition:opacity .3s}
+  .card.open .card-t{opacity:0}
+  .card.open .card-plus{transform:rotate(45deg)}
+  .card-more b{font-size:17px;margin-bottom:10px;display:block}
+  .note{font-size:12px;color:var(--mut);text-align:right;margin-top:14px}
+
+  /* numbers band */
+  .nums{background:var(--blue);color:#fff;padding:110px 20px 120px;position:relative;overflow:hidden}
+  .nums .sec-h{color:#fff}
+  .num-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;row-gap:56px}
+  .num{text-align:center;padding:0 16px;border-left:1px solid rgba(255,255,255,.4)}
+  .num:nth-child(3n+1){border-left:none}
+  .num-k{font-size:13px;font-weight:600;letter-spacing:.08em}
+  .num-v{font-weight:300;font-size:clamp(54px,6.4vw,96px);line-height:1.1;margin-top:10px;letter-spacing:-.01em;font-feature-settings:"tnum"}
+  .num-v small{font-size:.32em;font-weight:500;margin-left:4px}
+  .num-s{font-size:12px;opacity:.85;margin-top:6px}
+  .nums-photo{position:absolute;right:-40px;top:-60px;width:360px;height:250px;border-radius:18px;overflow:hidden;opacity:.18}
+
+  .ft{padding:40px 20px;text-align:center;font-size:12px;color:var(--mut)}
+
+
+  /* why */
+  .why{position:relative;padding:130px 20px 150px;background:#fff;overflow:hidden}
+  .why-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .why-photo{position:relative}
+  .why-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+  .why-photo .sub{position:absolute;right:-28px;bottom:-48px;width:46%;aspect-ratio:1/1;border-radius:18px;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,20,60,.18);object-fit:cover}
+  .why-k{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.14em}
+  .why h2{font-size:clamp(26px,3vw,40px);line-height:1.5;margin-top:12px;word-break:keep-all;overflow-wrap:anywhere}
+  .why p{color:var(--body);margin-top:22px;font-size:16px;line-height:2.05}
+  .why .def{margin-top:30px;padding:22px 24px;background:var(--paper);border-radius:14px;font-size:15px;line-height:1.95;color:var(--body)}
+  .why .def b{color:var(--blue);display:block;font-size:16px;margin-bottom:4px}
+
+  /* place (hisuchi facilities) */
+  .place{background:var(--paper);padding:120px 20px 0;position:relative}
+  .fac{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .fac div{background:#fff;border-radius:16px;padding:26px 24px 24px}
+  .fac div::before{content:"";display:block;width:28px;height:3px;border-radius:2px;background:var(--blue);margin-bottom:14px}
+  .fac b{display:block;font-size:18px;letter-spacing:.04em}
+  .fac span{display:block;color:var(--body);font-size:14px;margin-top:6px;line-height:1.8}
+  .fac div:nth-child(1)::before{background:var(--orange)}
+  .place-figs{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:56px;position:relative;z-index:2;transform:translateY(80px)}
+  .place-figs figure{border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(0,30,80,.16)}
+  .place-figs img{width:100%;height:340px;object-fit:cover}
+  .place-figs figcaption{font-size:12px;color:var(--mut);padding:10px 16px}
+  .place + .nums{padding-top:190px}
+
+  /* enkai gallery */
+  .enkai{padding:130px 0 120px;overflow:hidden}
+  .enkai .wrap{padding:0 20px}
+  .enkai-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+  .enkai-head p{color:var(--body);font-size:16px;line-height:2}
+  .enkai-txt p+p{margin-top:14px}
+  .strip{margin-top:52px;display:flex;gap:16px;width:max-content;animation:marq 70s linear infinite}
+  .strip img{height:300px;width:auto;border-radius:14px;object-fit:cover}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .enkai .note{max-width:1180px;margin:14px auto 0;padding:0 20px}
+
+  /* timeline */
+  .tl{background:var(--blue);color:#fff;padding:120px 20px}
+  .tl .sec-h{color:#fff}
+  .tl-list{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);margin-top:60px;position:relative}
+  .tl-list::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.3)}
+  .tl-fill{position:absolute;left:0;right:0;top:9px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left center;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+  .tl.in .tl-fill{transform:scaleX(.6)}
+  .tl-list li{position:relative;padding-top:38px;padding-right:18px}
+  .tl-list li::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.25)}
+  .tl-list li.next::before{background:var(--blue);border:2px solid #fff}
+  .tl-d{font-size:clamp(22px,2.2vw,30px);font-weight:300;letter-spacing:.02em}
+  .tl-t{font-size:14px;line-height:1.8;margin-top:8px;opacity:.95}
+
+  /* youth */
+  .youth{padding:130px 20px}
+  .youth-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+  .youth-photo{position:sticky;top:100px}
+  .youth-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px}
+  .gain{list-style:none;margin-top:36px;border-top:1px solid var(--line)}
+  .gain li{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:48px 1fr;gap:12px}
+  .gain .n{font-size:28px;font-weight:300;color:var(--blue);line-height:1.1}
+  .gain b{font-size:18px;display:block;line-height:1.5}
+  .gain span{color:var(--body);font-size:15px;display:block;margin-top:6px;line-height:1.9}
+  .btn{display:inline-block;margin-top:34px;background:var(--blue);color:#fff;padding:15px 30px;border-radius:999px;font-weight:700;letter-spacing:.06em}
+  .btn:hover{background:var(--blue-deep)}
+  .btn.ghost{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+
+  /* ways */
+  .ways{background:var(--paper);padding:120px 20px}
+  .way-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .way{background:#fff;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+  .way:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,30,80,.12)}
+  .way img{width:100%;height:220px;object-fit:cover;object-position:50% 30%}
+  .way-b{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .way-k{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.14em}
+  .way h3{font-size:20px;margin-top:6px;line-height:1.5}
+  .way p{color:var(--body);font-size:14px;margin-top:10px;line-height:1.9;flex:1}
+  .way-go{margin-top:18px;font-weight:700;color:var(--blue);font-size:14px}
+  .ex{margin-top:56px;background:#fff;border-radius:20px;padding:34px 36px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+  .ex h3{font-size:18px;color:var(--blue);line-height:1.6}
+  .ex dl{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 32px}
+  .ex dt{font-weight:700;font-size:15px}
+  .ex dd{color:var(--body);font-size:14px;line-height:1.8;margin-top:2px}
+
+  /* faq */
+  .faq{padding:120px 20px}
+  .faq-list{margin-top:40px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:24px 48px 24px 0;font-weight:700;font-size:17px;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:6px;top:18px;font-size:26px;color:var(--blue);font-weight:300;transition:transform .3s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{color:var(--body);padding:0 0 26px;font-size:15px;line-height:2}
+
+  /* contact */
+  .contact{position:relative;color:#fff;padding:130px 20px;text-align:center;overflow:hidden}
+  .contact-bg{position:absolute;inset:0;background:url(../assets/ir/g07.webp) center/cover}
+  .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,86,166,.9),rgba(6,71,138,.95))}
+  .contact .wrap{position:relative}
+  .contact h2{font-size:clamp(26px,3vw,40px);line-height:1.5}
+  .contact p{margin-top:16px;font-size:16px}
+  .contact .btn{background:#fff;color:var(--blue);margin:36px 8px 0}
+  .contact .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+  .contact .mail{margin-top:26px;font-size:14px;opacity:.9}
+
+  .ft{padding:56px 20px 40px;font-size:13px;color:var(--body);text-align:left}
+  .ft-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  .ft-org img{height:64px;width:auto;margin-bottom:12px}
+  .ft-sns a{display:block;color:var(--blue);font-weight:600;margin-top:4px}
+  .ft-c{margin-top:30px;color:var(--mut);font-size:12px}
+
+  /* business */
+  .biz{padding:130px 20px;background:#fff;position:relative;overflow:hidden}
+  .biz-top{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+  .biz-lead{color:var(--body);font-size:16px;line-height:2.05;margin-top:22px}
+  .biz-photo{position:relative}
+  .biz-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+  .biz-photo .sub{position:absolute;left:-30px;bottom:-44px;width:44%;aspect-ratio:3/4;border-radius:18px;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,20,60,.18);object-fit:cover}
+  .biz-photo figcaption{font-size:12px;color:var(--mut);text-align:right;margin-top:10px;padding-left:44%}
+  .merit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:110px}
+  .merit div{border-top:1px solid var(--line);padding-top:24px}
+  .merit .n{font-size:48px;font-weight:300;color:var(--blue);line-height:1}
+  .merit .k{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--mut);margin-top:14px}
+  .merit b{display:block;font-size:20px;margin-top:6px;line-height:1.5}
+  .merit p{color:var(--body);font-size:15px;line-height:1.95;margin-top:8px}
+  .biz .ex{background:var(--paper);margin-top:64px}
+  .flow{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:f}
+  .flow li{list-style:none;position:relative;background:var(--blue);color:#fff;padding:26px 28px 26px 34px;font-weight:700;font-size:17px;line-height:1.6;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%)}
+  .flow li:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);border-radius:14px 0 0 14px}
+  .flow li:nth-child(2){background:#0b63b8}
+  .flow li:nth-child(3){background:#1170c8}
+  .flow li span{display:block;font-size:12px;letter-spacing:.14em;opacity:.85;font-weight:600}
+  .biz-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+  .biz-foot p{color:var(--body);font-size:14px}
+  .biz-foot .btn{margin-top:0}
+
+  @media (max-width:1000px){
+    .biz-top{grid-template-columns:1fr;gap:40px}
+    .biz-photo .sub{left:-8px}
+    .merit{grid-template-columns:1fr;margin-top:80px}
+    .flow{grid-template-columns:1fr;gap:8px}
+    .flow li,.flow li:first-child{clip-path:none;border-radius:12px}
+    .why-grid,.youth-grid,.enkai-head{grid-template-columns:1fr;gap:40px}
+    .why-photo .sub{right:-8px}
+    .fac{grid-template-columns:repeat(2,1fr)}
+    .place-figs{grid-template-columns:1fr}
+    .tl-list{grid-template-columns:1fr;gap:28px}
+    .tl-list::before,.tl-fill{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}
+    .tl-fill{transform:scaleY(0);transform-origin:center top}
+    .tl.in .tl-fill{transform:scaleY(.6)}
+    .tl-list li{padding:0 0 0 44px}
+    .youth-photo{position:static}
+    .way-grid{grid-template-columns:1fr 1fr}
+    .ex{grid-template-columns:1fr}
+    .hd nav{display:none}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .f1,.f3{width:180px;height:125px}.f2,.f4,.f5{display:none}
+  }
+  @media (max-width:600px){
+    .hd{padding:0 16px}
+    .hero-cap{left:16px}
+    .intro{padding:100px 16px 90px;display:flex;flex-wrap:wrap;gap:10px}
+    .intro-text{order:0;width:100%;margin-bottom:26px}
+    .float,.f1,.f2,.f3,.f4,.f5{position:relative;inset:auto;order:1;display:block;width:calc(50% - 5px);height:auto;aspect-ratio:4/3;opacity:1}
+    .f5{display:none}
+    .sec{padding:90px 16px}
+    .cards{grid-template-columns:1fr;gap:18px}
+    .card{aspect-ratio:4/3}
+    .num-grid{grid-template-columns:1fr 1fr;row-gap:40px}
+    .way-grid,.ex dl{grid-template-columns:1fr}
+    .fac{grid-template-columns:1fr 1fr;gap:12px}
+    .fac div{padding:18px 16px}
+    .fac b{font-size:16px}
+    .place-figs img{height:220px}
+    .strip img{height:200px}
+    .why,.enkai,.youth,.faq,.contact,.ways,.tl,.biz{padding-top:90px;padding-bottom:90px}
+    .num{border-left:none}
+    .num-v{font-size:clamp(38px,11vw,56px)}
+    .float{transform:none!important}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-bg,.hero-kicker,.hero-name{animation:none;opacity:1;transform:none}
+    .card{opacity:1;transform:none}
+    .float{opacity:.95}
+    .strip{animation:none;overflow-x:auto;width:auto}
+  }
+</style><style>
+  .yhero{display:grid;grid-template-columns:1.05fr 1fr;min-height:100svh;padding-top:64px;background:var(--blue);color:#fff}
+  .yhero-copy{display:flex;flex-direction:column;justify-content:center;padding:60px 6vw}
+  .yhero .hero-kicker{letter-spacing:.2em;font-size:clamp(13px,1.2vw,16px);line-height:1.9;text-shadow:none}
+  .yhero .hero-name{font-size:clamp(38px,4.6vw,72px);line-height:1.2;text-shadow:none}
+  .yhero-ph{position:relative;overflow:hidden;margin:0;min-height:420px}
+  .yhero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;animation:kb 14s ease-out forwards;transform:scale(1.06)}
+  .yhero-ph figcaption{position:absolute;right:16px;bottom:14px;font-size:12px;opacity:.9}
+  .hero-cta{margin-top:34px;opacity:0;animation:up 1s .9s forwards}
+  .hero-cta .btn{background:#fff;color:var(--blue);margin-top:0}
+  .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .act{position:relative;border-radius:20px;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 24px;color:#fff;background:var(--blue)}
+  .act img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .act.ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,40,90,.82) 0%,rgba(7,40,90,.35) 45%,rgba(7,40,90,0) 70%)}
+  .act > div{position:relative;z-index:2}
+  .act.alt{background:#0b63b8}
+  .act.pale{background:var(--paper);color:var(--ink)}
+  .act.pale .act-k{color:var(--blue)}
+  .act-k{font-size:12px;font-weight:700;letter-spacing:.14em;opacity:.9}
+  .act h3{font-size:21px;line-height:1.5;margin-top:6px}
+  .act p{font-size:14px;line-height:1.9;margin-top:8px;opacity:.95}
+  .act .big{position:absolute;top:22px;right:24px;font-size:64px;font-weight:300;line-height:1;opacity:.25;z-index:2}
+  .reg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;list-style:none}
+  .reg li{background:#fff;border-radius:18px;padding:28px 26px}
+  .reg .n{font-size:44px;font-weight:300;color:var(--blue);line-height:1}
+  .reg b{display:block;font-size:18px;margin-top:12px;line-height:1.5}
+  .reg span{display:block;color:var(--body);font-size:14px;margin-top:6px;line-height:1.85}
+  .reg-note{margin-top:26px;font-size:16px;line-height:1.9;color:var(--ink);font-weight:600}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+  .two a{position:relative;border-radius:20px;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;color:#fff}
+  .two img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .two a:hover img{transform:scale(1.05)}
+  .two a::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,40,90,.94) 0%,rgba(7,40,90,.75) 45%,rgba(7,40,90,.15) 85%)}
+  .two a > div{position:relative;z-index:2}
+  .two h3{font-size:22px}
+  .two p{font-size:14px;line-height:1.9;margin-top:6px}
+  .two .go{display:inline-block;margin-top:12px;font-weight:700}
+  .fol{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .fol a{border:1px solid var(--line);border-radius:16px;padding:24px 26px;display:block;transition:border-color .3s}
+  .fol a:hover{border-color:var(--blue)}
+  .fol b{font-size:18px;display:block}
+  .fol .id{color:var(--blue);font-weight:600;font-size:14px;margin-top:2px;display:block}
+  .fol p{color:var(--body);font-size:14px;margin-top:8px}
+  @media (max-width:1000px){.acts{grid-template-columns:1fr 1fr}.reg,.two,.fol{grid-template-columns:1fr}}
+  @media (max-width:1000px){.yhero{grid-template-columns:1fr;min-height:auto}.yhero-ph{order:-1;height:62svh}.yhero-copy{padding:44px 20px 56px}}
+  @media (max-width:600px){.acts{grid-template-columns:1fr}.act{min-height:260px}}
+</style><style>
+  .yhero-ph img.kc{object-position:50% 40%}
+  .bnum{padding:70px 20px;border-bottom:1px solid var(--line)}
+  .bnum .num-grid{grid-template-columns:repeat(4,1fr);margin-top:0}
+  .bnum .num{border-left:1px solid var(--line)}
+  .bnum .num:first-child{border-left:none}
+  .bnum .num:nth-child(3n+1){border-left:1px solid var(--line)}
+  .bnum .num:first-child{border-left:none}
+  .bnum .num-k{color:var(--mut)}
+  .bnum .num-v{color:var(--blue);font-size:clamp(40px,4.4vw,68px)}
+  .bnum .num-s{color:var(--mut)}
+  .do{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;list-style:none}
+  .do li{background:#fff;border-radius:18px;padding:26px 24px}
+  .do .n{font-size:40px;font-weight:300;color:var(--blue);line-height:1}
+  .do b{display:block;font-size:18px;margin-top:12px}
+  .do span{display:block;color:var(--body);font-size:14px;line-height:1.85;margin-top:6px}
+  .rec{list-style:none;margin-top:40px;border-top:1px solid rgba(255,255,255,.35)}
+  .rec li{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.35)}
+  .rec .d{font-size:clamp(20px,2vw,26px);font-weight:300}
+  .rec p{font-size:15px;line-height:1.95}
+  .cond{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .cond div{background:var(--paper);border-radius:18px;padding:26px 24px}
+  .cond h3{font-size:16px;color:var(--blue);letter-spacing:.06em}
+  .cond p,.cond li{color:var(--body);font-size:14px;line-height:1.9;margin-top:10px}
+  .cond ul{list-style:none;margin-top:6px}
+  .cond li{margin-top:4px;padding-left:1em;text-indent:-1em}
+  .cond li::before{content:"・"}
+  @media (max-width:1000px){.bnum .num-grid{grid-template-columns:1fr 1fr;row-gap:36px}.bnum .num:nth-child(3){border-left:none}.do{grid-template-columns:1fr 1fr}.cond{grid-template-columns:1fr}.rec li{grid-template-columns:1fr;gap:6px}}
+  @media (max-width:600px){.do{grid-template-columns:1fr}}
+</style><style>.yhero .hero-name{font-size:clamp(26px,3.1vw,46px);line-height:1.35}.hero-sub{margin-top:22px;font-size:16px;line-height:2;opacity:.95;max-width:30em}</style><style>
+  .inq{max-width:860px;margin:40px auto 0;background:#fff;color:var(--ink);border-radius:20px;padding:36px 36px 30px;text-align:left}
+  .inq-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .inq label{display:block;font-size:14px;font-weight:700;margin-bottom:18px}
+  .inq em,.inq label span{font-style:normal;font-size:11px;font-weight:700;margin-left:8px;padding:2px 7px;border-radius:4px;vertical-align:1px}
+  .inq em{background:var(--orange);color:#fff}
+  .inq label span{background:var(--paper);color:var(--mut)}
+  .inq input,.inq select,.inq textarea{display:block;width:100%;margin-top:7px;font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:1px solid #cdd5de;border-radius:10px;background:#fff;color:var(--ink)}
+  .inq input:focus,.inq select:focus,.inq textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+  .inq .bad{border-color:var(--orange);background:#fff7f3}
+  .inq .btn{margin:6px 0 0;background:var(--blue);color:#fff;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px}
+  .inq-err{color:#c2410c;font-size:14px;font-weight:700;margin-bottom:6px}
+  .inq-note{font-size:13px;color:var(--body);line-height:1.9;margin-top:16px}
+  .inq-note a{color:var(--blue);text-decoration:underline}
+  .contact .dl{margin-top:26px}
+  .contact .dl .btn{margin:0}
+  @media (max-width:600px){.inq{padding:24px 18px}.inq-row{grid-template-columns:1fr;gap:0}}
+  .hero-dl{background:transparent!important;color:#fff!important;border:2px solid #fff;margin-left:10px}
+</style>
 </head>
-<body class="v2">
-  <a class="skip-link" href="#main">本文へ移動</a>
+<body>
 
-  <header class="site-header" id="top">
-    <div class="site-header-inner">
-      <a class="site-logo" href="../" aria-label="NEXT SETTSU ALLIANCE ホーム"><img src="../assets/nsa-lockup.svg" width="1400" height="545" alt="NEXT SETTSU ALLIANCE ロゴ"></a>
-      <nav class="site-nav" aria-label="メインナビゲーション">
-        <a href="../about/">NSAとは</a>
-        <a href="../#projects">プロジェクト</a>
-        <a href="../students/" data-track="to_students">学生・若者</a>
-        <a href="../companies/" data-track="to_companies" aria-current="page">企業の方へ</a>
-        <a href="../shop/" data-track="to_shop">ストア</a>
-        <a class="nav-contact" href="../#join" data-track="nav_contact">お問い合わせ</a>
-      </nav>
+<header class="hd">
+  <a class="hd-logo" href="../"><img src="../assets/nsa-mark.svg" alt="">NEXT SETTSU ALLIANCE</a>
+  <nav>
+    <a href="#about">NSAとは</a>
+    <a href="#ways">関わり方</a>
+    <a href="#do">できること</a>
+    <a href="#record">実績</a>
+    <a href="#flow">相談の流れ</a>
+    <a class="cta" href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+
+<section class="yhero" aria-label="企業・団体のみなさまへ">
+  <div class="yhero-copy">
+    <p class="hero-kicker">企業・団体のみなさまへ</p>
+    <h1 class="hero-name">「応援する企業」から、<br>「共に挑戦する<wbr>共創パートナー」へ。</h1>
+    <p class="hero-sub">ロゴを並べるだけの協賛ではありません。自社の技術・製品・場所を持ち寄って、学生と一緒に新しい商品やイベント、発信を試す。そんな関わり方です。</p>
+    <p class="hero-cta"><a class="btn" href="#contact">お問い合わせ・ご相談</a><a class="btn hero-dl" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料（PDF）</a></p>
+  </div>
+  <figure class="yhero-ph"><img class="kc" src="../assets/ir/biz-kc.webp" alt="縁会に出店したキッチンカー"><figcaption>縁会には、地域の会社やお店が出店しました</figcaption></figure>
+</section>
+
+<section class="bnum" aria-label="NSAの現在地">
+  <div class="wrap num-grid">
+    <div class="num"><p class="num-k">クラウドファンディングの支援者</p><p class="num-v"><span data-count="235">235</span><small>人</small></p></div>
+    <div class="num"><p class="num-k">支援総額</p><p class="num-v"><span data-count="1074">1,074</span><small>万円</small></p><p class="num-s">目標1,000万円を達成</p></div>
+    <div class="num"><p class="num-k">避ス地の着工</p><p class="num-v">2026<small>.12</small></p><p class="num-s">予定</p></div>
+    <div class="num"><p class="num-k">避ス地の完成</p><p class="num-v">2027<small>.07</small></p><p class="num-s">予定</p></div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="intro-bg" aria-hidden="true"></div>
+  <figure class="float f1" data-speed="-0.12"><img src="../assets/ir/enkai-stall.webp" alt="縁会の出店で買い物をする人たち"></figure>
+  <figure class="float f2" data-speed="0.10"><img src="../assets/ir/ts-atsui-sq.webp" alt="NSAのTシャツを着た学生2人"></figure>
+  <figure class="float f3" data-speed="-0.08"><img src="../assets/ir/g00.webp" alt="縁会の会場の入口"></figure>
+  <figure class="float f4" data-speed="0.14"><img src="../assets/ir/enkai-show.webp" alt="縁会でパフォーマンスを見る人たち"></figure>
+  <div class="intro-text">
+    <h2>摂津のまちを、<br>企業と学生で<wbr>おもしろくする</h2>
+    <p>ネクスト摂津アライアンス（NSA）は、摂津の企業・学生・大学・地域の人が手を組んだ連合体です。サウナのある居場所「避ス地」を2027年7月の完成に向けてつくりながら、お祭りを開き、服をつくり、動画で発信しています。</p>
+    <p><a class="btn" style="background:#fff;color:var(--blue)" href="../">NSAのことをもっと知る</a></p>
+  </div>
+</section>
+
+<section class="ways" id="ways" style="background:#fff">
+  <div class="wrap">
+    <h2 class="sec-h">関わり方は、<br>3つあります</h2>
+    <p class="sec-lead">どれか1つからでも、組み合わせても大丈夫です。</p>
+    <div class="way-grid">
+      <div class="way"><img src="../assets/ir/g04.webp" alt="縁会の出店で買い物をする人たち"><div class="way-b"><p class="way-k">01　地域・交流</p><h3>地域との接点が生まれる</h3><p>摂津の会社・お店・学生とつながり、企業同士の関係を育てます。</p></div></div>
+      <div class="way"><img src="../assets/ir/ts-atsui.webp" alt="NSAのTシャツを着た学生2人"><div class="way-b"><p class="way-k">02　採用・学生接点</p><h3>学生の本当の姿に出会える</h3><p>説明会では見えない、動いているときの学生の姿に出会えます。</p></div></div>
+      <div class="way"><img src="../assets/ir/g08.webp" alt="縁会でパフォーマンスを見る人たち"><div class="way-b"><p class="way-k">03　共創・事業</p><h3>学生と一緒に、小さく試せる</h3><p>商品開発・イベント・発信を、学生と一緒に小さく試します。</p></div></div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="main" tabindex="-1">
-    <section class="page-head" aria-labelledby="co-title" data-hide-cta>
-      <div class="wrap">
-        <p class="page-kicker">企業・団体のみなさまへ</p>
-        <h1 id="co-title" class="keep">「応援する企業」から、<br>「共に挑戦する<wbr>共創パートナー」へ。</h1>
-        <div class="page-head-side">
-          <p>NSAでは、企業の技術・製品・空間を使って、学生と一緒に新しい商品やイベント、発信を試します。</p>
-          <p class="btn-row"><a class="btn btn-solid" data-track="co_form_top" href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">まずは相談する</a><a class="btn btn-line" href="../about/">組織概要を見る</a></p>
-        </div>
-      </div>
-    </section>
+<section class="ways" id="do">
+  <div class="wrap">
+    <h2 class="sec-h">たとえば、<br>こんなことを<wbr>一緒に</h2>
+    <ol class="do">
+      <li><span class="n">01</span><b>取材と発信</b><span>学生が会社を取材し、写真と見せ方を考えて、SNSで発信します。</span></li>
+      <li><span class="n">02</span><b>商品の企画</b><span>新しい商品やサービスのアイデアを、学生と一緒に出して試します。</span></li>
+      <li><span class="n">03</span><b>イベント</b><span>縁会などのイベントに、出店や協賛で加わります。</span></li>
+      <li><span class="n">04</span><b>職場体験</b><span>職場体験やインターンで、学生と出会います。</span></li>
+    </ol>
+  </div>
+</section>
 
-    <section class="facts-band" aria-label="NSAの現在地">
-      <dl class="wrap facts">
-        <div><dt>クラウドファンディングの支援者</dt><dd>235<small>人</small></dd></div>
-        <div><dt>クラウドファンディングの支援総額</dt><dd>10,740,000<small>円</small></dd></div>
-        <div><dt>避ス地の着工予定</dt><dd>2026<small>年</small>12<small>月</small></dd></div>
-        <div><dt>避ス地の完成予定</dt><dd>2027<small>年</small>7<small>月</small></dd></div>
-      </dl>
-    </section>
-
-    <section class="block" aria-labelledby="way-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title keep" id="way-title">関わり方は、<wbr>3つあります</h2>
-        <div class="block-body ways">
-          <div class="way way-static"><span class="way-who">地域・交流</span><span class="way-main"><b>地域との接点を持つ</b><span>摂津の会社・お店・学生とつながり、企業同士の関係を育てます。</span></span></div>
-          <div class="way way-static"><span class="way-who">採用・学生接点</span><span class="way-main"><b>学生の本当の姿に触れる</b><span>説明会では見えない、動いているときの学生の姿に出会えます。</span></span></div>
-          <div class="way way-static"><span class="way-who">共創・事業</span><span class="way-main"><b>学生と一緒に試す</b><span>商品開発・イベント・発信を、学生と一緒に小さく試します。</span></span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block block-tint" aria-labelledby="example-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title keep" id="example-title">たとえば、<wbr>こんなことを一緒に</h2>
-        <dl class="block-body rows rows-top" aria-label="一緒にできることの例">
-          <div><dt>取材と発信</dt><dd>学生が会社を取材し、写真と見せ方を考えて、SNSで発信します</dd></div>
-          <div><dt>商品の企画</dt><dd>新しい商品やサービスのアイデアを、学生と一緒に出して試します</dd></div>
-          <div><dt>イベント</dt><dd>縁会などのイベントに、出店や協賛で加わります</dd></div>
-          <div><dt>職場体験</dt><dd>職場体験やインターンで、学生と出会います</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="block" aria-labelledby="done-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title" id="done-title">これまでにやったこと</h2>
-        <div class="block-body">
-          <dl class="rows rows-top" aria-label="これまでにやったこと">
-            <div><dt>2026年10月12日</dt><dd>避ス地の建設予定地で、地域のイベント「縁会」を開催。地域の会社やお店が出店しました</dd></div>
-            <div><dt>2026年7月〜10月</dt><dd>クラウドファンディングで、235人の支援を受けて目標を達成</dd></div>
-            <div><dt>いつも</dt><dd>学生がまちのお店や会社を訪ね、活動を紹介してポスターを貼らせてもらっています</dd></div>
-          </dl>
-          <a class="text-link" data-track="to_activity" href="../activity/">活動報告を見る</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="block block-tint" id="flow" aria-labelledby="flow-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title keep" id="flow-title">まずは相談から、<wbr>小さく始められます</h2>
-        <div class="block-body">
-          <ol class="flow">
-            <li><span>1</span>フォームかメールでご相談</li>
-            <li><span>2</span>オンラインか対面でお話し</li>
-            <li><span>3</span>一緒に小さく始める</li>
-          </ol>
-          <dl class="rows">
-            <div><dt>費用</dt><dd>別途ご相談します。一緒に取り組む内容の費用や条件も、内容に合わせてご相談します。</dd></div>
-            <div><dt>参加の条件</dt><dd>摂津市を盛り上げる想いを持っていること<br>反社会的勢力でないこと<br>HPに企業・店舗のロゴを掲載できること</dd></div>
-            <div><dt>参加するとできること</dt><dd>NSAの情報共有<br>HPにロゴ掲載<br>多彩なイベントへの参加</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="contact" aria-labelledby="contact-title" data-hide-cta>
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title" id="contact-title">ご相談はこちら</h2>
-        <div class="block-body">
-          <p class="btn-row"><a class="btn btn-solid" data-track="co_form" href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">フォームで相談する</a></p>
-          <dl class="rows">
-            <div><dt>メール</dt><dd><a href="mailto:nsa.settsu@gmail.com" data-track="nsa_mail">nsa.settsu@gmail.com</a></dd></div>
-            <div><dt>活動地域</dt><dd>大阪府摂津市</dd></div>
-            <div><dt>構成</dt><dd>企業・学生・大学・地域の人</dd></div>
-            <div><dt>運営</dt><dd>株式会社花岡工務店（大阪府摂津市<span class="nw">新在家2-1-19</span>）</dd></div>
-          </dl>
-          <a class="text-link" href="../about/">組織概要を見る</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <a class="floating-cta" href="#contact" data-track="floating_co_contact" aria-label="ご相談の窓口へ移動します">相談する</a>
-
-  <footer class="footer">
-    <img src="../assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
-    <p class="footer-org"><b>NEXT SETTSU ALLIANCE</b><br>運営: 株式会社花岡工務店<br>大阪府摂津市<span class="nw">新在家2-1-19</span></p>
-    <div class="footer-social">
-      <p class="social-group"><span>NSA公式</span><a href="https://www.instagram.com/nsa_from_settsu/" target="_blank" rel="noopener" data-track="ig_nsa" aria-label="NEXT SETTSU ALLIANCE 公式Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></p>
-      <p class="social-group"><span>今日サウナ行こ</span><a href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener" data-track="ig_sauna" aria-label="今日サウナ行こ Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.tiktok.com/@sauna_go_today" target="_blank" rel="noopener" data-track="tt_sauna" aria-label="今日サウナ行こ TikTok（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></p>
+<section class="enkai" id="record-enkai">
+  <div class="wrap enkai-head">
+    <div>
+      <p class="why-k">縁会 Vol.0　2026.10.12</p>
+      <h2 class="sec-h" style="margin-top:12px">呼びかけから38日で、<br>地域の会社やお店が<wbr>集まりました</h2>
     </div>
-    <p class="footer-links"><a href="../">ホーム</a><a href="../about/">組織概要</a><a href="../companies/">企業の方へ</a><a href="../students/">学生・若者</a><a href="../activity/">活動報告</a><a href="../shop/">ストア</a><a href="../privacy.html">プライバシーポリシー</a><a href="../shop/tokusho.html">特定商取引法に基づく表記</a></p>
-    <p class="copyright">Copyright © 2026 NEXT SETTSU ALLIANCE</p>
-  </footer>
+    <div class="enkai-txt"><p>「この指とまれ」の呼びかけに、農家さん、飲食店、大道芸人、ワークショップが得意な地域の人、ドローンのプロ、キッチンカー、足つぼ整体師、印刷屋さんが手を挙げてくれました。</p><p>当日の朝まで不安でいっぱいだった会場は、始まって5分でたくさんの人でにぎわいました。出店した人も、来てくれた人も、みんながワクワクした1日です。</p></div>
+  </div>
+  <div class="strip" aria-label="縁会の写真"><img src="../assets/ir/g05.webp" alt="" loading="lazy"><img src="../assets/ir/g04.webp" alt="" loading="lazy"><img src="../assets/ir/g10.webp" alt="" loading="lazy"><img src="../assets/ir/g08.webp" alt="" loading="lazy"><img src="../assets/ir/g09.webp" alt="" loading="lazy"><img src="../assets/ir/g07.webp" alt="" loading="lazy"><img src="../assets/ir/g00.webp" alt="" loading="lazy"><img src="../assets/ir/g03.webp" alt="" loading="lazy"><img src="../assets/ir/g02.webp" alt="" loading="lazy"><img src="../assets/ir/g06.webp" alt="" loading="lazy"><img src="../assets/ir/g01.webp" alt="" loading="lazy"><img src="../assets/ir/g05.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g04.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g10.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g08.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g09.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g07.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g00.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g03.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g02.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g06.webp" alt="" aria-hidden="true" loading="lazy"><img src="../assets/ir/g01.webp" alt="" aria-hidden="true" loading="lazy"></div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="../script.js?v=31"></script>
+<section class="tl" id="record">
+  <div class="wrap">
+    <h2 class="sec-h">これまでに、<br>やってきたこと</h2>
+    <ol class="rec">
+      <li><p class="d">2026.10.12</p><p>避ス地の建設予定地で、地域のお祭り「縁会」を開催。地域の会社やお店が出店しました。</p></li>
+      <li><p class="d">2026.07–10</p><p>クラウドファンディングで、235人の支援を受けて目標の1,000万円を達成しました。</p></li>
+      <li><p class="d">いつも</p><p>学生がまちのお店や会社を訪ね、活動を紹介してポスターを貼らせてもらっています。</p></li>
+    </ol>
+    <a class="btn" style="background:#fff;color:var(--blue)" href="../activity/">活動報告を見る</a>
+  </div>
+</section>
+
+<section class="biz" id="flow">
+  <div class="wrap">
+    <h2 class="sec-h">まずは相談から、<br>小さく始められます</h2>
+    <ol class="flow">
+      <li><span>STEP 1</span>フォームかメールでご相談</li>
+      <li><span>STEP 2</span>オンラインか対面でお話し</li>
+      <li><span>STEP 3</span>一緒に小さく始める</li>
+    </ol>
+    <div class="cond" style="grid-template-columns:1fr">
+      <div><h3>費用</h3><p>別途ご相談します。一緒に取り組む内容の費用や条件も、内容に合わせてご相談します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>摂津に、まだない景色を。<br>一緒に挑戦しませんか</h2>
+    <p>協業・連携のご相談、取材、イベントへの出店など、お気軽にお問い合わせください。<br>内容を確認のうえ、担当者からメールでご連絡します。</p>
+    <form class="inq" id="inq" novalidate>
+      <div class="inq-row">
+        <label>会社名・団体名<em>必須</em><input name="company" required autocomplete="organization"></label>
+        <label>部署<span>任意</span><input name="dept"></label>
+      </div>
+      <div class="inq-row">
+        <label>お名前<em>必須</em><input name="name" required autocomplete="name"></label>
+        <label>メールアドレス<em>必須</em><input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="inq-row">
+        <label>電話番号<span>任意</span><input name="tel" type="tel" autocomplete="tel"></label>
+        <label>ご用件<em>必須</em><select name="kind" required>
+          <option value="">選んでください</option>
+          <option>協業・連携のご相談</option>
+          <option>取材・メディア掲載</option>
+          <option>イベントへの出店・協賛</option>
+          <option>学生との接点（採用・職場体験など）</option>
+          <option>資料のご請求</option>
+          <option>その他</option>
+        </select></label>
+      </div>
+      <label class="full">お問い合わせ内容<em>必須</em><textarea name="body" rows="6" required></textarea></label>
+      <p class="inq-err" role="alert" hidden>必須の項目を入力してください。</p>
+      <button class="btn" type="submit">内容を確認してメールを作成する</button>
+      <p class="inq-note">ボタンを押すと、入力した内容が入ったメールがお使いのメールソフトで開きます。そのまま送信してください。メールソフトが開かない場合は、<a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> へ直接お送りいただくか、<a href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">Googleフォーム</a>をご利用ください。お預かりした情報の扱いは<a href="../privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+    </form>
+    <p class="dl"><a class="btn ghost" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料をダウンロード（PDF）</a></p>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-grid">
+    <div class="ft-org"><img src="../assets/nsa-logo.svg" alt="NEXT SETTSU ALLIANCE"><br>活動地域　大阪府摂津市<br>構成　企業・学生・大学・地域の人<br>運営　株式会社花岡工務店（大阪府摂津市新在家2-1-19）</div>
+    <div class="ft-sns"><a href="../">NSAのトップへ</a><a href="../students/">学生・若者の方へ</a></div>
+  </div>
+  <p class="ft-c">© 2026 NEXT SETTSU ALLIANCE</p>
+</div></footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // fade-in on view
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.15 });
+  const tio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); tio.unobserve(e.target); } }), { threshold: 0.3 });
+  document.querySelectorAll('.tl').forEach(el => tio.observe(el));
+  document.querySelectorAll('.float, .card').forEach((el, i) => {
+    if (el.classList.contains('card')) el.style.transitionDelay = (i % 4) * 0.12 + 's';
+    io.observe(el);
+  });
+  // floating photos drift with scroll
+  const floats = [...document.querySelectorAll('.float')];
+  const intro = document.querySelector('.intro');
+  if (!reduce && innerWidth > 600) {
+    const tick = () => {
+      const r = intro.getBoundingClientRect();
+      const p = (innerHeight - r.top);
+      floats.forEach(f => f.style.transform = `translateY(${p * parseFloat(f.dataset.speed)}px)`);
+    };
+    addEventListener('scroll', tick, { passive: true }); tick();
+  }
+  // cards open/close
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => c.classList.toggle('open')));
+  // count up numbers
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, to = +el.dataset.count; if (reduce) return;
+    const t0 = performance.now(), dur = 1400;
+    const step = t => { const k = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+      el.textContent = v.toLocaleString('ja-JP'); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+})();
+</script>
+<script>
+(() => {
+  const f = document.getElementById('inq'); if (!f) return;
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const req = [...f.querySelectorAll('[required]')];
+    let ok = true;
+    req.forEach(el => { const bad = !el.value.trim() || (el.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)); el.classList.toggle('bad', bad); if (bad) ok = false; });
+    f.querySelector('.inq-err').hidden = ok;
+    if (!ok) { f.querySelector('.bad').focus(); return; }
+    const v = n => f.elements[n].value.trim();
+    const subject = `【NSAサイト】${v('kind')}（${v('company')}）`;
+    const body = [`会社名・団体名：${v('company')}`, `部署：${v('dept') || '―'}`, `お名前：${v('name')}`, `メールアドレス：${v('email')}`, `電話番号：${v('tel') || '―'}`, `ご用件：${v('kind')}`, '', 'お問い合わせ内容：', v('body')].join('\n');
+    location.href = `mailto:nsa.settsu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
 </body>
 </html>

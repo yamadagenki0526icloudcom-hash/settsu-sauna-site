@@ -22,17 +22,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://nsa-settsu.jp/assets/og-youth.jpg">
   <!-- Google tag (gtag.js) -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SYT5TZ86Y"></script>
+  
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-4SYT5TZ86Y');
   </script>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="stylesheet" href="../style.css?v=75">
-  <script>document.documentElement.classList.add('js-motion');</script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,139 +43,485 @@
     ]
   }
   </script>
+  <style>
+  :root{
+    --blue:#0756A6; --blue-deep:#06478a; --ink:#111; --body:#3d4652; --mut:#6b7480;
+    --line:#e3e7ec; --orange:#F05A24; --paper:#f4f6f8;
+    --sans:"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  h1,h2,h3,p,dt,dd,summary,b,span,li,.card-more{word-break:auto-phrase;text-wrap:pretty}
+  h1,h2,h3,.card-h{text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+
+  /* header */
+  .hd{position:fixed;inset:0 0 auto 0;z-index:50;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.05)}
+  .hd-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em}
+  .hd-logo img{height:42px;width:auto}
+  .hd nav{display:flex;gap:28px;font-size:14px;font-weight:600;letter-spacing:.04em}
+  .hd nav a:hover{color:var(--blue)}
+  .hd .cta{background:var(--blue);color:#fff;padding:9px 18px;border-radius:999px}
+  .hd .cta:hover{color:#fff;background:var(--blue-deep)}
+
+  /* hero */
+  .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;color:#fff}
+  .hero-bg{position:absolute;inset:0;background:url(../assets/site-now.webp) center 40%/cover no-repeat;transform:scale(1.08);animation:kb 14s ease-out forwards}
+  @keyframes kb{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 45% at 50% 50%,rgba(4,40,90,.42),rgba(4,40,90,0) 75%),linear-gradient(180deg,rgba(4,40,90,.18) 0%,rgba(4,40,90,.08) 45%,rgba(0,0,0,.4) 100%)}
+  .hero-copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+  .hero-kicker{font-size:clamp(15px,1.6vw,22px);letter-spacing:.32em;font-weight:600;text-shadow:0 2px 16px rgba(0,0,0,.35);opacity:0;animation:up 1s .3s forwards}
+  .hero-name{font-size:clamp(46px,9.4vw,150px);font-weight:700;line-height:.98;letter-spacing:.02em;margin-top:14px;text-shadow:0 4px 30px rgba(0,0,0,.3);opacity:0;animation:up 1.2s .55s forwards}
+  .hero-cap{position:absolute;left:28px;bottom:24px;z-index:2;font-size:12px;letter-spacing:.08em;opacity:.9}
+  @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* intro (blue tinted photo + floating photos) */
+  .intro{position:relative;padding:150px 20px 170px;color:#fff;overflow:hidden}
+  .intro-bg{position:absolute;inset:0;background:url(../assets/ir/enkai-crowd2.webp) center/cover no-repeat}
+  .intro-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,120,190,.86),rgba(7,86,166,.94))}
+  .intro-text{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center}
+  .intro h2{font-size:clamp(24px,3vw,38px);line-height:1.5;letter-spacing:.06em}
+  .intro p{font-size:clamp(15px,1.25vw,17px);line-height:2.15;letter-spacing:.06em;margin:28px auto 0;max-width:30em;text-wrap:balance}
+  .float{position:absolute;z-index:1;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.22);opacity:0;transition:opacity 1.1s ease;will-change:transform}
+  .float.in{opacity:.95}
+  .float img{width:100%;height:100%;object-fit:cover}
+  .f1{width:240px;height:170px;left:2.5%;top:16%}
+  .f2{width:220px;height:168px;left:5%;top:58%}
+  .f3{width:230px;height:160px;right:2.5%;top:12%}
+  .f4{width:220px;height:160px;right:4%;top:56%}
+  .f5{display:none}
+
+  /* section heading */
+  .sec{padding:120px 20px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .sec-h{font-size:clamp(26px,3.2vw,42px);font-weight:700;color:var(--blue);letter-spacing:.04em;line-height:1.4}
+  .sec-lead{color:var(--body);margin-top:14px;font-size:15px}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  .card{position:relative;aspect-ratio:7/10;border-radius:20px;overflow:hidden;color:#fff;cursor:pointer;transform:translateY(30px);opacity:0;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .9s}
+  .card.in{transform:none;opacity:1}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .card:hover img{transform:scale(1.05)}
+  .card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,86,166,.82) 0%,rgba(7,86,166,.35) 34%,rgba(7,86,166,0) 60%)}
+  .card-t{position:absolute;z-index:2;left:22px;right:22px;top:22px}
+  .card-k{font-size:12px;letter-spacing:.14em;font-weight:600;opacity:.9}
+  .card-h{font-size:clamp(16px,1.35vw,19px);font-weight:700;line-height:1.55;margin-top:6px;word-break:keep-all;overflow-wrap:anywhere}
+  .sec-h,.intro h2{word-break:keep-all;overflow-wrap:anywhere}
+  .num-v{white-space:nowrap}
+  .card-plus{position:absolute;z-index:3;right:16px;bottom:16px;width:38px;height:38px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:22px;line-height:1;transition:transform .3s}
+  .card-more{position:absolute;inset:0;z-index:2;background:rgba(7,86,166,.94);padding:26px 22px;display:flex;flex-direction:column;justify-content:flex-end;font-size:14px;line-height:1.9;opacity:0;transition:opacity .35s}
+  .card.open .card-more{opacity:1}
+  .card-t{transition:opacity .3s}
+  .card.open .card-t{opacity:0}
+  .card.open .card-plus{transform:rotate(45deg)}
+  .card-more b{font-size:17px;margin-bottom:10px;display:block}
+  .note{font-size:12px;color:var(--mut);text-align:right;margin-top:14px}
+
+  /* numbers band */
+  .nums{background:var(--blue);color:#fff;padding:110px 20px 120px;position:relative;overflow:hidden}
+  .nums .sec-h{color:#fff}
+  .num-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;row-gap:56px}
+  .num{text-align:center;padding:0 16px;border-left:1px solid rgba(255,255,255,.4)}
+  .num:nth-child(3n+1){border-left:none}
+  .num-k{font-size:13px;font-weight:600;letter-spacing:.08em}
+  .num-v{font-weight:300;font-size:clamp(54px,6.4vw,96px);line-height:1.1;margin-top:10px;letter-spacing:-.01em;font-feature-settings:"tnum"}
+  .num-v small{font-size:.32em;font-weight:500;margin-left:4px}
+  .num-s{font-size:12px;opacity:.85;margin-top:6px}
+  .nums-photo{position:absolute;right:-40px;top:-60px;width:360px;height:250px;border-radius:18px;overflow:hidden;opacity:.18}
+
+  .ft{padding:40px 20px;text-align:center;font-size:12px;color:var(--mut)}
+
+
+  /* why */
+  .why{position:relative;padding:130px 20px 150px;background:#fff;overflow:hidden}
+  .why-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .why-photo{position:relative}
+  .why-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+  .why-photo .sub{position:absolute;right:-28px;bottom:-48px;width:46%;aspect-ratio:1/1;border-radius:18px;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,20,60,.18);object-fit:cover}
+  .why-k{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.14em}
+  .why h2{font-size:clamp(26px,3vw,40px);line-height:1.5;margin-top:12px;word-break:keep-all;overflow-wrap:anywhere}
+  .why p{color:var(--body);margin-top:22px;font-size:16px;line-height:2.05}
+  .why .def{margin-top:30px;padding:22px 24px;background:var(--paper);border-radius:14px;font-size:15px;line-height:1.95;color:var(--body)}
+  .why .def b{color:var(--blue);display:block;font-size:16px;margin-bottom:4px}
+
+  /* place (hisuchi facilities) */
+  .place{background:var(--paper);padding:120px 20px 0;position:relative}
+  .fac{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .fac div{background:#fff;border-radius:16px;padding:26px 24px 24px}
+  .fac div::before{content:"";display:block;width:28px;height:3px;border-radius:2px;background:var(--blue);margin-bottom:14px}
+  .fac b{display:block;font-size:18px;letter-spacing:.04em}
+  .fac span{display:block;color:var(--body);font-size:14px;margin-top:6px;line-height:1.8}
+  .fac div:nth-child(1)::before{background:var(--orange)}
+  .place-figs{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:56px;position:relative;z-index:2;transform:translateY(80px)}
+  .place-figs figure{border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(0,30,80,.16)}
+  .place-figs img{width:100%;height:340px;object-fit:cover}
+  .place-figs figcaption{font-size:12px;color:var(--mut);padding:10px 16px}
+  .place + .nums{padding-top:190px}
+
+  /* enkai gallery */
+  .enkai{padding:130px 0 120px;overflow:hidden}
+  .enkai .wrap{padding:0 20px}
+  .enkai-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+  .enkai-head p{color:var(--body);font-size:16px;line-height:2}
+  .enkai-txt p+p{margin-top:14px}
+  .strip{margin-top:52px;display:flex;gap:16px;width:max-content;animation:marq 70s linear infinite}
+  .strip img{height:300px;width:auto;border-radius:14px;object-fit:cover}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .enkai .note{max-width:1180px;margin:14px auto 0;padding:0 20px}
+
+  /* timeline */
+  .tl{background:var(--blue);color:#fff;padding:120px 20px}
+  .tl .sec-h{color:#fff}
+  .tl-list{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);margin-top:60px;position:relative}
+  .tl-list::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.3)}
+  .tl-fill{position:absolute;left:0;right:0;top:9px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left center;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+  .tl.in .tl-fill{transform:scaleX(.6)}
+  .tl-list li{position:relative;padding-top:38px;padding-right:18px}
+  .tl-list li::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.25)}
+  .tl-list li.next::before{background:var(--blue);border:2px solid #fff}
+  .tl-d{font-size:clamp(22px,2.2vw,30px);font-weight:300;letter-spacing:.02em}
+  .tl-t{font-size:14px;line-height:1.8;margin-top:8px;opacity:.95}
+
+  /* youth */
+  .youth{padding:130px 20px}
+  .youth-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+  .youth-photo{position:sticky;top:100px}
+  .youth-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px}
+  .gain{list-style:none;margin-top:36px;border-top:1px solid var(--line)}
+  .gain li{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:48px 1fr;gap:12px}
+  .gain .n{font-size:28px;font-weight:300;color:var(--blue);line-height:1.1}
+  .gain b{font-size:18px;display:block;line-height:1.5}
+  .gain span{color:var(--body);font-size:15px;display:block;margin-top:6px;line-height:1.9}
+  .btn{display:inline-block;margin-top:34px;background:var(--blue);color:#fff;padding:15px 30px;border-radius:999px;font-weight:700;letter-spacing:.06em}
+  .btn:hover{background:var(--blue-deep)}
+  .btn.ghost{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+
+  /* ways */
+  .ways{background:var(--paper);padding:120px 20px}
+  .way-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .way{background:#fff;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+  .way:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,30,80,.12)}
+  .way img{width:100%;height:220px;object-fit:cover;object-position:50% 30%}
+  .way-b{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+  .way-k{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.14em}
+  .way h3{font-size:20px;margin-top:6px;line-height:1.5}
+  .way p{color:var(--body);font-size:14px;margin-top:10px;line-height:1.9;flex:1}
+  .way-go{margin-top:18px;font-weight:700;color:var(--blue);font-size:14px}
+  .ex{margin-top:56px;background:#fff;border-radius:20px;padding:34px 36px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+  .ex h3{font-size:18px;color:var(--blue);line-height:1.6}
+  .ex dl{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 32px}
+  .ex dt{font-weight:700;font-size:15px}
+  .ex dd{color:var(--body);font-size:14px;line-height:1.8;margin-top:2px}
+
+  /* faq */
+  .faq{padding:120px 20px}
+  .faq-list{margin-top:40px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:24px 48px 24px 0;font-weight:700;font-size:17px;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:6px;top:18px;font-size:26px;color:var(--blue);font-weight:300;transition:transform .3s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{color:var(--body);padding:0 0 26px;font-size:15px;line-height:2}
+
+  /* contact */
+  .contact{position:relative;color:#fff;padding:130px 20px;text-align:center;overflow:hidden}
+  .contact-bg{position:absolute;inset:0;background:url(../assets/ir/g07.webp) center/cover}
+  .contact-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,86,166,.9),rgba(6,71,138,.95))}
+  .contact .wrap{position:relative}
+  .contact h2{font-size:clamp(26px,3vw,40px);line-height:1.5}
+  .contact p{margin-top:16px;font-size:16px}
+  .contact .btn{background:#fff;color:var(--blue);margin:36px 8px 0}
+  .contact .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+  .contact .mail{margin-top:26px;font-size:14px;opacity:.9}
+
+  .ft{padding:56px 20px 40px;font-size:13px;color:var(--body);text-align:left}
+  .ft-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  .ft-org img{height:64px;width:auto;margin-bottom:12px}
+  .ft-sns a{display:block;color:var(--blue);font-weight:600;margin-top:4px}
+  .ft-c{margin-top:30px;color:var(--mut);font-size:12px}
+
+  /* business */
+  .biz{padding:130px 20px;background:#fff;position:relative;overflow:hidden}
+  .biz-top{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+  .biz-lead{color:var(--body);font-size:16px;line-height:2.05;margin-top:22px}
+  .biz-photo{position:relative}
+  .biz-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+  .biz-photo .sub{position:absolute;left:-30px;bottom:-44px;width:44%;aspect-ratio:3/4;border-radius:18px;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,20,60,.18);object-fit:cover}
+  .biz-photo figcaption{font-size:12px;color:var(--mut);text-align:right;margin-top:10px;padding-left:44%}
+  .merit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:110px}
+  .merit div{border-top:1px solid var(--line);padding-top:24px}
+  .merit .n{font-size:48px;font-weight:300;color:var(--blue);line-height:1}
+  .merit .k{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--mut);margin-top:14px}
+  .merit b{display:block;font-size:20px;margin-top:6px;line-height:1.5}
+  .merit p{color:var(--body);font-size:15px;line-height:1.95;margin-top:8px}
+  .biz .ex{background:var(--paper);margin-top:64px}
+  .flow{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:f}
+  .flow li{list-style:none;position:relative;background:var(--blue);color:#fff;padding:26px 28px 26px 34px;font-weight:700;font-size:17px;line-height:1.6;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%)}
+  .flow li:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);border-radius:14px 0 0 14px}
+  .flow li:nth-child(2){background:#0b63b8}
+  .flow li:nth-child(3){background:#1170c8}
+  .flow li span{display:block;font-size:12px;letter-spacing:.14em;opacity:.85;font-weight:600}
+  .biz-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+  .biz-foot p{color:var(--body);font-size:14px}
+  .biz-foot .btn{margin-top:0}
+
+  @media (max-width:1000px){
+    .biz-top{grid-template-columns:1fr;gap:40px}
+    .biz-photo .sub{left:-8px}
+    .merit{grid-template-columns:1fr;margin-top:80px}
+    .flow{grid-template-columns:1fr;gap:8px}
+    .flow li,.flow li:first-child{clip-path:none;border-radius:12px}
+    .why-grid,.youth-grid,.enkai-head{grid-template-columns:1fr;gap:40px}
+    .why-photo .sub{right:-8px}
+    .fac{grid-template-columns:repeat(2,1fr)}
+    .place-figs{grid-template-columns:1fr}
+    .tl-list{grid-template-columns:1fr;gap:28px}
+    .tl-list::before,.tl-fill{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}
+    .tl-fill{transform:scaleY(0);transform-origin:center top}
+    .tl.in .tl-fill{transform:scaleY(.6)}
+    .tl-list li{padding:0 0 0 44px}
+    .youth-photo{position:static}
+    .way-grid{grid-template-columns:1fr 1fr}
+    .ex{grid-template-columns:1fr}
+    .hd nav{display:none}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .f1,.f3{width:180px;height:125px}.f2,.f4,.f5{display:none}
+  }
+  @media (max-width:600px){
+    .hd{padding:0 16px}
+    .hero-cap{left:16px}
+    .intro{padding:100px 16px 90px;display:flex;flex-wrap:wrap;gap:10px}
+    .intro-text{order:0;width:100%;margin-bottom:26px}
+    .float,.f1,.f2,.f3,.f4,.f5{position:relative;inset:auto;order:1;display:block;width:calc(50% - 5px);height:auto;aspect-ratio:4/3;opacity:1}
+    .f5{display:none}
+    .sec{padding:90px 16px}
+    .cards{grid-template-columns:1fr;gap:18px}
+    .card{aspect-ratio:4/3}
+    .num-grid{grid-template-columns:1fr 1fr;row-gap:40px}
+    .way-grid,.ex dl{grid-template-columns:1fr}
+    .fac{grid-template-columns:1fr 1fr;gap:12px}
+    .fac div{padding:18px 16px}
+    .fac b{font-size:16px}
+    .place-figs img{height:220px}
+    .strip img{height:200px}
+    .why,.enkai,.youth,.faq,.contact,.ways,.tl,.biz{padding-top:90px;padding-bottom:90px}
+    .num{border-left:none}
+    .num-v{font-size:clamp(38px,11vw,56px)}
+    .float{transform:none!important}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-bg,.hero-kicker,.hero-name{animation:none;opacity:1;transform:none}
+    .card{opacity:1;transform:none}
+    .float{opacity:.95}
+    .strip{animation:none;overflow-x:auto;width:auto}
+  }
+</style><style>
+  .yhero{display:grid;grid-template-columns:1.05fr 1fr;min-height:100svh;padding-top:64px;background:var(--blue);color:#fff}
+  .yhero-copy{display:flex;flex-direction:column;justify-content:center;padding:60px 6vw}
+  .yhero .hero-kicker{letter-spacing:.2em;font-size:clamp(13px,1.2vw,16px);line-height:1.9;text-shadow:none}
+  .yhero .hero-name{font-size:clamp(38px,4.6vw,72px);line-height:1.2;text-shadow:none}
+  .yhero-ph{position:relative;overflow:hidden;margin:0;min-height:420px}
+  .yhero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;animation:kb 14s ease-out forwards;transform:scale(1.06)}
+  .yhero-ph figcaption{position:absolute;right:16px;bottom:14px;font-size:12px;opacity:.9}
+  .hero-cta{margin-top:34px;opacity:0;animation:up 1s .9s forwards}
+  .hero-cta .btn{background:#fff;color:var(--blue);margin-top:0}
+  .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .act{position:relative;border-radius:20px;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 24px;color:#fff;background:var(--blue)}
+  .act img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .act.ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,40,90,.82) 0%,rgba(7,40,90,.35) 45%,rgba(7,40,90,0) 70%)}
+  .act > div{position:relative;z-index:2}
+  .act.alt{background:#0b63b8}
+  .act.pale{background:var(--paper);color:var(--ink)}
+  .act.pale .act-k{color:var(--blue)}
+  .act-k{font-size:12px;font-weight:700;letter-spacing:.14em;opacity:.9}
+  .act h3{font-size:21px;line-height:1.5;margin-top:6px}
+  .act p{font-size:14px;line-height:1.9;margin-top:8px;opacity:.95}
+  .act .big{position:absolute;top:22px;right:24px;font-size:64px;font-weight:300;line-height:1;opacity:.25;z-index:2}
+  .reg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;list-style:none}
+  .reg li{background:#fff;border-radius:18px;padding:28px 26px}
+  .reg .n{font-size:44px;font-weight:300;color:var(--blue);line-height:1}
+  .reg b{display:block;font-size:18px;margin-top:12px;line-height:1.5}
+  .reg span{display:block;color:var(--body);font-size:14px;margin-top:6px;line-height:1.85}
+  .reg-note{margin-top:26px;font-size:16px;line-height:1.9;color:var(--ink);font-weight:600}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+  .two a{position:relative;border-radius:20px;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;color:#fff}
+  .two img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .two a:hover img{transform:scale(1.05)}
+  .two a::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,40,90,.94) 0%,rgba(7,40,90,.75) 45%,rgba(7,40,90,.15) 85%)}
+  .two a > div{position:relative;z-index:2}
+  .two h3{font-size:22px}
+  .two p{font-size:14px;line-height:1.9;margin-top:6px}
+  .two .go{display:inline-block;margin-top:12px;font-weight:700}
+  .fol{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .fol a{border:1px solid var(--line);border-radius:16px;padding:24px 26px;display:block;transition:border-color .3s}
+  .fol a:hover{border-color:var(--blue)}
+  .fol b{font-size:18px;display:block}
+  .fol .id{color:var(--blue);font-weight:600;font-size:14px;margin-top:2px;display:block}
+  .fol p{color:var(--body);font-size:14px;margin-top:8px}
+  @media (max-width:1000px){.acts{grid-template-columns:1fr 1fr}.reg,.two,.fol{grid-template-columns:1fr}}
+  @media (max-width:1000px){.yhero{grid-template-columns:1fr;min-height:auto}.yhero-ph{order:-1;height:62svh}.yhero-copy{padding:44px 20px 56px}}
+  @media (max-width:600px){.acts{grid-template-columns:1fr}.act{min-height:260px}}
+</style>
 </head>
-<body class="v2">
-  <a class="skip-link" href="#main">本文へ移動</a>
+<body>
 
-  <header class="site-header" id="top">
-    <div class="site-header-inner">
-      <a class="site-logo" href="../" aria-label="NEXT SETTSU ALLIANCE ホーム"><img src="../assets/nsa-lockup.svg" width="1400" height="545" alt="NEXT SETTSU ALLIANCE ロゴ"></a>
-      <nav class="site-nav" aria-label="メインナビゲーション">
-        <a href="../">NSAトップ</a>
-        <a href="#about">YOUTHとは</a>
-        <a href="#projects">いまの活動</a>
-        <a href="../activity/" data-track="to_activity">活動報告</a>
-        <a href="../shop/" data-track="to_shop">ストア</a>
-        <a href="#register">登録する</a>
-      </nav>
+<header class="hd">
+  <a class="hd-logo" href="../"><img src="../assets/nsa-mark.svg" alt="">NEXT SETTSU YOUTH</a>
+  <nav>
+    <a href="#intro">ユースとは</a>
+    <a href="#gain">できること</a>
+    <a href="#acts">いまの活動</a>
+    <a href="#join">登録の流れ</a>
+    <a href="../">NSAのトップ</a>
+    <a class="cta" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録</a>
+  </nav>
+</header>
+
+<section class="yhero" aria-label="NEXT SETTSU YOUTH">
+  <div class="yhero-copy">
+    <p class="hero-kicker">NEXT SETTSU YOUTH<br>ネクスト摂津ユース</p>
+    <h1 class="hero-name">まだない景色を、<br>自分の手で。</h1>
+    <p class="hero-cta"><a class="btn" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a></p>
+  </div>
+  <figure class="yhero-ph"><img src="../assets/ir/ts-atsui-tall.webp" alt="夕方の街で、NSAのTシャツを着て並ぶ学生2人"><figcaption>メンバーがモデルを務めた、NSAのTシャツの撮影</figcaption></figure>
+</section>
+
+<section class="intro" id="intro">
+  <div class="intro-bg" aria-hidden="true"></div>
+  <figure class="float f1" data-speed="-0.12"><img src="../assets/ir/enkai-stall.webp" alt="縁会の出店で買い物をする人たち"></figure>
+  <figure class="float f2" data-speed="0.10"><img src="../assets/ir/ts-atsui-sq.webp" alt="NSAのTシャツを着た学生2人"></figure>
+  <figure class="float f3" data-speed="-0.08"><img src="../assets/ir/g09.webp" alt="縁会の段ボールのテント"></figure>
+  <figure class="float f4" data-speed="0.14"><img src="../assets/ir/g08.webp" alt="縁会でパフォーマンスを見る人たち"></figure>
+  <div class="intro-text">
+    <h2>参加するだけじゃない。<br>自分の企画を、<wbr>摂津で本当に<wbr>試せる場所です</h2>
+    <p>ネクスト摂津ユースは、NSAの中の学生・若者のチームです。用意された活動に参加するだけでなく、自分で考えた企画を、摂津のまちや会社を舞台に本当に試せます。ふだんは出会えない職人さんやまちの会社の社長とも、同じ目標に向かって動きます。</p>
+    <p>学生でも、働いていても、どこに住んでいても入れます。学生は参加費無料。特別なスキルはいりません。</p>
+  </div>
+</section>
+
+<section class="youth" id="gain">
+  <div class="wrap youth-grid">
+    <div class="youth-photo"><img src="../assets/ir/ts-amazing-tall.webp" alt="NSAのTシャツを着た学生2人"></div>
+    <div>
+      <p class="why-k">入ると、こんなことが起きます</p>
+      <h2 class="sec-h" style="margin-top:12px">使う側じゃなく、<br>つくる側に<wbr>まわろう</h2>
+      <ol class="gain">
+        <li><span class="n">01</span><div><b>自分の企画が、本当に形になる</b><span>Tシャツは、企画からモデル撮影、予約販売まで学生で回しています。動画やWebサイトも、学生が作って公開しています。</span></div></li>
+        <li><span class="n">02</span><div><b>関わった場所が、本当に建つ</b><span>新幹線が見えるサウナ「避ス地」は、2027年7月に完成予定。できあがった施設を使う側ではなく、つくる側から関われます。</span></div></li>
+        <li><span class="n">03</span><div><b>ふだん会えない大人と、同じチームになれる</b><span>職人さん、まちの会社の社長、新規事業や広告の専門家と、見学ではなく同じチームとして一緒に考え、動きます。</span></div></li>
+        <li><span class="n">04</span><div><b>就活や起業で話せる実績が残る</b><span>関わった活動は、肩書きより「これ、自分がやりました」と言える経験になります。</span></div></li>
+        <li><span class="n">05</span><div><b>遠くに住んでいても関われる</b><span>発信やWebの仕事なら、関西の外からでも参加できます。</span></div></li>
+      </ol>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="main" tabindex="-1">
-    <section class="yh2-hero" id="about" aria-labelledby="about-title" data-hide-cta>
-      <div class="wrap">
-        <p class="yh2-kicker">NEXT SETTSU ALLIANCE の学生・若者チーム　NEXT SETTSU YOUTH</p>
-        <h1 id="about-title">まだない景色を、<br>自分の手で。</h1>
-        <div class="yh2-side">
-          <p>用意された活動に参加するだけでなく、自分で考えた企画を、摂津のまちや会社を舞台に本当に試せます。ふだんは出会えない職人さんやまちの会社の社長とも、同じ目標に向かって動きます。</p>
-          <a class="yh-cta yh2-cta" data-track="to_register_hero" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
-          <p class="yh2-note">学生でも、働いていても、どこに住んでいても入れます。学生は参加費無料。特別なスキルはいりません。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" aria-labelledby="gain-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title keep" id="gain-title">入ると、<wbr>こんなことができる</h2>
-        <div class="block-body ways">
-          <div class="way way-plain"><span class="way-main"><b>自分の企画が、本当に形になる</b><span>Tシャツは、企画からモデル撮影、予約販売まで学生で回しています。動画やWebサイトも、学生が作って公開しています。</span></span></div>
-          <div class="way way-plain"><span class="way-main"><b>関わった場所が、本当に建つ</b><span>新幹線が見えるサウナ「避ス地」は、2027年7月に完成予定。できあがった施設を使う側ではなく、つくる側から関われます。</span></span></div>
-          <div class="way way-plain"><span class="way-main"><b>ふだん会えない大人と、同じチームになれる</b><span>20代から80代の職人さん、まちの会社の社長、新規事業や広告の専門家と、見学ではなく同じチームとして一緒に考え、動きます。</span></span></div>
-          <div class="way way-plain"><span class="way-main"><b>就活や起業で話せる実績が残る</b><span>関わった活動は、肩書きより「これ、自分がやりました」と言える経験になります。</span></span></div>
-          <div class="way way-plain"><span class="way-main"><b>遠くに住んでいても関われる</b><span>発信やWebの仕事なら、関西の外からでも参加できます。</span></span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block block-tint" id="projects" aria-labelledby="projects-title">
-      <div class="wrap block-grid" data-reveal>
-        <div>
-          <h2 class="block-title" id="projects-title">いまの活動</h2>
-          <p class="block-note block-note-side">「こんなことをやってみたい」と、自分から企画を出すこともできます。大きな計画を待たず、小さく始めます。</p>
-        </div>
-        <div class="block-body">
-          <dl class="rows rows-top" aria-label="いまの活動">
-            <div><dt>今日サウナ行こ</dt><dd>街の人とサウナへ行き、撮影・編集してSNSで発信</dd></div>
-            <div><dt>NSA DRY Tシャツ</dt><dd>企画、モデル撮影、予約販売まで学生で運営</dd></div>
-            <div><dt>Webサイト</dt><dd>NSAの紹介サイトと販売ページを制作</dd></div>
-            <div><dt>企業・お店への訪問</dt><dd>活動を紹介し、ポスターを貼らせてもらう</dd></div>
-            <div><dt>イベント</dt><dd>縁会などのイベントを、企画から運営まで</dd></div>
-            <div><dt>空き家再生</dt><dd>空き家を、人が集まる場所へ</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" aria-labelledby="activity-title">
-      <div class="wrap two-links" data-reveal>
-        <div id="activity">
-          <h2 class="block-title" id="activity-title">活動報告</h2>
-          <p>公式サイトの制作から、オリジナルTシャツの企画・発注・発送まで。動かしてきたことを、時系列で残しています。</p>
-          <a class="text-link" data-track="to_activity" href="../activity/">活動報告を見る</a>
-        </div>
-        <div id="store">
-          <h2 class="block-title" id="store-title">ストア</h2>
-          <p>サウナ用に選んだ生地のドライTシャツを、デザイン・印刷会社との交渉・値付け・発送まで、学生で行っています。</p>
-          <a class="text-link" data-track="to_shop" href="../shop/">ストアを見る</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="yh2-register" id="register" aria-labelledby="register-title" data-hide-cta>
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title" id="register-title">登録する</h2>
-        <div class="block-body">
-          <ol class="flow flow-white">
-            <li><span>1</span>登録フォームに回答</li>
-            <li><span>2</span>メンバーのLINEグループに招待</li>
-            <li><span>3</span>興味のある活動に参加</li>
-          </ol>
-          <a class="yh-cta yh2-cta" data-track="to_register" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
-          <p class="yh2-note">登録しても、毎回の活動や会議に出る必要はありません。興味のある活動に、参加できるときだけ参加できます。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="follow" aria-labelledby="follow-title">
-      <div class="wrap block-grid" data-reveal>
-        <h2 class="block-title" id="follow-title">フォローする</h2>
-        <div class="block-body"><div class="follow-cards">
-          <a class="follow-card" href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener" data-track="ig_sauna_section">
-            <span class="follow-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
-            <span class="follow-body">
-              <span class="follow-name">今日サウナ行こ</span>
-              <span class="follow-id">Instagram ／ @sauna_go_today</span>
-              <span class="follow-desc">検索じゃなく、人に聞く。街で聞いた「今日行くならここ」</span>
-            </span>
-          </a>
-          <a class="follow-card" href="https://www.tiktok.com/@sauna_go_today" target="_blank" rel="noopener" data-track="tt_sauna_section">
-            <span class="follow-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
-            <span class="follow-body">
-              <span class="follow-name">今日サウナ行こ</span>
-              <span class="follow-id">TikTok ／ @sauna_go_today</span>
-              <span class="follow-desc">同じ企画を、動画で</span>
-            </span>
-          </a></div>
-      </div>
-    </section>
-  </main>
-
-  <a class="floating-cta" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener" data-track="floating_register" aria-label="メンバーに登録する（登録フォームを新しいタブで開きます）">メンバーに登録する</a>
-
-  <footer class="footer">
-    <img src="../assets/nsa-logo.svg" width="1103" height="1426" loading="lazy" decoding="async" alt="NEXT SETTSU ALLIANCE ロゴ">
-    <p class="footer-org"><b>NEXT SETTSU ALLIANCE</b><br>運営: 株式会社花岡工務店<br>大阪府摂津市<span class="nw">新在家2-1-19</span></p>
-    <div class="footer-social">
-      <p class="social-group"><span>NSA公式</span><a href="https://www.instagram.com/nsa_from_settsu/" target="_blank" rel="noopener" data-track="ig_nsa" aria-label="NEXT SETTSU ALLIANCE 公式Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></p>
-      <p class="social-group"><span>今日サウナ行こ</span><a href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener" data-track="ig_sauna" aria-label="今日サウナ行こ Instagram（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.tiktok.com/@sauna_go_today" target="_blank" rel="noopener" data-track="tt_sauna" aria-label="今日サウナ行こ TikTok（新しいタブで開きます）"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></p>
+<section class="sec" id="acts" style="background:var(--paper)">
+  <div class="wrap">
+    <h2 class="sec-h">「やってみたい」から、<br>もう6つが<wbr>動いています</h2>
+    <p class="sec-lead">大きな計画を待たずに、小さく始めます。自分から企画を出すこともできます。</p>
+    <div class="acts">
+      <article class="act ph"><img src="../assets/ir/ts-amazing.webp" alt="NSAのTシャツを着た学生2人"><div><p class="act-k">NSA DRY Tシャツ</p><h3>企画から予約販売まで、<br>学生だけで回す</h3><p>デザイン、印刷会社との交渉、値付け、モデル撮影、発送まで、学生で行っています。</p></div></article>
+      <article class="act"><span class="big">01</span><div><p class="act-k">今日サウナ行こ</p><h3>検索じゃなく、<br>街の人に聞く</h3><p>街で聞いた「今日行くならここ」のサウナへ一緒に行き、撮影・編集してInstagramとTikTokで発信しています。</p></div></article>
+      <article class="act ph"><img src="../assets/ir/enkai-crowd.webp" alt="縁会の会場"><div><p class="act-k">イベント</p><h3>縁会などのイベントを、<br>企画から運営まで</h3><p>建設予定地で開いたお祭り「縁会」のようなイベントに、企画から運営まで関われます。</p></div></article>
+      <article class="act alt"><span class="big">02</span><div><p class="act-k">Webサイト</p><h3>NSAの顔を、<br>学生がつくる</h3><p>NSAの紹介サイトと販売ページを、学生が制作しています。</p></div></article>
+      <article class="act pale"><span class="big" style="color:var(--blue)">03</span><div><p class="act-k">企業・お店への訪問</p><h3>まちの会社を訪ねて、<br>NSAを知ってもらう</h3><p>活動を紹介して、ポスターを貼らせてもらっています。</p></div></article>
+      <article class="act"><span class="big">04</span><div><p class="act-k">空き家再生</p><h3>空き家を、<br>人が集まる場所へ</h3><p>まちの空き家を、人が集まる場所に変える活動です。</p></div></article>
     </div>
-    <p class="footer-links"><a href="../">ホーム</a><a href="../about/">組織概要</a><a href="../companies/">企業の方へ</a><a href="../students/">学生・若者</a><a href="../activity/">活動報告</a><a href="../shop/">ストア</a><a href="../privacy.html">プライバシーポリシー</a><a href="../shop/tokusho.html">特定商取引法に基づく表記</a></p>
-    <p class="copyright">Copyright © 2026 NEXT SETTSU ALLIANCE</p>
-  </footer>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="../script.js?v=31"></script>
+<section class="sec" id="more">
+  <div class="wrap">
+    <h2 class="sec-h">動かしてきたことは、<br>ぜんぶ<wbr>残しています</h2>
+    <div class="two">
+      <a href="../activity/"><img src="../assets/ir/g07.webp" alt="縁会の会場"><div><h3>活動報告</h3><p>公式サイトの制作から、オリジナルTシャツの企画・発注・発送まで。動かしてきたことを、時系列で残しています。</p><span class="go">活動報告を見る →</span></div></a>
+      <a href="../shop/"><img src="../assets/ir/ts-atsui.webp" alt="NSAのTシャツを着た学生2人"><div><h3>ストア</h3><p>サウナ用に選んだ生地のドライTシャツを、デザインから発送まで学生で手がけています。</p><span class="go">ストアを見る →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="ways" id="join">
+  <div class="wrap">
+    <h2 class="sec-h">登録は3ステップ。<br>出られるときだけで<wbr>大丈夫です</h2>
+    <ol class="reg">
+      <li><span class="n">1</span><b>登録フォームに回答</b></li>
+      <li><span class="n">2</span><b>メンバーのLINEグループに招待</b></li>
+      <li><span class="n">3</span><b>興味のある活動に参加</b><span>やってみたい企画を、自分から出すこともできます。</span></li>
+    </ol>
+    <p class="reg-note">登録しても、毎回の活動や会議に出る必要はありません。興味のある活動に、参加できるときだけ参加できます。</p>
+    <a class="btn" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
+  </div>
+</section>
+
+<section class="faq" id="follow">
+  <div class="wrap">
+    <h2 class="sec-h">まずは、<wbr>のぞいてみる</h2>
+    <div class="fol">
+      <a href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener"><b>今日サウナ行こ</b><span class="id">Instagram　@sauna_go_today</span><p>検索じゃなく、人に聞く。街で聞いた「今日行くならここ」。</p></a>
+      <a href="https://www.tiktok.com/@sauna_go_today" target="_blank" rel="noopener"><b>今日サウナ行こ</b><span class="id">TikTok　@sauna_go_today</span><p>同じ企画を、動画で。</p></a>
+      <a href="https://www.instagram.com/nsa_from_settsu/" target="_blank" rel="noopener"><b>NSA公式</b><span class="id">Instagram　@nsa_from_settsu</span><p>NSAと避ス地の、いまの動き。</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>まだない景色を、<br>一緒につくろう</h2>
+    <p>学生は参加費無料。どこに住んでいても、特別なスキルがなくても入れます。</p>
+    <a class="btn" href="https://forms.gle/23RZyWc6v3PkBSY89" target="_blank" rel="noopener">メンバーに登録する</a>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-grid">
+    <div class="ft-org"><img src="../assets/nsa-logo.svg" alt="NEXT SETTSU ALLIANCE"><br>運営　株式会社花岡工務店（大阪府摂津市新在家2-1-19）</div>
+    <div class="ft-sns"><a href="../">NSAのトップへ</a><a href="../companies/">企業の方へ</a></div>
+  </div>
+  <p class="ft-c">© 2026 NEXT SETTSU ALLIANCE</p>
+</div></footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // fade-in on view
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.15 });
+  const tio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); tio.unobserve(e.target); } }), { threshold: 0.3 });
+  document.querySelectorAll('.tl').forEach(el => tio.observe(el));
+  document.querySelectorAll('.float, .card').forEach((el, i) => {
+    if (el.classList.contains('card')) el.style.transitionDelay = (i % 4) * 0.12 + 's';
+    io.observe(el);
+  });
+  // floating photos drift with scroll
+  const floats = [...document.querySelectorAll('.float')];
+  const intro = document.querySelector('.intro');
+  if (!reduce && innerWidth > 600) {
+    const tick = () => {
+      const r = intro.getBoundingClientRect();
+      const p = (innerHeight - r.top);
+      floats.forEach(f => f.style.transform = `translateY(${p * parseFloat(f.dataset.speed)}px)`);
+    };
+    addEventListener('scroll', tick, { passive: true }); tick();
+  }
+  // cards open/close
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => c.classList.toggle('open')));
+  // count up numbers
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, to = +el.dataset.count; if (reduce) return;
+    const t0 = performance.now(), dur = 1400;
+    const step = t => { const k = Math.min(1, (t - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+      el.textContent = v.toLocaleString('ja-JP'); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+})();
+</script>
 </body>
 </html>
