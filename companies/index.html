@@ -420,7 +420,7 @@
     <a href="#do">できること</a>
     <a href="#record">実績</a>
     <a href="#flow">相談の流れ</a>
-    <a class="cta" href="#contact">お問い合わせ</a>
+    <a data-track="nav_contact" class="cta" href="#contact">お問い合わせ</a>
   </nav>
 </header>
 
@@ -429,7 +429,7 @@
     <p class="hero-kicker">企業・団体のみなさまへ</p>
     <h1 class="hero-name">「応援する企業」から、<br>「共に挑戦する<wbr>共創パートナー」へ。</h1>
     <p class="hero-sub">ロゴを並べるだけの協賛ではありません。自社の技術・製品・場所を持ち寄って、学生と一緒に新しい商品やイベント、発信を試す。そんな関わり方です。</p>
-    <p class="hero-cta"><a class="btn" href="#contact">お問い合わせ・ご相談</a><a class="btn hero-dl" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料（PDF）</a></p>
+    <p class="hero-cta"><a data-track="biz_hero_contact" class="btn" href="#contact">お問い合わせ・ご相談</a><a data-track="biz_pdf_hero" class="btn hero-dl" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料（PDF）</a></p>
   </div>
   <figure class="yhero-ph"><img class="kc" src="../assets/ir/biz-kc.webp" alt="縁会に出店したキッチンカー"><figcaption>縁会には、地域の会社やお店が出店しました</figcaption></figure>
 </section>
@@ -452,7 +452,7 @@
   <div class="intro-text">
     <h2>摂津のまちを、<br>企業と学生で<wbr>おもしろくする</h2>
     <p>ネクスト摂津アライアンス（NSA）は、摂津の企業・学生・大学・地域の人が手を組んだ連合体です。サウナのある居場所「避ス地」を2027年7月の完成に向けてつくりながら、お祭りを開き、服をつくり、動画で発信しています。</p>
-    <p><a class="btn" style="background:#fff;color:var(--blue)" href="../">NSAのことをもっと知る</a></p>
+    <p><a data-track="to_top" class="btn" style="background:#fff;color:var(--blue)" href="../">NSAのことをもっと知る</a></p>
   </div>
 </section>
 
@@ -499,7 +499,7 @@
       <li><p class="d">2026.07–10</p><p>クラウドファンディングで、235人の支援を受けて目標の1,000万円を達成しました。</p></li>
       <li><p class="d">いつも</p><p>学生がまちのお店や会社を訪ね、活動を紹介してポスターを貼らせてもらっています。</p></li>
     </ol>
-    <a class="btn" style="background:#fff;color:var(--blue)" href="../activity/">活動報告を見る</a>
+    <a data-track="to_activity" class="btn" style="background:#fff;color:var(--blue)" href="../activity/">活動報告を見る</a>
   </div>
 </section>
 
@@ -546,9 +546,9 @@
       <label class="full">お問い合わせ内容<em>必須</em><textarea name="body" rows="6" required></textarea></label>
       <p class="inq-err" role="alert" hidden>必須の項目を入力してください。</p>
       <button class="btn" type="submit">内容を確認してメールを作成する</button>
-      <p class="inq-note">ボタンを押すと、入力した内容が入ったメールがお使いのメールソフトで開きます。そのまま送信してください。メールソフトが開かない場合は、<a href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> へ直接お送りいただくか、<a href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">Googleフォーム</a>をご利用ください。お預かりした情報の扱いは<a href="../privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+      <p class="inq-note">ボタンを押すと、入力した内容が入ったメールがお使いのメールソフトで開きます。そのまま送信してください。メールソフトが開かない場合は、<a data-track="biz_mail" href="mailto:nsa.settsu@gmail.com">nsa.settsu@gmail.com</a> へ直接お送りいただくか、<a data-track="contact_form" href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">Googleフォーム</a>をご利用ください。お預かりした情報の扱いは<a href="../privacy.html">プライバシーポリシー</a>をご覧ください。</p>
     </form>
-    <p class="dl"><a class="btn ghost" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料をダウンロード（PDF）</a></p>
+    <p class="dl"><a data-track="biz_pdf_contact" class="btn ghost" href="../assets/ir/nsa-company.pdf" target="_blank" rel="noopener">紹介資料をダウンロード（PDF）</a></p>
   </div>
 </section>
 
@@ -599,6 +599,22 @@
 })();
 </script>
 <script>
+/* クリック計測（script.jsと同じ形）。cta_click に加え、問い合わせ・登録・資料DLは専用イベントでも送る */
+(() => {
+  const GOAL = {
+    contact_form: 'contact_submit', nsa_mail: 'contact_submit', biz_form_submit: 'contact_submit', biz_contact_form: 'contact_submit', biz_mail: 'contact_submit',
+    register_hero: 'student_register', register_join: 'student_register', register_bottom: 'student_register', register_nav: 'student_register',
+    biz_pdf_hero: 'company_pdf', biz_pdf_contact: 'company_pdf'
+  };
+  window.nsaTrack = name => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'cta_click', { cta: name });
+    if (GOAL[name]) gtag('event', GOAL[name], { cta: name });
+  };
+  document.querySelectorAll('[data-track]').forEach(el => el.addEventListener('click', () => window.nsaTrack(el.dataset.track)));
+})();
+</script>
+<script>
 (() => {
   const f = document.getElementById('inq'); if (!f) return;
   f.addEventListener('submit', e => {
@@ -611,9 +627,11 @@
     const v = n => f.elements[n].value.trim();
     const subject = `【NSAサイト】${v('kind')}（${v('company')}）`;
     const body = [`会社名・団体名：${v('company')}`, `部署：${v('dept') || '―'}`, `お名前：${v('name')}`, `メールアドレス：${v('email')}`, `電話番号：${v('tel') || '―'}`, `ご用件：${v('kind')}`, '', 'お問い合わせ内容：', v('body')].join('\n');
+    if (window.nsaTrack) window.nsaTrack('biz_form_submit');
     location.href = `mailto:nsa.settsu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
 </script>
+
 </body>
 </html>
