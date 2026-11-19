@@ -21,18 +21,102 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="stylesheet" href="style.css?v=75">
+<style id="gnav-css">/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.05)}
+.hd-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em}
+.hd-logo img{height:42px;width:auto}
+.hd nav{display:flex;gap:28px;font-size:14px;font-weight:600;letter-spacing:.04em}
+.hd nav a:hover{color:var(--blue)}
+.hd .cta{background:var(--blue);color:#fff;padding:9px 18px;border-radius:999px}
+.hd .cta:hover{color:#fff;background:var(--blue-deep)}
+.hd{--blue:#0756A6;--blue-deep:#06478a;box-sizing:border-box;font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;color:#111;line-height:1.5}
+.hd *,.hd *::before,.hd *::after{box-sizing:border-box}
+.hd a{color:inherit;text-decoration:none}
+.hd.hd-flow{position:sticky;top:0;z-index:60}
+.hd .cta{line-height:1.5}
+@media (max-width:600px){.hd{padding:0 16px}}
+html{scroll-padding-top:72px}
+.hd .gnav{display:flex;align-items:center;gap:8px;height:100%}
+.hd .gnav-list{display:flex;align-items:stretch;height:100%;list-style:none;margin:0;padding:0}
+.hd .gnav-item{display:flex;align-items:center}
+.hd .gnav-btn{display:flex;align-items:center;gap:8px;height:64px;padding:0 18px;border:0;background:none;font:inherit;font-size:14px;font-weight:600;letter-spacing:.04em;color:#111;cursor:pointer}
+.hd .gnav-btn .chev{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .25s}
+.hd .gnav-btn:hover,.hd .gnav-item.open .gnav-btn{color:var(--blue)}
+.hd .gnav-item.open .chev{transform:rotate(180deg)}
+.hd .gnav-panel{position:fixed;left:0;right:0;top:64px;background:#fff;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 18px 30px -18px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility 0s .2s}
+.hd .gnav-item.open .gnav-panel{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .2s}
+.hd .gnav-in{max-width:1120px;margin:0 auto;padding:34px 28px 38px;display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+.hd .gnav-top{display:inline-flex;align-items:center;gap:12px;font-size:20px;font-weight:700;letter-spacing:.04em}
+.hd .gnav-top span{color:var(--blue);transition:transform .2s}
+.hd .gnav-top:hover span{transform:translateX(4px)}
+.hd .gnav-links{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);column-gap:32px}
+.hd .gnav-links a{display:flex;justify-content:space-between;align-items:center;padding:14px 2px;border-bottom:1px solid rgba(0,0,0,.08);font-size:14px;font-weight:600}
+.hd .gnav-links a::after{content:"";width:6px;height:6px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);opacity:.45}
+.hd .gnav-links a:hover{color:var(--blue)}
+.hd .gnav .cta{margin-left:10px;white-space:nowrap}
+.hd-burger{display:none}
+@media (max-width:1080px){.hd .gnav-btn{padding:0 11px}}
+@media (max-width:960px){
+  .hd-burger{display:flex;flex-direction:column;justify-content:center;gap:7px;width:44px;height:44px;margin-right:-8px;padding:0 10px;border:0;background:none;cursor:pointer}
+  .hd-burger span{display:block;height:2px;background:#111;border-radius:2px;transition:transform .25s}
+  .hd.menu-open .hd-burger span:first-child{transform:translateY(4.5px) rotate(45deg)}
+  .hd.menu-open .hd-burger span:last-child{transform:translateY(-4.5px) rotate(-45deg)}
+  .hd .gnav{position:fixed;left:0;right:0;top:64px;display:block;height:calc(100vh - 64px);height:calc(100dvh - 64px);padding:8px 20px 40px;background:#fff;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .2s,visibility 0s .2s}
+  .hd.menu-open .gnav{opacity:1;visibility:visible;transition:opacity .2s}
+  .hd .gnav-list{display:block;height:auto}
+  .hd .gnav-item{display:block;border-bottom:1px solid rgba(0,0,0,.08)}
+  .hd .gnav-btn{width:100%;justify-content:space-between;height:60px;padding:0 4px;font-size:16px}
+  .hd .gnav-panel{position:static;border:0;box-shadow:none;transform:none;opacity:1;visibility:visible;display:none;transition:none}
+  .hd .gnav-item.open .gnav-panel{display:block}
+  .hd .gnav-in{display:block;padding:0 4px 18px}
+  .hd .gnav-top{font-size:15px;padding:6px 0 10px}
+  .hd .gnav-links{grid-template-columns:1fr 1fr;column-gap:18px}
+  .hd .gnav-links a{padding:12px 0;font-size:14px}
+  .hd .gnav .cta{display:block;margin:28px 0 0;padding:15px;text-align:center;font-size:15px}
+  body.menu-lock{overflow:hidden}
+}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
 
-  <header class="site-header" id="top">
-    <div class="site-header-inner">
-      <a class="site-logo" href="./" aria-label="NEXT SETTSU ALLIANCE ホーム"><img src="assets/nsa-lockup.svg" width="1400" height="545" alt="NEXT SETTSU ALLIANCE ロゴ"></a>
-      <nav class="site-nav" aria-label="メインナビゲーション">
-        <a href="./">ホームへ戻る</a>
-      </nav>
-    </div>
-  </header>
+  <header class="hd hd-flow" id="top">
+  <a class="hd-logo" href="./"><img src="assets/nsa-mark.svg" alt="">NEXT SETTSU ALLIANCE</a>
+  <button class="hd-burger" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span></button>
+  <nav class="gnav" id="gnav" aria-label="メインメニュー" data-lenis-prevent>
+    <ul class="gnav-list">
+      <li class="gnav-item">
+        <button class="gnav-btn" type="button" aria-expanded="false" aria-controls="gm-about">NSAとは<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4"/></svg></button>
+        <div class="gnav-panel" id="gm-about"><div class="gnav-in">
+          <a class="gnav-top" data-track="nav_about" href="./#intro">NSAとは<span aria-hidden="true">→</span></a>
+          <ul class="gnav-links"><li><a data-track="nav_vision" href="./#vision">目指すこと</a></li><li><a data-track="nav_why" href="./#why">始まり</a></li><li><a data-track="nav_numbers" href="./#numbers">応援の数字</a></li><li><a data-track="nav_faq" href="./#faq">よくあるご質問</a></li><li><a data-track="nav_about_page" href="about/">組織概要</a></li></ul>
+        </div></div>
+      </li>
+      <li class="gnav-item">
+        <button class="gnav-btn" type="button" aria-expanded="false" aria-controls="gm-place">避ス地と活動<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4"/></svg></button>
+        <div class="gnav-panel" id="gm-place"><div class="gnav-in">
+          <a class="gnav-top" data-track="nav_place" href="./#place">避ス地<span aria-hidden="true">→</span></a>
+          <ul class="gnav-links"><li><a data-track="nav_timeline" href="./#timeline">空き地の変化</a></li><li><a data-track="nav_enkai" href="./#enkai">縁会</a></li><li><a data-track="nav_projects" href="./#projects">4つの活動</a></li><li><a data-track="nav_sauna_page" href="sauna/">摂津サウナ</a></li><li><a data-track="nav_shop_page" href="shop/">オンラインストア</a></li><li><a data-track="nav_activity_page" href="activity/">活動報告</a></li></ul>
+        </div></div>
+      </li>
+      <li class="gnav-item">
+        <button class="gnav-btn" type="button" aria-expanded="false" aria-controls="gm-youth">学生・若者<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4"/></svg></button>
+        <div class="gnav-panel" id="gm-youth"><div class="gnav-in">
+          <a class="gnav-top" data-track="nav_youth" href="students/">学生・若者のページ<span aria-hidden="true">→</span></a>
+          <ul class="gnav-links"><li><a data-track="nav_y_intro" href="students/#intro">ユースとは</a></li><li><a data-track="nav_y_gain" href="students/#gain">できること</a></li><li><a data-track="nav_y_acts" href="students/#acts">いまの活動</a></li><li><a data-track="nav_y_join" href="students/#join">登録の流れ</a></li></ul>
+        </div></div>
+      </li>
+      <li class="gnav-item">
+        <button class="gnav-btn" type="button" aria-expanded="false" aria-controls="gm-biz">企業の方へ<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4"/></svg></button>
+        <div class="gnav-panel" id="gm-biz"><div class="gnav-in">
+          <a class="gnav-top" data-track="nav_biz" href="companies/">企業の方へのページ<span aria-hidden="true">→</span></a>
+          <ul class="gnav-links"><li><a data-track="nav_b_ways" href="companies/#ways">関わり方</a></li><li><a data-track="nav_b_do" href="companies/#do">できること</a></li><li><a data-track="nav_b_record" href="companies/#record">実績</a></li><li><a data-track="nav_b_flow" href="companies/#flow">相談の流れ</a></li><li><a data-track="nav_b_form" href="companies/#contact">お問い合わせフォーム</a></li></ul>
+        </div></div>
+      </li>
+    </ul>
+    <a data-track="nav_contact" class="cta" href="./#contact">お問い合わせ</a>
+  </nav>
+</header>
 
   <main id="main" tabindex="-1">
     <section class="section section-doc" aria-labelledby="privacy-title">
@@ -95,5 +179,27 @@
     <p class="footer-links"><a href="./">ホーム</a><a href="about/">組織概要</a><a href="companies/">企業の方へ</a><a href="students/">学生・若者</a><a href="activity/">活動報告</a><a href="shop/">ストア</a><a href="privacy.html">プライバシーポリシー</a><a href="shop/tokusho.html">特定商取引法に基づく表記</a></p>
     <p class="copyright">Copyright © 2026 NEXT SETTSU ALLIANCE</p>
   </footer>
+<script id="gnav-js">(() => {
+  const hd = document.querySelector('.hd'); if (!hd) return;
+  const burger = hd.querySelector('.hd-burger');
+  const items = [...hd.querySelectorAll('.gnav-item')];
+  const mobile = () => matchMedia('(max-width:960px)').matches;
+  const hoverable = () => matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const set = (it, on) => { it.classList.toggle('open', on); it.querySelector('.gnav-btn').setAttribute('aria-expanded', on); };
+  const closeAll = except => items.forEach(it => it !== except && set(it, false));
+  const setMenu = on => { hd.classList.toggle('menu-open', on); document.body.classList.toggle('menu-lock', on); burger.setAttribute('aria-expanded', on); burger.setAttribute('aria-label', on ? 'メニューを閉じる' : 'メニューを開く'); if (!on) closeAll(); };
+  items.forEach(it => {
+    const btn = it.querySelector('.gnav-btn'); let t;
+    btn.addEventListener('click', () => { const on = !it.classList.contains('open'); if (!mobile()) closeAll(it); set(it, on); });
+    it.addEventListener('mouseenter', () => { if (mobile() || !hoverable()) return; clearTimeout(t); closeAll(it); set(it, true); });
+    it.addEventListener('mouseleave', () => { if (mobile() || !hoverable()) return; t = setTimeout(() => set(it, false), 160); });
+  });
+  burger.addEventListener('click', () => setMenu(!hd.classList.contains('menu-open')));
+  hd.querySelectorAll('.gnav a').forEach(a => a.addEventListener('click', () => { setMenu(false); closeAll(); }));
+  document.addEventListener('keydown', e => { if (e.key !== 'Escape') return; const open = items.find(it => it.classList.contains('open')); if (open) { set(open, false); open.querySelector('.gnav-btn').focus(); } else if (hd.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
+  document.addEventListener('click', e => { if (!mobile() && !hd.contains(e.target)) closeAll(); });
+  addEventListener('resize', () => { if (!mobile() && hd.classList.contains('menu-open')) setMenu(false); });
+})();
+</script>
 </body>
 </html>
