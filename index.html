@@ -251,6 +251,7 @@
   .way-k{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.14em}
   .way h3{font-size:20px;margin-top:6px;line-height:1.5}
   .way p{color:var(--body);font-size:14px;margin-top:10px;line-height:1.9;flex:1}
+  .way .way-k{flex:none;margin-top:0}
   .way-go{margin-top:18px;font-weight:700;color:var(--blue);font-size:14px}
   .ex{margin-top:56px;background:#fff;border-radius:20px;padding:34px 36px;display:grid;grid-template-columns:240px 1fr;gap:32px}
   .ex h3{font-size:18px;color:var(--blue);line-height:1.6}
@@ -293,6 +294,11 @@
   .biz-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
   .biz-photo .sub{position:absolute;left:-30px;bottom:-44px;width:44%;aspect-ratio:3/4;border-radius:18px;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.18);object-fit:cover}
   .biz-photo figcaption{font-size:12px;color:var(--mut);text-align:right;margin-top:10px;padding-left:44%}
+  .logo-scatter{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 14px;align-content:center}
+  .logo-scatter span{display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;border:1px dashed #c9ced6;border-radius:14px;color:var(--mut);font-size:13px;background:#fff}
+  .logo-scatter span:nth-child(odd){transform:translateY(10px)}
+  .merit-who{margin-top:110px;font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.14em}
+  .merit-who + .merit{margin-top:18px}
   .merit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:110px}
   .merit div{border-top:1px solid var(--line);padding-top:24px}
   .merit .n{font-size:48px;font-weight:300;color:var(--blue);line-height:1}
@@ -512,7 +518,7 @@
 <section class="vision" id="vision">
   <div class="wrap">
     <p class="why-k">NSAが目指すこと</p>
-    <h2 class="sec-h" style="margin-top:12px">摂津に、<wbr>まだない景色を、<br>みんなで<wbr>つくる</h2>
+    <h2 class="sec-h" style="margin-top:12px">摂津に<wbr>まだない景色を<br>みんなで<wbr>つくる</h2>
     <ol class="vis">
       <li><span class="n">01</span><b>人が集まる居場所をつくる</b><p>サウナをきっかけに、日常から少し離れて人とつながれる居場所「避ス地」を、新幹線の車両基地のそばにつくります。</p></li>
       <li><span class="n">02</span><b>若者の「やってみたい」を形にする</b><p>興味の近い仲間で小さく始め、企業や地域の人と一緒に企画を動かして、次の仲間を迎えます。</p></li>
@@ -540,7 +546,7 @@
 
 <section class="tl" id="timeline">
   <div class="wrap">
-    <h2 class="sec-h">摂津にまだない景色へ、<br>一歩ずつ<wbr>進んでいます</h2>
+    <h2 class="sec-h">着実に、まだない景色に<br>一歩一歩<wbr>進んでいます</h2>
     <div class="prog">
       <figure><img src="assets/ir/y-site-may-s.webp" alt="草の生えた建設予定地" loading="lazy"><figcaption>2026年5月　草の生えた空き地</figcaption></figure>
       <figure><img src="assets/ir/y-site-jul.webp" alt="重機で整地する建設予定地" loading="lazy"><figcaption>2026年7月　重機で整地</figcaption></figure>
@@ -562,7 +568,7 @@
       <p class="why-k">縁会 Vol.0　2026.10.12</p>
       <h2 class="sec-h" style="margin-top:12px">38日の呼びかけで、<br>8つの分野の<wbr>仲間が<wbr>集まりました</h2>
     </div>
-    <div class="enkai-txt"><p>始まりは9月4日の思い付きでした。準備できるのは、たった38日。「この指とまれ」と声をかけると、農家さん、飲食店、大道芸人、ワークショップが得意な地域の人、ドローンのプロ、キッチンカー、足つぼ整体師、印刷屋さんが集まってくれました。</p><p>当日の朝まで、本当にお客さんが来てくれるのか不安でいっぱいでした。ふたを開けてみると、始まって5分で会場はたくさんの人でにぎわいました。出店した人も、来てくれた人も、みんながワクワクした1日です。</p></div>
+    <div class="enkai-txt"><p>始まりは9月4日の思い付きでした。準備できるのは、たった38日。「この指とまれ」と声をかけると、農家さん、飲食店、大道芸人、ワークショップが得意な地域の人、ドローンのプロ、キッチンカー、足つぼ整体師、印刷屋さんが集まってくれました。</p></div>
   </div>
   <div class="strip" aria-label="縁会の写真"><img src="assets/ir/y-enkai-crowd.webp" alt="" loading="lazy"><img src="assets/ir/y-kitchen.webp" alt="" loading="lazy"><img src="assets/ir/y-booth2.webp" alt="" loading="lazy"><img src="assets/ir/y-stage.webp" alt="" loading="lazy"><img src="assets/ir/y-curry.webp" alt="" loading="lazy"><img src="assets/ir/y-tent.webp" alt="" loading="lazy"><img src="assets/ir/y-stall.webp" alt="" loading="lazy"><img src="assets/ir/y-tables.webp" alt="" loading="lazy"><img src="assets/ir/y-booth.webp" alt="" loading="lazy"><img src="assets/ir/y-stage2.webp" alt="" loading="lazy"><img src="assets/ir/y-stall2.webp" alt="" loading="lazy"><img src="assets/ir/y-talk.webp" alt="" loading="lazy"><img src="assets/ir/y-tent2.webp" alt="" loading="lazy"><img src="assets/ir/y-crowd2.webp" alt="" loading="lazy"><img src="assets/ir/y-enkai-crowd.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-kitchen.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-booth2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stage.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-curry.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tent.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stall.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tables.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-booth.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stage2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-stall2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-talk.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-tent2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/ir/y-crowd2.webp" alt="" aria-hidden="true" loading="lazy"></div>
 </section>
@@ -606,25 +612,25 @@
     <div class="cards">
       <article class="card">
         <img src="assets/hisuchi-shu-1100.webp" alt="避ス地のイメージの絵">
-        <div class="card-t"><p class="card-k">避ス地</p><h3 class="card-h">人が集まり、<br>つながる<wbr>居場所</h3></div>
+        <div class="card-t"><p class="card-k">01</p><h3 class="card-h">人が集まり<wbr>繋がるための<br>避ス地</h3></div>
         <div class="card-more"><b>避ス地 未知の駅 摂津サウナ</b>屋外サウナで汗を流し、カレーを食べて、中庭の電車車両の横でイベントを楽しむ。コワーキングと貸し店舗24区画もある、まちの居場所です。2026年12月に着工し、2027年7月に完成する予定です。</div>
         <span class="card-plus" aria-hidden="true">+</span>
       </article>
       <article class="card">
         <img src="assets/ir/y-enkai-crowd.webp" alt="キッチンカーやテントが並び、人でにぎわう縁会の会場">
-        <div class="card-t"><p class="card-k">縁会</p><h3 class="card-h">人と人が、<br>より仲を<wbr>深めるお祭り</h3></div>
+        <div class="card-t"><p class="card-k">02</p><h3 class="card-h">人がより<wbr>仲を深めるための<br>縁会</h3></div>
         <div class="card-more"><b>縁会 Vol.0（2026年10月12日）</b>思い付いたのは、本番のわずか38日前。そんな無謀な呼びかけに、農家さんも、大道芸人も、ドローンのプロも乗ってくれました。朝まで「本当に人は来るのか」と不安だった会場は、始まって5分でにぎわいました。</div>
         <span class="card-plus" aria-hidden="true">+</span>
       </article>
       <article class="card">
         <img src="assets/hakocetera-inside.webp" alt="国産杉のサウナの室内とストーブ">
-        <div class="card-t"><p class="card-k">サウナブランディング</p><h3 class="card-h">摂津を、<br>サウナの街に</h3></div>
+        <div class="card-t"><p class="card-k">03</p><h3 class="card-h">摂津が<wbr>サウナの街と<wbr>言われる<br>サウナブランディング</h3></div>
         <div class="card-more"><b>摂津サウナ</b>国産杉でつくった、0.75坪のサウナです。軽トラに積んで川や湖のほとりへ運べば、そこがととのう場所になります。販売と、お試しのレンタルをしています。</div>
         <span class="card-plus" aria-hidden="true">+</span>
       </article>
       <article class="card">
         <img src="assets/tshirt-wear-03-960.webp" alt="NSAのTシャツを着た学生2人">
-        <div class="card-t"><p class="card-k">ネクスト摂津ユース</p><h3 class="card-h">学生が主体で<br>動かす</h3></div>
+        <div class="card-t"><p class="card-k">04</p><h3 class="card-h">学生が<wbr>主体となって<br>ユースの活動</h3></div>
         <div class="card-more"><b>ネクスト摂津ユース</b>Tシャツは、企画からモデル撮影、予約販売まで学生だけで回しています。動画「今日サウナ行こ」では、街の人に聞いたおすすめのサウナへ、その場で一緒に行きます。</div>
         <span class="card-plus" aria-hidden="true">+</span>
       </article>
@@ -656,28 +662,25 @@
     <div class="biz-top">
       <div>
         <p class="why-k">企業・団体のみなさまへ</p>
-        <h2 class="sec-h" style="margin-top:12px">摂津にまだない景色を、<br>一緒につくる仲間を<wbr>求めています</h2>
+        <h2 class="sec-h" style="margin-top:12px">摂津にまだない景色を<br>一緒につくる仲間を<wbr>求めています。</h2>
         <p class="biz-lead">自社の技術や製品、場所を持ち寄って、学生と一緒に新しい商品やイベント、発信をつくる。NSAは、そんな「共創パートナー」として関わっていただける企業を探しています。</p>
         <a data-track="biz_contact_form" class="btn" href="https://forms.gle/nmSeAUmiVn4vVdMM9" target="_blank" rel="noopener">お問い合わせ・ご相談</a>
       </div>
-      <figure class="biz-photo">
-        <img src="assets/ir/g05.webp" alt="縁会に出店したキッチンカー">
-        <img class="sub" src="assets/ir/g04.webp" alt="縁会の出店で買い物をする人たち">
-        <figcaption>縁会には、地域の会社やお店が出店しました</figcaption>
-      </figure>
+      <div class="logo-scatter" aria-label="参加企業のロゴ（準備中）"><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span><span>企業ロゴ</span></div>
     </div>
 
+    <p class="merit-who">参加する企業にとって</p>
     <div class="merit">
-      <div><p class="n">01</p><p class="k">関係</p><b>業界の垣根を越えて、つながる</b><p>摂津市の会社という小さな枠ではなく、業界の垣根を越えて、企業・学生・学校・地域の関係を育てます。</p></div>
-      <div><p class="n">02</p><p class="k">地域</p><b>地域活性化の一員になる</b><p>摂津の地域活性化に、一員として加わります。</p></div>
-      <div><p class="n">03</p><p class="k">共創</p><b>学生と共創する</b><p>学生と一緒に、大きな可能性を広げます。</p></div>
+      <div><p class="n">01</p><p class="k">存在価値</p><b>業界の垣根を越えて、関係を育てる</b><p>摂津市の会社という小さな枠ではなく、業界の垣根を越えて、企業・学生・学校・地域の関係を育てます。</p></div>
+      <div><p class="n">02</p><p class="k">存在価値</p><b>地域活性化の一員となる</b></div>
+      <div><p class="n">03</p><p class="k">共創</p><b>学生との共創</b><p>小さな試みではなく、学生との大きな可能性を広げます。</p></div>
     </div>
 
 
     <ol class="flow">
       <li><span>STEP 1</span>フォームかメールでご相談</li>
       <li><span>STEP 2</span>オンラインか対面でお話し</li>
-      <li><span>STEP 3</span>よければ、一緒に始める</li>
+      <li><span>STEP 3</span>よければ始める</li>
     </ol>
     <div class="biz-foot">
       <p>費用や条件は、取り組む内容に合わせてご相談します。</p>
@@ -688,11 +691,11 @@
 
 <section class="ways" id="ways">
   <div class="wrap">
-    <h2 class="sec-h">どこからでも、<br>摂津の景色づくりに<wbr>加われます</h2>
+    <h2 class="sec-h">ネクストセッツアライアンスで<br>摂津に<wbr>まだない景色が<wbr>生まれている</h2>
     <div class="way-grid">
-      <a data-track="entry_companies" class="way" href="companies/"><img src="assets/ir/g05.webp" alt="縁会に出店したキッチンカー"><div class="way-b"><p class="way-k">企業・団体の方</p><h3>学生と、新しいことを試す</h3><p>自社の技術・製品・空間を使い、学生と一緒に商品開発やイベント、発信に取り組みます。</p><span class="way-go">企業の方へ →</span></div></a>
-      <a data-track="entry_students" class="way" href="students/"><img src="assets/ir/ts-atsui.webp" alt="NSAのTシャツを着た学生2人"><div class="way-b"><p class="way-k">学生・若者の方</p><h3>自分の企画を、摂津で試す</h3><p>ネクスト摂津ユースのメンバーになって、アパレル、発信、イベントなどを動かします。学生は参加費無料です。</p><span class="way-go">ユースのページへ →</span></div></a>
-      <a data-track="entry_shop" class="way" href="shop/"><img src="assets/ir/ts-amazing.webp" alt="NSAのTシャツを着た学生2人"><div class="way-b"><p class="way-k">応援したい方</p><h3>グッズで応援する</h3><p>学生が企画から販売まで手がけた、NSAのTシャツを販売しています。</p><span class="way-go">ストアへ →</span></div></a>
+      <a data-track="case_enkai" class="way" href="#enkai"><img src="assets/ir/g05.webp" alt="縁会に出店したキッチンカー"><div class="way-b"><p class="way-k">事例　地域の会社・お店</p><h3>縁会に、8つの分野の仲間が出店</h3><p>2026年10月12日、建設予定地で開いた縁会に、農家さん、飲食店、キッチンカー、印刷屋さんなどが出店しました。</p><span class="way-go">縁会を見る →</span></div></a>
+      <a data-track="case_tshirt" class="way" href="shop/"><img src="assets/ir/ts-atsui.webp" alt="NSAのTシャツを着た学生2人"><div class="way-b"><p class="way-k">事例　学生</p><h3>学生がTシャツを企画・販売</h3><p>Tシャツは、企画からモデル撮影、予約販売まで学生だけで回しています。</p><span class="way-go">ストアへ →</span></div></a>
+      <a data-track="case_video" class="way" href="https://www.instagram.com/sauna_go_today/" target="_blank" rel="noopener"><img src="assets/ir/kyou.webp" alt="NSAのTシャツを着た学生2人が街で話す動画の一場面"><div class="way-b"><p class="way-k">事例　学生</p><h3>動画「今日サウナ行こ」で発信</h3><p>街の人に聞いたおすすめのサウナへ、その場で一緒に行く動画を学生が作っています。</p><span class="way-go">Instagramへ →</span></div></a>
     </div>
   </div>
 </section>
@@ -701,7 +704,7 @@
   <div class="wrap">
     <h2 class="sec-h">よくあるご質問</h2>
     <div class="faq-list">
-      <details><summary>NEXT SETTSU ALLIANCE とは何ですか？</summary><p>読みは「ネクストセッツアライアンス」、略してNSAです。企業・学生・大学・地域がつながり、通り過ぎるだけの街と言われた大阪府摂津市を活性化するために、2026年7月に発足した連合体です。「摂津に、まだない景色を。」をスローガンに、人が集まる場所「避ス地」、摂津をサウナの街にする取り組み、学生との共創プロジェクトなど、縁をつなぐ幅広い活動をしています。</p></details>
+      <details><summary>NEXT SETTSU ALLIANCE とは何ですか？</summary><p>読みは「ネクストセッツアライアンス」、略してNSAです。企業・学生・大学・地域が繋がり、通り過ぎるだけの街と言われた大阪府摂津市という街を活性化するために2026年7月に発足した連合体です。避ス地という人が集まる場所、摂津をサウナの街に、学生との共創プロジェクトなど【摂津に、まだない景色を。】をスローガンに縁を繋ぐ幅広い活動を行っている。</p></details>
       <details><summary>避ス地はもう利用できますか？</summary><p>まだ開業していません。2026年12月に着工し、2027年7月に完成する予定です。</p></details>
       <details><summary>ネクスト摂津ユースとは何ですか？</summary><p>NSAの中の学生・若者のチームです。Tシャツの企画・販売、SNSの動画、Webサイトづくり、イベントの運営などを、学生・若者が主体で動かしています。学生でも、働いていても参加できます。</p></details>
       <details><summary>企業はどう関われますか？</summary><p>自社の技術・製品・空間を使って、学生と実証実験や事業づくりに取り組む「共創パートナー」としての参加を想定しています。まずはお問い合わせからご相談ください。</p></details>
