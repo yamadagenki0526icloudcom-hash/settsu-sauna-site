@@ -239,11 +239,11 @@
   .enkai-ground svg{translate:0 28px;opacity:0;transition:translate .8s cubic-bezier(.2,.8,.2,1),opacity .8s}
   .enkai-ground.in svg{translate:0 0;opacity:1}
   .enkai-ground .sil-family{transition-delay:.15s}.enkai-ground .sil-tent{transition-delay:.3s}.enkai-ground .sil-pilot{transition-delay:.45s}
-  .enkai-ground .sil-car{translate:70vw 0;opacity:1;transition:translate 2.6s cubic-bezier(.15,.7,.25,1) .2s}
+  .enkai-ground .sil-car{translate:-70vw 0;opacity:1;transition:translate 2.6s cubic-bezier(.15,.7,.25,1) .2s}
   .enkai-ground.in .sil-car{translate:0 0}
   .sil-car .wheel{transform-box:fill-box;transform-origin:center}
   .enkai-ground.in .sil-car .wheel{animation:roll .5s linear 5 .2s}
-  @keyframes roll{to{transform:rotate(-360deg)}}
+  @keyframes roll{to{transform:rotate(360deg)}}
   .sil-car .steam{transform-box:fill-box;transform-origin:center;opacity:0;animation:steam 2.7s ease-out infinite}
   .sil-car .s2{animation-delay:-.9s}.sil-car .s3{animation-delay:-1.8s}
   @keyframes steam{0%{transform:translateY(0) scale(.5);opacity:0}25%{opacity:.9}100%{transform:translateY(-30px) scale(1.5);opacity:0}}
