@@ -215,35 +215,19 @@
   .enkai .note{max-width:1180px;margin:14px auto 0;padding:0 20px}
   /* section silhouettes */
   :root{--sil:#c9d7e8}
-  .sc-deco,.why-train,.why-digger{--hole:#fff;color:var(--sil);pointer-events:none}
-  .sc-deco svg,.why-train svg,.why-digger{fill:currentColor;overflow:visible;display:block;height:auto}
-  .sc-deco .h,.why-train .h,.why-digger .h{fill:var(--hole)}
+  .sc-deco,.why-train{--hole:#fff;color:var(--sil);pointer-events:none}
+  .sc-deco svg,.why-train svg{fill:currentColor;overflow:visible;display:block;height:auto}
+  .sc-deco .h,.why-train .h{fill:var(--hole)}
   .place-deco{--hole:var(--paper)}
   .sc-deco svg{width:100%;opacity:0;translate:0 24px;transition:opacity .9s,translate .9s cubic-bezier(.2,.8,.2,1)}
   .sc-deco.in svg{opacity:1;translate:0 0}
-  .vision .wrap,.place .wrap,.biz .wrap{position:relative}
-  .vision-deco{position:absolute;right:0;top:-20px;width:min(330px,calc(100% - 560px))}
+  .place .wrap,.biz .wrap{position:relative}
   .place-deco{position:absolute;right:0;top:-6px;width:min(440px,calc(100% - 620px))}
   .biz-deco{position:absolute;right:0;top:40px;width:min(360px,calc(100% - 760px))}
   .why-train{position:absolute;left:0;right:0;top:46px;height:40px}
-  .why-train .rail{position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--sil);opacity:.7}
+  .why-train .rail{position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--sil);opacity:.7}
   .why-train .train{position:absolute;left:0;top:0;width:420px;transform:translateX(105vw);animation:pass 12s linear infinite}
   @keyframes pass{0%{transform:translateX(105vw)}38%,100%{transform:translateX(-460px)}}
-  .why-digger{position:absolute;width:150px;left:max(20px,calc(50% - 590px));bottom:34px}
-  .why-digger .arm{transform-box:view-box;transform-origin:84px 52px;animation:dig 3.2s ease-in-out infinite}
-  @keyframes dig{0%,100%{transform:rotate(-6deg)}45%,60%{transform:rotate(12deg)}}
-  .why-digger .dirt{opacity:0;animation:dirt 3.2s ease-out infinite}
-  .why-digger .d2{animation-delay:.15s}
-  @keyframes dirt{0%,55%{opacity:0;transform:translate(0,0)}65%{opacity:1}100%{opacity:0;transform:translate(8px,14px)}}
-  .vision-deco .beam{animation:lower 6s ease-in-out infinite}
-  .vision-deco .cable{transform-box:fill-box;transform-origin:50% 0;animation:cable 6s ease-in-out infinite}
-  @keyframes lower{0%{transform:translateY(-56px)}45%,85%{transform:translateY(0)}100%{transform:translateY(-56px)}}
-  @keyframes cable{0%{transform:scaleY(.1)}45%,85%{transform:scaleY(1)}100%{transform:scaleY(.1)}}
-  .vision-deco .guide{transform-box:view-box;transform-origin:118px 176px;animation:sway 1.6s ease-in-out infinite alternate}
-  .vision-deco .carry{animation:carry 9s ease-in-out infinite}
-  @keyframes carry{0%,100%{transform:translateX(0)}50%{transform:translateX(18px)}}
-  .vision-deco .hammer{transform-box:view-box;transform-origin:292px 116px;animation:hammer .7s ease-in-out infinite alternate}
-  @keyframes hammer{from{transform:rotate(-28deg)}to{transform:rotate(18deg)}}
   .place-deco .steam{transform-box:fill-box;transform-origin:center;opacity:0;animation:steam 3s ease-out infinite}
   .place-deco .s2{animation-delay:-1s}.place-deco .s3{animation-delay:-2s}
   .place-deco .t1{animation-duration:4s}.place-deco .t2{animation-duration:4s;animation-delay:-2s}
@@ -256,19 +240,18 @@
   @keyframes drop{0%{transform:translate(-40px,-30px);opacity:0}20%{opacity:1}45%,85%{transform:translate(12px,0);opacity:1}100%{transform:translate(12px,0);opacity:0}}
   .biz-deco .stacker{transform-box:view-box;transform-origin:336px 166px;animation:sway 2s ease-in-out infinite alternate}
   @media (max-width:1000px){
-    .vision-deco,.place-deco,.biz-deco{position:relative;top:auto;right:auto;margin:28px 0 0 auto;width:min(100%,340px)}
+    .place-deco,.biz-deco{position:relative;top:auto;right:auto;margin:28px 0 0 auto;width:min(100%,340px)}
   }
   @media (max-width:600px){
     .why-train{top:26px;height:30px}.why-train .train{width:300px}
     @keyframes pass{0%{transform:translateX(105vw)}38%,100%{transform:translateX(-340px)}}
-    .why-digger{width:100px;left:auto;right:16px;bottom:16px}
-    .vision-deco,.place-deco,.biz-deco{width:min(100%,300px)}
+    .place-deco,.biz-deco{width:min(100%,300px)}
   }
   @media (prefers-reduced-motion:reduce){
-    .sc-deco *,.why-train *,.why-digger *{animation:none!important}
+    .sc-deco *,.why-train *{animation:none!important}
     .sc-deco svg{opacity:1;translate:none;transition:none}
     .why-train .train{transform:translateX(55vw)}
-    .place-deco .steam,.why-digger .dirt{opacity:0}
+    .place-deco .steam{opacity:0}
   }
   /* enkai silhouettes */
   .enkai{position:relative}
@@ -637,7 +620,6 @@
   <div class="wrap">
     <p class="why-k">NSAが目指すこと</p>
     <h2 class="sec-h" style="margin-top:12px">摂津に<wbr>まだない景色を<br>みんなで<wbr>つくる</h2>
-    <div class="sc-deco vision-deco" aria-hidden="true"><svg viewBox="0 -10 380 190"><rect x="0" y="176" width="380" height="3" rx="1.5"/><rect x="150" y="84" width="8" height="92"/><rect x="250" y="84" width="8" height="92"/><rect x="334" y="14" width="8" height="162"/><path d="M342 30L334 18M334 46L342 34M342 62L334 50M334 78L342 66M342 94L334 82M334 110L342 98" stroke="#fff" stroke-width="1.5"/><path d="M204 14H376" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="362" y="14" width="14" height="12"/><path d="M338 14L300 2" stroke="currentColor" stroke-width="2"/><rect class="cable" x="203" y="14" width="2" height="62"/><g class="beam"><path d="M196 76h16l-8-6z"/><rect x="140" y="76" width="128" height="9" rx="1"/></g><g class="guide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M118 120v26" stroke-width="12"/><path d="M116 148l-5 28M120 148l5 28" stroke-width="7"/><path d="M118 116l-12-14l-2-10M118 116l12-14l2-10" stroke-width="6"/></g><circle cx="118" cy="108" r="8"/></g><g class="carry"><g class=""><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M40 120v26" stroke-width="12"/><path d="M38 148l-5 28M42 148l5 28" stroke-width="7"/><path d="M40 116l10 -4l6 -8M40 118l12 6" stroke-width="6"/></g><circle cx="40" cy="108" r="8"/></g><rect x="6" y="98" width="70" height="6" rx="2" transform="rotate(-8 40 101)"/></g><g class="hammerer"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M292 120v26" stroke-width="12"/><path d="M290 148l-5 28M294 148l5 28" stroke-width="7"/><path d="M292 118l-12 6" stroke-width="6"/></g><circle cx="292" cy="108" r="8"/><g class="hammer"><path d="M292 116l-14-14" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M276 104l-6-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="264" y="92" width="14" height="7" rx="1.5" transform="rotate(-45 271 95)"/></g></g></svg></div>
     <ol class="vis">
       <li><span class="n">01</span><b>人が集まる居場所をつくる</b><p>サウナをきっかけに、日常から少し離れて人とつながれる居場所「避ス地」を、新幹線の車両基地のそばにつくります。</p></li>
       <li><span class="n">02</span><b>若者の「やってみたい」を形にする</b><p>興味の近い仲間で小さく始め、企業や地域の人と一緒に企画を動かして、次の仲間を迎えます。</p></li>
@@ -648,7 +630,6 @@
 
 <section class="why" id="why">
   <div class="why-train" aria-hidden="true"><div class="rail"></div><svg class="train" viewBox="0 0 520 44"><path d="M0 34C30 34 62 8 122 8H516a4 4 0 0 1 4 4V36a4 4 0 0 1-4 4H8C3 40 0 38 0 34z"/><path class="h" d="M72 18C88 12 102 11 120 11v7H82z"/><rect class="h" x="150" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="168" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="186" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="204" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="222" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="240" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="258" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="276" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="294" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="312" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="330" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="348" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="366" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="384" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="402" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="420" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="438" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="456" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="474" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="492" y="15" width="11" height="6" rx="1.5"/><rect class="h" x="262" y="10" width="2" height="30"/><rect class="h" x="392" y="10" width="2" height="30"/><rect class="h" x="44" y="29" width="476" height="2"/></svg></div>
-  <svg class="why-digger" viewBox="0 0 150 92" aria-hidden="true"><rect x="8" y="70" width="92" height="20" rx="10"/><circle class="h" cx="20" cy="80" r="4"/><circle class="h" cx="54" cy="80" r="4"/><circle class="h" cx="88" cy="80" r="4"/><rect x="16" y="46" width="70" height="24" rx="3"/><path d="M50 46V22h26l8 24z"/><path class="h" d="M56 27h17l5 15H56z"/><g class="arm"><path d="M84 52L114 20L132 56" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M124 54h16l-3 13q-8 4-15-4z"/></g><circle class="dirt d1" cx="138" cy="70" r="2.5"/><circle class="dirt d2" cx="132" cy="72" r="2"/></svg>
   <div class="wrap why-grid">
     <div class="why-photo">
       <img src="assets/ir/y-site-jul.webp" alt="重機で整地が進む避ス地の建設予定地（2026年7月）">
